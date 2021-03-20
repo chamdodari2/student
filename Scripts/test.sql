@@ -56,7 +56,7 @@ from vw_full_student;
 
 -- 테스트1 뷰 만들기
 create or replace view vw_full_studentData
-as
+as;
 select  s.stdNo, -- 학번
 	s.stdName,  -- 이름
 	s.deptCode,  -- 학과코드
@@ -162,3 +162,41 @@ left join militaryState m on s.militaryCode = m.militaryCode
 left join studentScore ss on s.stdNo =ss.stdNo ;
 
 left join gradeConvertion gd on ss.subject1 	 
+
+
+
+-- 평어,평점 셀렉트문에 추가하기
+
+create or replace view vw_full_studentData
+as;
+select  s.stdNo, -- 학번
+	s.stdName,  -- 이름
+	s.deptCode,  -- 학과코드
+	d.deptName,   -- 학과명
+	s.grade,  -- 학년
+	s.stateCode, -- 학적코드
+	st.stateName,  -- 학적상태
+	s.militaryCode,  -- 병역코드
+	m.militaryName,  -- 병역구분
+	s.idNo,  -- 주민번호/         성별도 출력되게해야하는디!!! 자바에서  총점,평균이랑 같이 메소드??
+	if(substr(idNo,7,1)=1,'남','여') as gender,
+-- 	substr(idNo, 7, 1) as gender,
+-- 	(select idNo from studentmanagement where idNo = '1') as gender ,
+-- 	(select idNo as gender from studentmanagement where idNo = '2') as '여',
+	s.hpNo,   -- 연락처
+	s.dayNightShift, -- 주야구분
+	ss.subject1,  -- 과목1 성적
+	ss.subject2,  -- 과목2성적
+	ss.subject3,   --  과목3 성적                              총점,평균 ??
+	(ss.subject1+ss.subject2+ss.subject3) as 'total',
+	((ss.subject1+ss.subject2+ss.subject3)/3) as 'avg'
+	
+from studentData s join stdDepartment d  on s.deptCode = d.deptCode 
+left join stdState st on s.stateCode =st.stateCode 
+left join militaryState m on s.militaryCode = m.militaryCode
+left join studentScore ss on s.stdNo =ss.stdNo ;
+
+left join gradeConvertion gd on ss.subject1 	
+
+
+select * from gradeConvertion;

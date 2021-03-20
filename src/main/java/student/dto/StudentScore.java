@@ -1,40 +1,37 @@
 package student.dto;
 
 public class StudentScore {
-	private int stdNo;
+	private StudentData studentData;
 	private int subject1;
 	private int subject2;
 	private int subject3;
-	private int total;
-	private double avg;
-	
-	public StudentScore() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	
-
-	public StudentScore(int stdNo) {
-		this.stdNo = stdNo;
+	
+	
+	public StudentScore(StudentData studentData) {
+		this.studentData = studentData;
 	}
 
-
-
-	public StudentScore(int stdNo, int subject1, int subject2, int subject3, int total, double avg) {
-		this.stdNo = stdNo;
+	
+	public StudentScore(StudentData studentData, int subject1, int subject2, int subject3) {
+		this.studentData = studentData;
 		this.subject1 = subject1;
 		this.subject2 = subject2;
 		this.subject3 = subject3;
-		this.total = total;
-		this.avg = avg;
 	}
 
-	public int getStdNo() {
-		return stdNo;
+	
+	
+	
+
+
+	public StudentData getStudentData() {
+		return studentData;
 	}
 
-	public void setStdNo(int stdNo) {
-		this.stdNo = stdNo;
+	public void setStudentData(StudentData studentData) {
+		this.studentData = studentData;
 	}
 
 	public int getSubject1() {
@@ -61,29 +58,17 @@ public class StudentScore {
 		this.subject3 = subject3;
 	}
 
-	public int getTotal() {
-		return total;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-
-	public double getAvg() {
-		return avg;
-	}
-
-	public void setAvg(double avg) {
-		this.avg = avg;
-	}
 
 	@Override
 	public String toString() {
-		return String.format("StudentScore [stdNo=%s, subject1=%s, subject2=%s, subject3=%s, total=%s, avg=%s]", stdNo,
-				subject1, subject2, subject3, total, avg);
+		return String.format("StudentScore [studentData=%s, subject1=%s, subject2=%s, subject3=%s]", studentData,
+				subject1, subject2, subject3);
 	}
 	
+
 	
+
+
 	
 
 }

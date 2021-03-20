@@ -1,4 +1,4 @@
-package student.dao;  //학과 테이블
+package student.dao;  //학생 테이블
 
 import java.util.List;
 
@@ -6,15 +6,13 @@ import student.dto.StudentData;
 
 public interface StudentDataDao {
 	
-	//학적,학생관리 
-	 //아무것도 안넣고 조회 눌렀을때 (학번,성명,학적구분) 출력
 	List<StudentData> selectStudentDataByAll();   //조건없이 학생정보 테이블 모두 조회하기
 	
-	StudentData selectStudentDataByNo(StudentData student);  //학번으로 조회하기!   
+	StudentData selectStudentDataByNo(StudentData student);  //학생테이블을 조건으로 검색하기(dto에 있는 변수중 아무거나 가능!)  
 	
-	int insertStudentData(StudentData student);
-	int updateStudentData(StudentData student);
-	int deleteStudentData(StudentData student);
+	int insertStudentData(StudentData student);	//추가
+	int updateStudentData(StudentData student);	//수정
+	int deleteStudentData(StudentData student);	//삭제
 	
 	
 	

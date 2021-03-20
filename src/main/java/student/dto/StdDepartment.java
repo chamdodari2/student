@@ -7,17 +7,21 @@ public class StdDepartment {
 	private String deptName;
 	
 	private List<StudentData> stdlist;//////////
+
+	
+	
+	
 	
 	public StdDepartment(String deptCode) {
 		this.deptCode = deptCode;
 	}
 
-	public StdDepartment(String deptCode, String deptName) {
+	public StdDepartment(String deptCode, String deptName, List<StudentData> stdlist) {
 		this.deptCode = deptCode;
 		this.deptName = deptName;
+		this.stdlist = stdlist;
 	}
 
-	
 	public String getDeptCode() {
 		return deptCode;
 	}
@@ -34,11 +38,19 @@ public class StdDepartment {
 		this.deptName = deptName;
 	}
 
-	
+	public List<StudentData> getStdlist() {
+		return stdlist;
+	}
+
+	public void setStdlist(List<StudentData> stdlist) {
+		this.stdlist = stdlist;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Department [deptCode=%s, deptName=%s]", deptCode, deptName);
+		return String.format("StdDepartment [deptCode=%s, deptName=%s, stdlist=%s]", deptCode, deptName, stdlist);
 	}
+	
 	
 
 }

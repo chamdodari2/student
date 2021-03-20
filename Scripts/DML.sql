@@ -13,6 +13,7 @@ insert  into militaryState values
 select * from militaryState ;
 
 insert into gradeConvertion  values
+(91,100,'A',4.5),
 (81,90,'B',3.5),
 (71,80,'C',2.5),
 (61,70,'D',1.5),
