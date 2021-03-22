@@ -25,10 +25,7 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
     
     
-    
-	public StudentData() {
-		// TODO Auto-generated constructor stub
-	}
+  
 
 	public StudentData(List<StudentScore> studentScore) {
 		this.studentScore = studentScore;
@@ -57,6 +54,21 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.total = total;
 		this.avg = avg;
 		
+	}
+
+
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
 	}
 
 	public int getStdNo() {

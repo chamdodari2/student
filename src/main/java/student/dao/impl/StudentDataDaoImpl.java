@@ -13,6 +13,7 @@ import student.dto.MilitaryState;
 import student.dto.StdDepartment;
 import student.dto.StdState;
 import student.dto.StudentData;
+import student.ui.exception.SqlConstraintException;
 
 public class StudentDataDaoImpl implements StudentDataDao {  //StudentDataDao 인터페이스 상속(오버라이딩)
 	
@@ -138,27 +139,121 @@ public static StudentDataDaoImpl getInstance() {	//getInstance()메소드 :  nul
 		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg);
 	}
 	@Override
-	public StudentData selectStudentDataByNo(StudentData student) {
-		// TODO Auto-generated method stub
+	public StudentData selectStudentDataByNo(StudentData studentData) {
+		
+		String sql = "select stdNo, "
+				+ " stdName, "
+				+ "deptCode, "
+				+ "deptName, "
+				+ "grade, "
+				+ "stateCode, "
+				+ "stateName, "
+				+ "militaryCode, "
+				+ "militaryName, "
+				+ "idNo, "
+				+ "gender, "
+				+ "hpNo, "
+				+ "dayNightShift, "
+				+ "subject1, "
+				+ "subject2, "
+				+ "subject3, "
+				+ "total, "
+				+ "avg " + 
+				"from vw_full_studentdata where stdNo = ?";
+		try (Connection con = JdbcConn.getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, studentData.getStdNo());  //첫번쨰 매개변수에 employee에 있는 getempno를 넣어줘야한다.
+			try (ResultSet rs = pstmt.executeQuery()) {  //
+				
+				if (rs.next()) {  
+					return getStudentData(rs);
+				}
+
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
-	public int insertStudentData(StudentData student) {
-		// TODO Auto-generated method stub
+	public int insertStudentData(StudentData studentData) {
+		//stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift
+		
+		String sql = "insert into StudentData values "
+				+ "( ?,?,?,?,?,?,?,?,?)";
+		try (Connection con = JdbcConn.getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, studentData.getStdNo());
+			pstmt.setString(2, studentData.getStdName());
+			pstmt.setString(3, studentData.getStdDepartment().getDeptCode()); /////////////////////// 형변환 안해도된다!!!
+			pstmt.setInt(4, studentData.getGrade());//////////////////
+			pstmt.setString(5, studentData.getStdState().getStateCode());
+			pstmt.setString(6, studentData.getMilitaryState().getMilitaryCode());
+			pstmt.setString(7, studentData.getIdNo());
+			pstmt.setString(8, studentData.getHpNo());
+			pstmt.setString(9, studentData.getDayNightShift());
+		
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new SqlConstraintException(e.getMessage(),e);
+			
+		}
+
+	}
+
+	@Override
+	public int updateStudentData(StudentData studentData) {
+		String sql = "update studentData set stdNo = ?, "
+				+ "stdName= ?, "
+				+ "deptCode= ?, "
+				+ "grade= ?, "
+				+ "stateCode=?, "
+				+ "militaryCode=?, "
+				+ "idNo=?, "
+				+ "hpNo=?, "
+				+ "dayNightShift=? "
+				+ "where stdNo = ?" ; 
+				
+		try (Connection con = JdbcConn.getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+		
+			pstmt.setInt(1, studentData.getStdNo());
+			pstmt.setString(2, studentData.getStdName());
+			pstmt.setString(3, studentData.getStdDepartment().getDeptCode()); /////////////////////// 형변환 안해도된다!!!
+			pstmt.setInt(4, studentData.getGrade());//////////////////
+			pstmt.setString(5, studentData.getStdState().getStateCode());
+			pstmt.setString(6, studentData.getMilitaryState().getMilitaryCode());
+			pstmt.setString(7, studentData.getIdNo());
+			pstmt.setString(8, studentData.getHpNo());
+			pstmt.setString(9, studentData.getDayNightShift());
+			pstmt.setInt(10, studentData.getStdNo());
+			System.out.println(pstmt);  //중요!!! 에러뜰때 활용해서 디비버에서 수행해보면 뭐가문젠지 알수있다!!!!!!!!!!!
+			return pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
 	}
 
 	@Override
-	public int updateStudentData(StudentData student) {
-		// TODO Auto-generated method stub
+	public int deleteStudentData(StudentData studentData) {
+		String sql = "delete from studentData where  stdNo = ?";
+		try (Connection con = JdbcConn.getConnection(); 
+			PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, studentData.getStdNo());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
 		return 0;
 	}
 
-	@Override
-	public int deleteStudentData(StudentData student) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }

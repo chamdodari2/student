@@ -8,11 +8,11 @@ public interface StudentDataDao {
 	
 	List<StudentData> selectStudentDataByAll();   //조건없이 학생정보 테이블 모두 조회하기
 	
-	StudentData selectStudentDataByNo(StudentData student);  //학생테이블을 조건으로 검색하기(dto에 있는 변수중 아무거나 가능!)  
+	StudentData selectStudentDataByNo(StudentData studentData);  //학생테이블을 조건으로 검색하기(dto에 있는 변수중 아무거나 가능!)  
 	
-	int insertStudentData(StudentData student);	//추가
-	int updateStudentData(StudentData student);	//수정
-	int deleteStudentData(StudentData student);	//삭제
+	int insertStudentData(StudentData studentData);	//추가
+	int updateStudentData(StudentData studentData);	//수정
+	int deleteStudentData(StudentData studentData);	//삭제
 	
 	
 	

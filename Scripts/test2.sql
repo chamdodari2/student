@@ -1,4 +1,44 @@
 
+-- insert문
+
+insert into StudentData values (
+'17010013','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간');
+
+SELECT stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift FROM StudentData;
+
+
+1004,"천사2", new Title(4), new Employee(1003), 2500000, new Department(1)
+
+
+
+-- 업데이트문
+update studentdata  set stdNo = 17010013, stdName= '김예진2', deptCode='3', grade='2', stateCode='hla', militaryCode='y2c', idNo='970828*******', hpNo='010-9566-0477', dayNightShift='야간' where stdNo = ; 
+
+-- 삭제
+
+delete from studentData where stdNo = 17010013;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 select *from department;
 
 create database studentmgn;
