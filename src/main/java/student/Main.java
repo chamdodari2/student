@@ -26,9 +26,7 @@ public class Main extends JFrame implements ActionListener {
 	private JButton button_1;
 	private JButton button_2;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,9 +40,7 @@ public class Main extends JFrame implements ActionListener {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public Main() {
 		setTitle("학생관리프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
