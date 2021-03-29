@@ -12,9 +12,9 @@ public interface StdStateDao {
 
 	StdState selectStdStateByNo(StdState stdState);  //학적상태를 조건으로 검색하기 (dto에 있는 변수중 아무거나 가능!)
 	
-	int insertStdState(StdDepartment stdState);  //추가
-	int updateStdState(StdDepartment stdState);	 //수정
-	int deleteStdState(StdDepartment stdState);	 //삭제
+	int insertStdState(StdState stdState);  //추가
+	int updateStdState(StdState stdState);	 //수정
+	int deleteStdState(StdState stdState);	 //삭제
 	
 
 }

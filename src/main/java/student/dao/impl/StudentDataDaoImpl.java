@@ -137,8 +137,8 @@ public static StudentDataDaoImpl getInstance() {	//getInstance()메소드 :  nul
 				"from vw_full_studentdata where stdNo = ?";
 		try (Connection con = JdbcConn.getConnection(); 
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setInt(1, studentData.getStdNo());  //첫번쨰 매개변수에 employee에 있는 getempno를 넣어줘야한다.
-			try (ResultSet rs = pstmt.executeQuery()) {  //
+			pstmt.setInt(1, studentData.getStdNo());  
+			try (ResultSet rs = pstmt.executeQuery()) {  
 				
 				if (rs.next()) {  
 					return getStudentData(rs);

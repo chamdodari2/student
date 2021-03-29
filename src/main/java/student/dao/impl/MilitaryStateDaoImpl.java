@@ -54,11 +54,12 @@ public class MilitaryStateDaoImpl implements MilitaryStateDao {
 	@Override
 	public MilitaryState selectMilitaryStateByNo(MilitaryState militaryState) {
 		String sql = "select militaryCode, militaryName from MilitaryState where  militaryCode = ?";
-		try (Connection con = JdbcConn.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery()) {
-			if (rs.next()) {
-				return getMilitaryState(rs);
+		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, militaryState.getMilitaryCode());
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					return getMilitaryState(rs);
+				}
 			}
 		} catch (SQLException e) {
 
@@ -84,8 +85,7 @@ public class MilitaryStateDaoImpl implements MilitaryStateDao {
 	@Override
 	public int updateMilitaryState(MilitaryState militaryState) {
 		String sql = "update militarystate set militaryCode  = ? , militaryName  = ? where militaryCode = ?";
-		try (Connection con = JdbcConn.getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement(sql)) {
+		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, militaryState.getMilitaryCode());
 			pstmt.setString(2, militaryState.getMilitaryName());
 			pstmt.setString(3, militaryState.getMilitaryCode());
@@ -99,9 +99,9 @@ public class MilitaryStateDaoImpl implements MilitaryStateDao {
 	@Override
 	public int deleteMilitaryState(MilitaryState militaryState) {
 		String sql = "delete from militarystate where militaryCode = ? ";
-		try(Connection con = JdbcConn.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(sql)){
+		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, militaryState.getMilitaryCode());
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

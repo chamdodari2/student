@@ -4,6 +4,9 @@
 insert into StudentData values (
 '17010013','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간');
 
+
+select * from studentdata;
+
 SELECT stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift FROM StudentData;
 
 
@@ -20,22 +23,42 @@ delete from studentData where stdNo = 17010013;
 
 select militaryCode, militaryName from MilitaryState;
 select militaryCode, militaryName from MilitaryState where  militaryCode = 'y2a';
+select deptCode, deptName from stddepartment;
+select deptCode, deptName from stddepartment where deptCode =1;
+select stdNo, subject1, subject2, subject3 from studentscore ;
+select stdNo, subject1, subject2, subject3 from studentscore where stdNo=17010012 ;
+select stateCode, stateName from stdstate;
+select stateCode, stateName from stdstate where stateCode = 'hla';
+select stdNo, subject1, subject2, subject3 from studentscore ;
+
+
 
 -- 추가
 insert into militarystate values 
 ('aa1','미정');
+insert into studentdata  values(20020010, '김예진','1',1,'hlb','y2a','9608282******','010-9566-0476','주간');
 
+insert into stddepartment  values
+(4,'자바');
+insert into studentscore values
+(20020010,90,90,90);
+
+insert into stdstate  values
+('aaa','미정');
 
 -- update
 
 update militarystate set militaryCode  ='bb1' , militaryName  = '확정' where militaryCode ='aa1';
-
+update stddepartment set deptCode  = 5, deptName ='웹' where deptCode = 4;
+update studentscore  set subject1 = 80, subject2 = 80, subject3 = 80 where stdNo = 20020010;
+update stdstate  set stateCode ='bbb', stateName ='확정' where stateCode ='aaa';
 
 -- delete
 
 delete from militarystate where militaryCode ='bb1';
-
-
+delete from stddepartment where deptCode =5;
+delete from studentscore  where stdNo =20020010;
+delete  from stdstate  where stateCode = 'bbb';
 
 
 
