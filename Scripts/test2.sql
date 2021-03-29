@@ -18,16 +18,22 @@ update studentdata  set stdNo = 17010013, stdName= '김예진2', deptCode='3', g
 
 delete from studentData where stdNo = 17010013;
 
+select militaryCode, militaryName from MilitaryState;
+select militaryCode, militaryName from MilitaryState where  militaryCode = 'y2a';
+
+-- 추가
+insert into militarystate values 
+('aa1','미정');
 
 
+-- update
+
+update militarystate set militaryCode  ='bb1' , militaryName  = '확정' where militaryCode ='aa1';
 
 
+-- delete
 
-
-
-
-
-
+delete from militarystate where militaryCode ='bb1';
 
 
 

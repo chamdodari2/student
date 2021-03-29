@@ -70,24 +70,7 @@ public static StudentDataDaoImpl getInstance() {	//getInstance()메소드 :  nul
 
 		return null;
 	}
-/*				+ "stdNo,"  //학번
-				+ " stdName,"  //이름
-				+ " deptCode,"  //학과코드
-				+ " deptName,"//학과명
-				+ " grade,"//학년
-				+ " stateCode,"//학적상태코드
-				+ " stateName, "  //학적상태명
-				+ " militaryCode," //병역상태코드
-				+ " militaryName,"  //병역상태명
-				+ " idNo,"			//주민번호
-				+ " gender,"		//성별
-				+ " hpNo,"			//핸드폰
-				+ " dayNightShift,"	//주야구분
-				+ " subject1,"     //과목1
-				+ " subject2,"		//과목2
-				+ " subject3,"		//과목3
-				+ " total,"			//총점
-				+ " avg " */		//평균
+
 	private StudentData getStudentData(ResultSet rs)  throws SQLException {  //dto 보면서 하기
 		int stdNo = rs.getInt("stdNo");			 //학번  									//각 타입의 변수에  쿼리에 있는내용중   실제  DB에 있는 칼럼명(칼럼인덱스) 적어줘야함!		
 		String stdName = rs.getString("stdName");//이름	
@@ -101,15 +84,7 @@ public static StudentDataDaoImpl getInstance() {	//getInstance()메소드 :  nul
 		int subject3 = rs.getInt("subject3");	
 		int total =rs.getInt("total");
 		double avg = rs.getDouble("avg");
-	//	List<StudentData> studentData =  new ArrayList<StudentData>();
-//		studentData	= ;
-	//	StudentData studentScore = new StudentData();
-	//	if(rs.next()) {
-			
-		//	for(int i = 0; i>=3;i++) {
-		//		studentScore = studentScore.getSubject1()
-		//} 
-		//}
+
 		StdDepartment stdDepartment = null;				//다른테이블에 있는 칼럼이랑 조인해서 같이 보여줘야하는 칼럼 있으면, 해당 조인할 테이블 타입으로 변수선언해주고 초기화만 시켜준다 밑에 트라이1에서 객체생성후 본테이블에 있는 칼럼명들 적어주고, 트라이2에서 조인할 테이블에 있는 칼럼명 적어준다
 		StdState stdState = null;
 		MilitaryState militaryState = null;
@@ -234,7 +209,6 @@ public static StudentDataDaoImpl getInstance() {	//getInstance()메소드 :  nul
 			return pstmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return 0;
