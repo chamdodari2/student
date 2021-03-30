@@ -1,17 +1,133 @@
 package student.service;
 
-
+import java.util.List;
 
 import student.dao.MilitaryStateDao;
+import student.dao.StdDepartmentDao;
+import student.dao.StdStateDao;
 import student.dao.StudentDataDao;
+import student.dao.StudentScoreDao;
 import student.dao.impl.MilitaryStateDaoImpl;
+import student.dao.impl.StdDepartmentDaoImpl;
+import student.dao.impl.StdStateDaoImpl;
 import student.dao.impl.StudentDataDaoImpl;
+import student.dao.impl.StudentScoreDaoImpl;
+import student.dto.MilitaryState;
+import student.dto.StdDepartment;
+import student.dto.StdState;
+import student.dto.StudentData;
+import student.dto.StudentScore;
 
 public class StudentDataService {
-	private StudentDataDao studentDataDao =  StudentDataDaoImpl.getInstance();
-	private MilitaryStateDao miltaryStateDao = MilitaryStateDaoImpl.getInstance();
-	//private StdDepartmentDao empDao = StdDepartmentDaoImpl.getInstance();
+	private StudentDataDao studentDataDao = StudentDataDaoImpl.getInstance();
+	private MilitaryStateDao militaryStateDao = MilitaryStateDaoImpl.getInstance();
+	private StdDepartmentDao stdDepartmentDao = StdDepartmentDaoImpl.getInstance();
+	private StdStateDao stdStateDao = StdStateDaoImpl.getInstance();
+	private StudentScoreDao studentScoreDao = StudentScoreDaoImpl.getInstance();
+
+	// 무조건 모두 검색
+	public List<StudentData> showStudentDatas() {
+		return studentDataDao.selectStudentDataByAll();
+	}
+
+	public List<MilitaryState> showMilitaryStates() {
+		return militaryStateDao.selectMilitaryStateByAll();
+	}
+
+	public List<StdDepartment> showStdDepartments() {
+		return stdDepartmentDao.selectStdDepartmentByAll();
+	}
+
+	public List<StdState> showStdStates() {
+		return stdStateDao.selectStdStateByAll();
+	}
+
+	public List<StudentScore> showStudentScores() {
+		return studentScoreDao.selectStudentScoreByAll();
+	}
+
+	// insert
+	public void addStudentData(StudentData studentData) {
+		studentDataDao.insertStudentData(studentData);
+	}
+
+	public void addMilitaryState(MilitaryState militaryState) {
+		militaryStateDao.insertMilitaryState(militaryState);
+	}
+
+	public void addStdDepartment(StdDepartment stdDepartment) {
+		stdDepartmentDao.insertStdDepartment(stdDepartment);
+
+	}
+
+	public void addStdState(StdState stdState) {
+		stdStateDao.insertStdState(stdState);
+
+	}
+
+	public void addStudentScore(StudentScore studentScore) {
+		studentScoreDao.insertStudentScore(studentScore);
+	}
+//sel by
+	public StudentData showStudentDatasByNo(StudentData studentData) {
+		return studentDataDao.selectStudentDataByNo(studentData);
+		}
 	
+	
+	
+	
+	
+	
+	
+	
+	// update
+	public void modifyStudentData(StudentData studentData) {
+		studentDataDao.updateStudentData(studentData);
+	}
+
+	public void modifyMilitaryState(MilitaryState militaryState) {
+		militaryStateDao.updateMilitaryState(militaryState);
+	}
+
+	public void modifyStdDepartment(StdDepartment stdDepartment) {
+		stdDepartmentDao.updateStdDepartment(stdDepartment);
+	}
+
+	public void modifyStdState(StdState stdState) {
+		stdStateDao.updateStdState(stdState);
+	}
+
+	public void modifyStudentScore(StudentScore studentScore) {
+		studentScoreDao.updateStudentScore(studentScore);
+	}
+
+	// delete
+	public void removeStudentData(StudentData studentData) {
+		studentDataDao.deleteStudentData(studentData);
+	}
+	
+	public void removeMilitaryState(MilitaryState militaryState) {
+		militaryStateDao.deleteMilitaryState(militaryState);
+		
+	}
+	public void removeStdState(StdState stdState) {
+		stdStateDao.deleteStdState(stdState);
+	}
+	public void removeStdDepartment(StdDepartment stdDepartment) {
+		stdDepartmentDao.deleteStdDepartment(stdDepartment);
+		
+	}
+	public void removeStudentScore(StudentScore studentScore) {
+		studentScoreDao.deleteStudentScore(studentScore);
+		
+	}
+	
+	
+	
+	//SelectStudentBy4
+	public List<StudentData> showStudentDatasBy4(StudentData studentData) {
+		return studentDataDao.SelectStudentBy4(studentData);
+	}
 	
 	
 }

@@ -212,3 +212,19 @@ left join gradeConvertion gd on ss.subject1
 
 
 select * from gradeConvertion;
+
+select * from vw_full_studentdata;
+
+select * from stdstate ;
+
+select stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift from studentdata  
+where dayNightShift ='주간' and deptCode ='1' and  grade =1 and stateCode = 'hlb';
+
+
+
+
+
+
+
+
+

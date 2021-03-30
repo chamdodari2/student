@@ -74,5 +74,16 @@ public class StudentDataDaoTest {
 		Assert.assertEquals(1, res);
 		studentDataDao.selectStudentDataByAll().stream().forEach(System.out::println);
 	}
+	@Test
+	public void test06SelectStudentBy4() {
+		System.out.printf("%s()%n"," test06SelectStudentBy4");
+		StudentData studentData = new StudentData(new StdDepartment("1"), 1, new StdState("hla"), "주간");
+		List<StudentData> res = studentDataDao.SelectStudentBy4(studentData);
+		Assert.assertNotNull(res);  //notnull일때 테스트가 성공하는거! 
+		for(StudentData s : res) {
+			System.out.println(s);
+		}
+	
+	}
 
 }

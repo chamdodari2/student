@@ -23,29 +23,11 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
     private List<StudentScore> studentScore; //성적테이블(과목 1,2,3)
     
-    private String abc ="";/////////////
-    private double gradescore= 0.0;////////////////지울거면 get set도 지우기
+   // private String abc ="";/////////////
+  //  private double gradescore= 0.0;////////////////지울거면 get set도 지우기
     
 
-    
-    
-  
 
-	public String getAbc() {
-		return abc;
-	}
-
-	public void setAbc(String abc) {
-		this.abc = abc;
-	}
-
-	public double getGradescore() {
-		return gradescore;
-	}
-
-	public void setGradescore(double gradescore) {
-		this.gradescore = gradescore;
-	}
 
 	public StudentData(List<StudentScore> studentScore) {
 		this.studentScore = studentScore;
@@ -53,6 +35,16 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 	public StudentData(int stdNo) {
 		this.stdNo = stdNo;
+	}
+
+	
+	
+	
+	public StudentData(StdDepartment stdDepartment, int grade, StdState stdState, String dayNightShift) {
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.dayNightShift = dayNightShift;
 	}
 
 	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,

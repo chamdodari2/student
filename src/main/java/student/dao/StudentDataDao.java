@@ -16,6 +16,12 @@ public interface StudentDataDao {
 	
 	
 	
+	
+	
+	List<StudentData> SelectStudentBy4(StudentData studentData);
+	
+	
+	
 
 //	List<Employee> SelectEmployeeByTitle(Title title);   //동일직책으로 검색해보기
 	//List<Employee> SelectEmployeeByDepartment(Department department);   //동일부서로 검색해보기
