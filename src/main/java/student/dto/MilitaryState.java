@@ -37,6 +37,8 @@ public class MilitaryState {
 	public String toString() {
 		return String.format("MilitaryState [militaryCode=%s, militaryName=%s]", militaryCode, militaryName);
 	}
-	
+	public String toString2() {
+		return String.format("%s(%s)", militaryName, militaryCode);
+	}
 
 }

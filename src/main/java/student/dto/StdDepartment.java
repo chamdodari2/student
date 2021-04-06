@@ -50,7 +50,9 @@ public class StdDepartment {
 	public String toString() {
 		return String.format("StdDepartment [deptCode=%s, deptName=%s, stdlist=%s]", deptCode, deptName, stdlist);
 	}
-	
+	public String toString2() {
+		return String.format("%s(%s)", deptName, deptCode);
+	}
 	
 
 }

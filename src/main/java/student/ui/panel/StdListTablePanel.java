@@ -1,22 +1,23 @@
 package student.ui.panel;
 
-import javax.swing.JPanel;
-import java.awt.GridLayout;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
 import java.awt.Font;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.RowSorter;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class StdListTablePanel extends JPanel {
 	private JTable table;
 
-	/**
-	 * Create the panel.
-	 */
+
 	public StdListTablePanel() {
 
 		initialize();
@@ -40,6 +41,8 @@ public class StdListTablePanel extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_1.add(scrollPane, BorderLayout.CENTER);
+		
+	
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(

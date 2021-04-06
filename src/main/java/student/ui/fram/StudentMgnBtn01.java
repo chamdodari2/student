@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import student.ui.panel.StdListTablePanel;
 import student.ui.panel.StudentMgnBtn01Right1;
 import student.ui.panel.SouthBtnsPanel;
+import student.ui.panel.StdListPanel;
 import student.ui.panel.StdMgnSearchpanel;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
@@ -54,7 +55,7 @@ public class StudentMgnBtn01 extends JFrame {
 		panel.add(label);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setToolTipText("ㅇㅇㅇㅇㅇㅇ");
+		panel_1.setToolTipText("랄ㄹ랄라");
 		panel.add(panel_1, BorderLayout.SOUTH);
 		
 		JLabel lblNewLabel = new JLabel("※ 학생목록에서 해당학생을 선택하여 우클릭하시면 상세정보조회/학생삭제 가능합니다.");
@@ -72,7 +73,9 @@ public class StudentMgnBtn01 extends JFrame {
 		contentPane.add(pStdListAndBtns, BorderLayout.CENTER);
 		pStdListAndBtns.setLayout(new BoxLayout(pStdListAndBtns, BoxLayout.Y_AXIS));
 		//pLeftList얘를 위에서 한번 생성해주고 여기서는   new StudentMgnBtn01Left();하는게아이고 get으로 해준당
-		StdListTablePanel pStdList = new StdListTablePanel();
+		
+		StdListPanel pStdList = new StdListPanel();//모프를 일로바꿔줬당
+		pStdList.loadData();  //이거추가해줌
 		BorderLayout bl_pStdList = (BorderLayout) pStdList.getLayout();
 		bl_pStdList.setHgap(10);
 		pStdListAndBtns.add(pStdList);

@@ -218,7 +218,12 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
 				subject1, subject2, subject3, total, avg );
 	}
-
+	public String toString2() {
+		return String.format(
+				"%s",
+				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
+				subject1, subject2, subject3, total, avg );
+	}
 	// 성적환산표
 	
 

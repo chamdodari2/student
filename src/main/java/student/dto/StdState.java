@@ -63,7 +63,9 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 		return String.format("StdState [stateCode=%s, stateName=%s]", stateCode, stateName);
 	}
 	
-
+	public String toString2() {
+		return String.format("%s(%s)",stateName,stateCode);
+	}
 
 	
 
