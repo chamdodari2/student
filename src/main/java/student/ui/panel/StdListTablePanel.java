@@ -11,13 +11,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 
-public class StudentMgnBtn01Left extends JPanel {
+public class StdListTablePanel extends JPanel {
 	private JTable table;
 
 	/**
 	 * Create the panel.
 	 */
-	public StudentMgnBtn01Left() {
+	public StdListTablePanel() {
 
 		initialize();
 	}
@@ -44,29 +44,29 @@ public class StudentMgnBtn01Left extends JPanel {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\uD559\uBC88", "\uC131\uBA85", "\uD559\uC801 \uAD6C\uBD84"
+				"학번", "이름", "학과", "학년", "학적상태", "병역상태", "주야구분"
 			}
 		));
 		scrollPane.setViewportView(table);

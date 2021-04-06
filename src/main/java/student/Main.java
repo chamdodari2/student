@@ -22,9 +22,7 @@ public class Main extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
-	private JButton button;
 	private JButton button_1;
-	private JButton button_2;
 
 
 	public static void main(String[] args) {
@@ -61,45 +59,23 @@ public class Main extends JFrame implements ActionListener {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1);
 		
-		btnNewButton = new JButton("학적/학생 관리");
+		btnNewButton = new JButton("학생 조회 / 관리");
 		btnNewButton.addActionListener(this);
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
 		panel_1.add(btnNewButton);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2);
-		
-		button = new JButton("학생 조회 관리");
-		button.addActionListener(this);
-		button.setFont(new Font("굴림", Font.BOLD, 25));
-		panel_2.add(button);
-		
 		JPanel panel_3 = new JPanel();
 		contentPane.add(panel_3);
 		
-		button_1 = new JButton("   성적 관리   ");
+		button_1 = new JButton("성적 조회 / 관리");
 		button_1.addActionListener(this);
 		button_1.setFont(new Font("굴림", Font.BOLD, 25));
 		panel_3.add(button_1);
-		
-		JPanel panel_4 = new JPanel();
-		contentPane.add(panel_4);
-		
-		button_2 = new JButton("      종료      ");
-		button_2.addActionListener(this);
-		button_2.setFont(new Font("굴림", Font.BOLD, 25));
-		panel_4.add(button_2);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button_2) {
-			actionPerformedButton_2(e);
-		}
 		if (e.getSource() == button_1) {
 			actionPerformedButton_1(e);
-		}
-		if (e.getSource() == button) {
-			actionPerformedButton(e);
 		}
 		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
@@ -112,15 +88,8 @@ public class Main extends JFrame implements ActionListener {
 		
 		
 	}
-	protected void actionPerformedButton(ActionEvent e) {//버튼2 (학생 조회관리)
-		StudentMgnBtn02 frame = new StudentMgnBtn02();
-		frame.setVisible(true);
-	}
 	protected void actionPerformedButton_1(ActionEvent e) {  //버튼3 (성적관리)
 		StudentMgnBtn03 frame = new StudentMgnBtn03();
 		frame.setVisible(true);
-	}
-	protected void actionPerformedButton_2(ActionEvent e) {	//버튼4 (종료)
-		
 	}
 }
