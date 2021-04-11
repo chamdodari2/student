@@ -10,6 +10,9 @@ public interface StudentDataDao {
 	
 	StudentData selectStudentDataByNo(StudentData studentData);  //학생테이블을 조건으로 검색하기(dto에 있는 변수중 아무거나 가능!)  
 	
+//	StudentData selectStudentDataByWhere(StudentData studentData); //	
+	
+	
 	int insertStudentData(StudentData studentData);	//추가
 	int updateStudentData(StudentData studentData);	//수정
 	int deleteStudentData(StudentData studentData);	//삭제
@@ -18,8 +21,10 @@ public interface StudentDataDao {
 	
 	
 	
-	List<StudentData> SelectStudentBy4(StudentData studentData);
+	List<StudentData> SelectStudentBy4(StudentData studentData);  //조건이 4개인 검색문
 	
+	 Object[] ComboListSelect(String table, String where);   
+	 List<StudentData> SelectStudentByWhere(String where);
 	
 	
 

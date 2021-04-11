@@ -2,27 +2,32 @@ package student.ui.panel;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.dto.GradeConvertion;
-import student.dto.StudentData;
-import javax.swing.JTextField;
-import java.awt.Insets;
+import student.dto.StdDepartment;
+import student.service.StudentDataService;
 
-public class StdMgnSearchpanel extends JPanel {
+@SuppressWarnings("serial")
+public class StdMgnSearchpanel extends JPanel implements ActionListener  {
 	private JPanel pStdNo;
 	private JLabel lblStdNo;
 	private JPanel pStdName;
 	private JLabel lblStdName;
-	private JComboBox<GradeConvertion> cbStdDept;
+	private JComboBox<StdDepartment> cbStdDept;  //콤보박스에 학과정보 List로 가져올거당 투스트링으로 지정한 형식으로
 	private JLabel cbGrade;
 	private JPanel pGrade;
 	private JComboBox<String> cbStateName_1;
@@ -46,6 +51,22 @@ public class StdMgnSearchpanel extends JPanel {
 	private JButton btnSearch;
 	private JPanel panel_4;
 	
+	
+	private StudentDataService service; //학생정도서비스에서 정의해놓은 selectStdDeptListbyall메소드로 가져올거당. 얘에 대한 세터 필요
+	
+	public StudentDataService getService() { //StudentDataService에 있는거 모두 사용할거얌
+		return service;
+		}
+	
+	//학과목록 담기!!!
+	public void setService(StudentDataService service) {
+		this.service = service;
+		List<StdDepartment> stdDeptList = service.showStdDepartments();
+		DefaultComboBoxModel<StdDepartment> stdDeptModel = new DefaultComboBoxModel<>(new Vector<>(stdDeptList)); //
+		cbStdDept.setModel(stdDeptModel);
+		//cbStdDept.setSelectedIndex(-1);
+		
+	}
 
 	public StdMgnSearchpanel() {
 
@@ -96,8 +117,10 @@ public class StdMgnSearchpanel extends JPanel {
 		lblStdDept.setHorizontalAlignment(SwingConstants.CENTER);
 		pStdDept.add(lblStdDept);
 		
+		//StdDepartment stdDepartment = new StdDepartment();
 		cbStdDept = new JComboBox<>();
-		cbStdDept.setModel(new DefaultComboBoxModel(new String[] {"전산학과"}));
+	//	cbStdDept.setModel(new DefaultComboBoxModel(new String[] {"컴퓨터정보", "자동차공학", "산업설비"}));
+	//	cbStdDept.addItemListener((ItemListener) this);
 		pStdDept.add(cbStdDept);
 		
 		pGrade = new JPanel();
@@ -111,7 +134,7 @@ public class StdMgnSearchpanel extends JPanel {
 		pGrade.add(cbGrade);
 		
 		cbStateName_1 = new JComboBox<>();
-		cbStateName_1.setModel(new DefaultComboBoxModel(new String[] {"1"}));
+		cbStateName_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
 		pGrade.add(cbStateName_1);
 		
 		pStdStateName = new JPanel();
@@ -125,7 +148,7 @@ public class StdMgnSearchpanel extends JPanel {
 		pStdStateName.add(lblStdStateName);
 		
 		cbStdStateName = new JComboBox<String>();
-		cbStdStateName.setModel(new DefaultComboBoxModel(new String[] {"재학"}));
+		cbStdStateName.setModel(new DefaultComboBoxModel(new String[] {"재학", "휴학"}));
 		pStdStateName.add(cbStdStateName);
 		
 		pMilitaryStateName = new JPanel();
@@ -139,7 +162,7 @@ public class StdMgnSearchpanel extends JPanel {
 		pMilitaryStateName.add(lblMilitaryStateName);
 		
 		cbMilitaryStateName = new JComboBox<String>();
-		cbMilitaryStateName.setModel(new DefaultComboBoxModel(new String[] {"군필"}));
+		cbMilitaryStateName.setModel(new DefaultComboBoxModel(new String[] {"군필", "미필"}));
 		pMilitaryStateName.add(cbMilitaryStateName);
 		
 		pDayNightShift = new JPanel();
@@ -153,7 +176,7 @@ public class StdMgnSearchpanel extends JPanel {
 		pDayNightShift.add(lblDayNightShift);
 		
 		cbDayNightShift = new JComboBox<String>();
-		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {"주간"}));
+		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {}));
 		pDayNightShift.add(cbDayNightShift);
 		
 		pSearch = new JPanel();
@@ -165,7 +188,58 @@ public class StdMgnSearchpanel extends JPanel {
 		pSearch.add(panel_4);
 		
 		btnSearch = new JButton("검     색");
+		btnSearch.addActionListener(this);
+		
 		pSearch.add(btnSearch);
 	}
 
+//	public StudentData getStudentData() {
+//
+//		StudentData studentData = ((StdMgnSearchpanel) pSearch).getStudentData();
+//
+//		if (studentData instanceof StudentData) {
+//			studentData.setStdName(tfStdName.getText());
+//			try {
+//				studentData.setStdNo(Integer.parseInt(tfStdNo.getText()));
+//			} catch (Exception e) {
+//
+//			}
+//
+//		} else {
+//			if ((tfStdName.getText() + tfStdNo.getText()).equals("")) {
+//				return null;
+//			} else {
+//				studentData = new StudentData();
+//				studentData.setStdName(tfStdName.getText());
+//				if (tfStdNo.getText().equals("")) {
+//					studentData.setStdNo(0);
+//				} else {
+//					try {
+//						studentData.setStdNo(Integer.parseInt(tfStdNo.getText()));
+//					} catch (NumberFormatException e) {
+//						studentData.setStdNo(-1);
+//						JOptionPane.showMessageDialog(null, "학생번호를 다시 입력해주세요.");
+//					}
+//				}
+//
+//			}
+//		}
+//
+//		return studentData;
+//	}
+
+
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnSearch) {
+			actionPerformedBtnSearch(e);
+		}
+	}
+	protected void actionPerformedBtnSearch(ActionEvent e) {  //검색 버튼을 눌렀으면 각 콤보박스 값에 따라서 sql문에 추가되면 좋겠다.
+		//1. 콤
+		
+
+		
+		
+	}
 }

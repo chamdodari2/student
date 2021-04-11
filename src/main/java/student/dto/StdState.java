@@ -59,6 +59,45 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((stateCode == null) ? 0 : stateCode.hashCode());
+		result = prime * result + ((stateName == null) ? 0 : stateName.hashCode());
+		return result;
+	}
+
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StdState other = (StdState) obj;
+		if (stateCode == null) {
+			if (other.stateCode != null)
+				return false;
+		} else if (!stateCode.equals(other.stateCode))
+			return false;
+		if (stateName == null) {
+			if (other.stateName != null)
+				return false;
+		} else if (!stateName.equals(other.stateName))
+			return false;
+		return true;
+	}
+
+
+
+
+
+	@Override
 	public String toString() {
 		return String.format("StdState [stateCode=%s, stateName=%s]", stateCode, stateName);
 	}

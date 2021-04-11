@@ -34,6 +34,41 @@ public class MilitaryState {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((militaryCode == null) ? 0 : militaryCode.hashCode());
+		result = prime * result + ((militaryName == null) ? 0 : militaryName.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MilitaryState other = (MilitaryState) obj;
+		if (militaryCode == null) {
+			if (other.militaryCode != null)
+				return false;
+		} else if (!militaryCode.equals(other.militaryCode))
+			return false;
+		if (militaryName == null) {
+			if (other.militaryName != null)
+				return false;
+		} else if (!militaryName.equals(other.militaryName))
+			return false;
+		return true;
+	}
+
+
+
+	@Override
 	public String toString() {
 		return String.format("MilitaryState [militaryCode=%s, militaryName=%s]", militaryCode, militaryName);
 	}

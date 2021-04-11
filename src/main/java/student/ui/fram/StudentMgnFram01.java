@@ -1,35 +1,27 @@
 package student.ui.fram;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
-import student.ui.panel.StdListTablePanel;
-import student.ui.panel.StudentMgnBtn01Right1;
 import student.ui.panel.SouthBtnsPanel;
 import student.ui.panel.StdListPanel;
 import student.ui.panel.StdMgnSearchpanel;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import java.awt.Rectangle;
-import java.awt.Dimension;
-import javax.swing.border.TitledBorder;
-import javax.swing.JTextField;
-import java.awt.Color;
-import javax.swing.DropMode;
 
-public class StudentMgnBtn01 extends JFrame {
+public class StudentMgnFram01 extends JFrame {
 
 	private JPanel contentPane;
 
-	public StudentMgnBtn01() {
+	public StudentMgnFram01() {
 		initialize();
 	}
 	private void initialize() {
@@ -55,7 +47,7 @@ public class StudentMgnBtn01 extends JFrame {
 		panel.add(label);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setToolTipText("랄ㄹ랄라");
+		panel_1.setToolTipText("");
 		panel.add(panel_1, BorderLayout.SOUTH);
 		
 		JLabel lblNewLabel = new JLabel("※ 학생목록에서 해당학생을 선택하여 우클릭하시면 상세정보조회/학생삭제 가능합니다.");

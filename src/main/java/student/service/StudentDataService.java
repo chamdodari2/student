@@ -72,6 +72,15 @@ public class StudentDataService {
 	public StudentData showStudentDatasByNo(StudentData studentData) {
 		return studentDataDao.selectStudentDataByNo(studentData);
 		}
+	//////////////
+	
+	//public StudentData showStudentDataByWhere(Object where) {
+		
+	//	return null;
+		
+	
+	
+	
 	
 	
 	
@@ -121,7 +130,10 @@ public class StudentDataService {
 		studentScoreDao.deleteStudentScore(studentScore);
 		
 	}
-	
+	// 콤보박스에 학과 리스트 넣기
+	public  List<StdDepartment> showDeptList(){
+		return stdDepartmentDao.selectStdDepartmentByAll();   //deptDao에 있는 메소드  selectDepartmentByAll 호출 ----> 부서테이블의 모든것 출력
+	}
 	
 	
 	//SelectStudentBy4

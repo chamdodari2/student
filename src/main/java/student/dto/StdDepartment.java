@@ -12,6 +12,10 @@ public class StdDepartment {
 	
 	
 	
+	public StdDepartment() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public StdDepartment(String deptCode) {
 		this.deptCode = deptCode;
 	}
@@ -44,6 +48,43 @@ public class StdDepartment {
 
 	public void setStdlist(List<StudentData> stdlist) {
 		this.stdlist = stdlist;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((deptCode == null) ? 0 : deptCode.hashCode());
+		result = prime * result + ((deptName == null) ? 0 : deptName.hashCode());
+		result = prime * result + ((stdlist == null) ? 0 : stdlist.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StdDepartment other = (StdDepartment) obj;
+		if (deptCode == null) {
+			if (other.deptCode != null)
+				return false;
+		} else if (!deptCode.equals(other.deptCode))
+			return false;
+		if (deptName == null) {
+			if (other.deptName != null)
+				return false;
+		} else if (!deptName.equals(other.deptName))
+			return false;
+		if (stdlist == null) {
+			if (other.stdlist != null)
+				return false;
+		} else if (!stdlist.equals(other.stdlist))
+			return false;
+		return true;
 	}
 
 	@Override

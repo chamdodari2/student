@@ -60,6 +60,42 @@ public class StudentScore {
 
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((studentData == null) ? 0 : studentData.hashCode());
+		result = prime * result + subject1;
+		result = prime * result + subject2;
+		result = prime * result + subject3;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentScore other = (StudentScore) obj;
+		if (studentData == null) {
+			if (other.studentData != null)
+				return false;
+		} else if (!studentData.equals(other.studentData))
+			return false;
+		if (subject1 != other.subject1)
+			return false;
+		if (subject2 != other.subject2)
+			return false;
+		if (subject3 != other.subject3)
+			return false;
+		return true;
+	}
+
+
+	@Override
 	public String toString() {
 		return String.format("StudentScore [studentData=%s, subject1=%s, subject2=%s, subject3=%s]", studentData,
 				subject1, subject2, subject3);

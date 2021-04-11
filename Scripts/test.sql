@@ -1,3 +1,6 @@
+select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg from vw_full_studentData
+where
+
 
 select *from department;
 

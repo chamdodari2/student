@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 import student.dao.StudentDataDao;
 import student.dbcon.JdbcConn;
@@ -222,4 +224,53 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		return null;
 	}
 
+	
+///////////////////////////반장님 아이디어
+	@Override
+	public Object[] ComboListSelect(String table, String where) {
+		String sql = "select * from " + table; // 모든 칼럼 검색 + 테이블명. 얘는 사실 필요없는것같다
+		try (Connection con = JdbcConn.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+
+			if (rs.next()) {
+				ArrayList<String> list = new ArrayList<String>();
+				list.add("");
+				do {
+					list.add(rs.getString(where));
+				} while (rs.next());
+				
+				return Arrays.stream(list.toArray()).distinct().sorted().toArray();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<StudentData> SelectStudentByWhere(String where) {  //
+		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
+				+ " stateName, " // sql문
+				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg " + " from vw_full_studentdata " + where;  //모든칼럼 검색 + 조건은 where로 따로 뺀다
+		System.out.println(sql);
+		try (Connection con = JdbcConn.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if (rs.next()) {
+				List<StudentData> list = new ArrayList<StudentData>();
+				do {
+					list.add(getStudentData(rs));
+				} while (rs.next());
+				return list;
+			}
+
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

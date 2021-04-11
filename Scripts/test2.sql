@@ -1,3 +1,16 @@
+select* from stddepartment;
+
+
+
+
+
+ --  뷰 검색 조건넣어서
+select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg
+from vw_full_studentdata where stdNo =18010016;
+
+
+
+
 
 -- insert문
 
@@ -281,3 +294,10 @@ left join gradeConvertion gd on ss.subject1
 
 
 select * from gradeConvertion;
+-- ----------------------------------------------------------sin
+select s.stdNo, s.stdName, s.dirth, s.social, dayTimeno, dayTimename, deptno, deptname, grade, atdno, atdname, miltno, miltname,pic
+from students 
+join days d on s.dayTime =d.dayTimeno 
+join department d2 on s.dept = d2.deptno 
+join attendings a on s.atd = a.atdno 
+join militarys m on s.milt =m.miltno  + s

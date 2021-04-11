@@ -13,9 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.ui.fram.StudentMgnBtn01;
-import student.ui.fram.StudentMgnBtn02;
-import student.ui.fram.StudentMgnBtn03;
+import student.ui.fram.StudentMgnFram01;
+import student.ui.fram.TestFramn02;
+import student.ui.fram.StudentMgnFram02;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame implements ActionListener {
@@ -82,14 +82,14 @@ public class Main extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {// 버튼1 (학적/학생관리)
-		StudentMgnBtn01 frame = new StudentMgnBtn01();
+		StudentMgnFram01 frame = new StudentMgnFram01();
 		frame.setVisible(true);
 		
 		
 		
 	}
 	protected void actionPerformedButton_1(ActionEvent e) {  //버튼3 (성적관리)
-		StudentMgnBtn03 frame = new StudentMgnBtn03();
+		StudentMgnFram02 frame = new StudentMgnFram02();
 		frame.setVisible(true);
 	}
 }

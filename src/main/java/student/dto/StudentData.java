@@ -83,6 +83,10 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.dayNightShift = dayNightShift;
 	}
 
+	public StudentData() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getStdNo() {
 		return stdNo;
 	}
@@ -209,6 +213,102 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 	public void setStudentScore(List<StudentScore> studentScore) {
 		this.studentScore = studentScore;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(avg);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((dayNightShift == null) ? 0 : dayNightShift.hashCode());
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + grade;
+		result = prime * result + ((hpNo == null) ? 0 : hpNo.hashCode());
+		result = prime * result + ((idNo == null) ? 0 : idNo.hashCode());
+		result = prime * result + ((militaryState == null) ? 0 : militaryState.hashCode());
+		result = prime * result + ((stdDepartment == null) ? 0 : stdDepartment.hashCode());
+		result = prime * result + ((stdName == null) ? 0 : stdName.hashCode());
+		result = prime * result + stdNo;
+		result = prime * result + ((stdState == null) ? 0 : stdState.hashCode());
+		result = prime * result + ((studentScore == null) ? 0 : studentScore.hashCode());
+		result = prime * result + subject1;
+		result = prime * result + subject2;
+		result = prime * result + subject3;
+		result = prime * result + total;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentData other = (StudentData) obj;
+		if (Double.doubleToLongBits(avg) != Double.doubleToLongBits(other.avg))
+			return false;
+		if (dayNightShift == null) {
+			if (other.dayNightShift != null)
+				return false;
+		} else if (!dayNightShift.equals(other.dayNightShift))
+			return false;
+		if (gender == null) {
+			if (other.gender != null)
+				return false;
+		} else if (!gender.equals(other.gender))
+			return false;
+		if (grade != other.grade)
+			return false;
+		if (hpNo == null) {
+			if (other.hpNo != null)
+				return false;
+		} else if (!hpNo.equals(other.hpNo))
+			return false;
+		if (idNo == null) {
+			if (other.idNo != null)
+				return false;
+		} else if (!idNo.equals(other.idNo))
+			return false;
+		if (militaryState == null) {
+			if (other.militaryState != null)
+				return false;
+		} else if (!militaryState.equals(other.militaryState))
+			return false;
+		if (stdDepartment == null) {
+			if (other.stdDepartment != null)
+				return false;
+		} else if (!stdDepartment.equals(other.stdDepartment))
+			return false;
+		if (stdName == null) {
+			if (other.stdName != null)
+				return false;
+		} else if (!stdName.equals(other.stdName))
+			return false;
+		if (stdNo != other.stdNo)
+			return false;
+		if (stdState == null) {
+			if (other.stdState != null)
+				return false;
+		} else if (!stdState.equals(other.stdState))
+			return false;
+		if (studentScore == null) {
+			if (other.studentScore != null)
+				return false;
+		} else if (!studentScore.equals(other.studentScore))
+			return false;
+		if (subject1 != other.subject1)
+			return false;
+		if (subject2 != other.subject2)
+			return false;
+		if (subject3 != other.subject3)
+			return false;
+		if (total != other.total)
+			return false;
+		return true;
 	}
 
 	@Override

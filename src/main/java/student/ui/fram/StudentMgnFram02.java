@@ -11,20 +11,20 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.ui.panel.StudentMgnBtn02Left;
-import student.ui.panel.StudentMgnBtn02Right;
+import student.ui.panel.StudentMgnBtn03Center;
+import student.ui.panel.StudentMgnBtn03Top;
 
-public class StudentMgnBtn02 extends JFrame {
+public class StudentMgnFram02 extends JFrame {
 
 	private JPanel contentPane;
 
-	public StudentMgnBtn02() {
+	public StudentMgnFram02() {
 		initialize();
 	}
 	private void initialize() {
 		setTitle("학생 조회");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 400, 722, 401);
+		setBounds(550, 400, 742, 381);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -32,22 +32,19 @@ public class StudentMgnBtn02 extends JFrame {
 		
 		JPanel pTop = new JPanel();
 		contentPane.add(pTop, BorderLayout.NORTH);
-		pTop.setLayout(new GridLayout(0, 1, 0, 0));
+		pTop.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("학생 조회");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 35));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		pTop.add(lblNewLabel);
+		JLabel lblTItle = new JLabel("성적관리");
+		lblTItle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTItle.setFont(new Font("굴림", Font.BOLD, 35));
+		pTop.add(lblTItle);
 		
-		JPanel pCenter = new JPanel();
+		StudentMgnBtn03Top pSelect = new StudentMgnBtn03Top();
+		pTop.add(pSelect, BorderLayout.SOUTH);
+		
+		StudentMgnBtn03Center pCenter = new StudentMgnBtn03Center();
 		contentPane.add(pCenter, BorderLayout.CENTER);
-		pCenter.setLayout(new GridLayout(0, 2, 0, 0));
-		
-		StudentMgnBtn02Left pLeftList = new StudentMgnBtn02Left();///이거 수정하기
-		pCenter.add(pLeftList);
-		
-		StudentMgnBtn02Right pRighList = new StudentMgnBtn02Right();
-		pCenter.add(pRighList);
+		pCenter.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel pBtnHome = new JPanel();
 		contentPane.add(pBtnHome, BorderLayout.SOUTH);
