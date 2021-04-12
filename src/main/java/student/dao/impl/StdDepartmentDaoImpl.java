@@ -14,13 +14,14 @@ import student.ui.exception.SqlConstraintException;
 
 public class StdDepartmentDaoImpl implements StdDepartmentDao {
 
-	private static StdDepartmentDaoImpl instance = new StdDepartmentDaoImpl();
+	private static final StdDepartmentDaoImpl instance = new StdDepartmentDaoImpl();
+
+	
+	private StdDepartmentDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public static StdDepartmentDaoImpl getInstance() {
-
-		if (instance == null) {
-			instance = new StdDepartmentDaoImpl();
-		}
 		return instance;
 	}
 
@@ -46,7 +47,7 @@ public class StdDepartmentDaoImpl implements StdDepartmentDao {
 	private StdDepartment getStdDepartment(ResultSet rs) throws SQLException {
 		String deptCode = rs.getString("deptCode");
 		String deptName = rs.getString("deptName");
-		return null;
+		return new StdDepartment(deptCode, deptName);
 	}
 
 	@Override

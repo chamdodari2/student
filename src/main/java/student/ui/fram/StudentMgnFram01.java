@@ -13,12 +13,15 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+
+import student.service.StudentDataService;
 import student.ui.panel.SouthBtnsPanel;
 import student.ui.panel.StdListPanel;
 import student.ui.panel.StdMgnSearchpanel;
 
+@SuppressWarnings("serial")
 public class StudentMgnFram01 extends JFrame {
-
+	private StudentDataService service;
 	private JPanel contentPane;
 
 	public StudentMgnFram01() {
@@ -75,6 +78,11 @@ public class StudentMgnFram01 extends JFrame {
 		SouthBtnsPanel South_Btns_Panel = new SouthBtnsPanel();
 		pStdListAndBtns.add(South_Btns_Panel);
 		South_Btns_Panel.setLayout(new BoxLayout(South_Btns_Panel, BoxLayout.X_AXIS));
+		}
+		
+		protected void tableLoadData() {   ///// 읽어올 데이터 설정
+//			((EmployeeTablePanel) pList).setService(service);       //EmployeeTablePanel로 형변환한 pList(얘는 또 custum)에 service를 매개변수로 넣음                                    //TitleTablePanel로 감싸주었음 안감싸주면 안먹는다
+//			pList.loadData();  //EmployeeService
 	}
 
 }

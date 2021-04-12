@@ -48,7 +48,7 @@ public class StdStateDaoImpl implements StdStateDao {
 	private StdState getStdState(ResultSet rs) throws SQLException {
 		String stateCode = rs.getString("stateCode");
 		String stateName = rs.getString("stateName");
-		return null;
+		return new StdState(stateCode, stateName);
 	}
 
 	@Override

@@ -20,6 +20,11 @@ public class StdDepartment {
 		this.deptCode = deptCode;
 	}
 
+	public StdDepartment(String deptCode, String deptName) {
+		this.deptCode = deptCode;
+		this.deptName = deptName;
+	}
+
 	public StdDepartment(String deptCode, String deptName, List<StudentData> stdlist) {
 		this.deptCode = deptCode;
 		this.deptName = deptName;
@@ -89,7 +94,7 @@ public class StdDepartment {
 
 	@Override
 	public String toString() {
-		return String.format("StdDepartment [deptCode=%s, deptName=%s, stdlist=%s]", deptCode, deptName, stdlist);
+		return String.format("%s(%s)", deptName, deptCode);
 	}
 	public String toString2() {
 		return String.format("%s(%s)", deptName, deptCode);

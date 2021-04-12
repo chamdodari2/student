@@ -131,7 +131,7 @@ public class StudentDataService {
 		
 	}
 	// 콤보박스에 학과 리스트 넣기
-	public  List<StdDepartment> showDeptList(){
+	public  List<StdDepartment> showDeptList(StdDepartment dept){
 		return stdDepartmentDao.selectStdDepartmentByAll();   //deptDao에 있는 메소드  selectDepartmentByAll 호출 ----> 부서테이블의 모든것 출력
 	}
 	

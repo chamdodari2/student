@@ -1,7 +1,13 @@
+
+
+select * from vw_full_studentData;
+
 select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg from vw_full_studentData
 where
 
-
+select * from studentdata;
+select  * from stddepartment ;
+select deptCode, deptName from stddepartment;
 select *from department;
 
 create database studentmgn;

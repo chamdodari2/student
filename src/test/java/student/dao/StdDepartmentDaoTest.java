@@ -1,29 +1,33 @@
 package student.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
+
+import java.util.List;
 
 import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Assert;
 import org.junit.Test;
 
+import student.dao.impl.StdDepartmentDaoImpl;
+import student.dto.StdDepartment;
+
 public class StdDepartmentDaoTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
+	private StdDepartmentDao stdDepartmentDao = StdDepartmentDaoImpl.getInstance();
+	
 	@After
 	public void tearDown() throws Exception {
+		System.out.println();
 	}
+
 
 	@Test
 	public void testSelectStdDepartmentByAll() {
-		fail("Not yet implemented");
+		System.out.printf("%s()%n", "testSelectStdDepartmentByAll()");
+		List<StdDepartment> stdDeptList = stdDepartmentDao.selectStdDepartmentByAll();
+		Assert.assertNotNull(stdDeptList);
+		for(StdDepartment e : stdDeptList) {
+			System.out.println(e);
+		}
 	}
 
 	@Test

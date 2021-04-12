@@ -99,7 +99,7 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 
 	@Override
 	public String toString() {
-		return String.format("StdState [stateCode=%s, stateName=%s]", stateCode, stateName);
+		return String.format("%s(%s)",stateName,stateCode);
 	}
 	
 	public String toString2() {
