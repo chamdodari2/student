@@ -50,5 +50,8 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 	public String[] getColumnNames() {
 		return new String[] {"학번","이름","학과","학년","학적상태","병역상태","주야구분"};
 	}
-
+	public void loadData2(String where) {
+		list =service.showStudentDataByWhere(where);
+		setList();
+	}
 }

@@ -74,8 +74,9 @@ public class StudentDataService {
 		}
 	//////////////
 	
-	//public StudentData showStudentDataByWhere(Object where) {
-		
+	public List<StudentData> showStudentDataByWhere(String where) {
+	return studentDataDao.SelectStudentByWhere(where);
+	}	
 	//	return null;
 		
 	

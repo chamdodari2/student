@@ -71,6 +71,17 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 
 	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String dayNightShift) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.dayNightShift = dayNightShift;
+	}
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
 			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift) {
 		this.stdNo = stdNo;
 		this.stdName = stdName;
@@ -311,8 +322,7 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		return true;
 	}
 
-	@Override
-	public String toString() {
+	public String toString3() {
 		return String.format("%s",dayNightShift);
 	}
 	public String toString2() {
@@ -321,8 +331,8 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
 				subject1, subject2, subject3, total, avg );
 	}
-	
-	public String toString3() {
+	@Override
+	public String toString() {
 		return String.format(
 				" 학번 : %s, 이름 : %s, 학과코드 : %s, 학과명 : %s, 학년 : %s, 학적상태코드 : %s, 학적상태명 : %s, 병역상태코드 : %s, 병역상태명 : %s, 주민번호 :  %s, 성별 : %s, 연락처 : %s, 주야구분 : %s, 과목1성적 : %s, 과목2성적 : %s, 과목3성적 : %s, 총점 :  %s, 평균 : %.1f",
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
