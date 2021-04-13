@@ -13,7 +13,7 @@ public class StdDepartment {
 	
 	
 	public StdDepartment() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public StdDepartment(String deptCode) {
@@ -94,7 +94,11 @@ public class StdDepartment {
 
 	@Override
 	public String toString() {
+		if(deptCode != null) {
 		return String.format("%s(%s)", deptName, deptCode);
+		}else { 
+			return String.format("");
+		}
 	}
 	public String toString2() {
 		return String.format("%s(%s)", deptName, deptCode);

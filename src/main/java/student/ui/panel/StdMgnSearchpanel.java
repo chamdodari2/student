@@ -161,7 +161,7 @@ public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemLis
 		pGrade.add(lblGrade);
 		
 		cbGrade = new JComboBox<>();
-		cbGrade.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		cbGrade.setModel(new DefaultComboBoxModel(new String[] {null,"1", "2", "3", "4"}));
 		pGrade.add(cbGrade);
 		
 		pStdStateName = new JPanel();
@@ -204,7 +204,7 @@ public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemLis
 		pDayNightShift.add(lblDayNightShift);
 		
 		cbDayNightShift = new JComboBox<>();
-		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {"주간","야간"}));
+		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {null,"주간","야간"}));
 		pDayNightShift.add(cbDayNightShift);
 		
 		pSearch = new JPanel();

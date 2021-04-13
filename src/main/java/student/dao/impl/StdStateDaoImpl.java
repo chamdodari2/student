@@ -33,6 +33,7 @@ public class StdStateDaoImpl implements StdStateDao {
 				ResultSet rs = pstmt.executeQuery()) {
 			if(rs.next()) {
 				List<StdState> list = new ArrayList<>();
+				list.add(new StdState());
 				do {
 					list.add(getStdState(rs));
 				}while (rs.next());

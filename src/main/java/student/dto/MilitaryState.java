@@ -1,10 +1,16 @@
-package student.dto;
+package student.dto;  //콤보박스에 빈칸넣기!!
 
 public class MilitaryState {
 	private String militaryCode;  //병역코드
 	private String militaryName;  //병역구분
 	
 	
+	public MilitaryState() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public MilitaryState(String militaryCode) {
 		this.militaryCode = militaryCode;
 	}
@@ -70,7 +76,11 @@ public class MilitaryState {
 
 	@Override
 	public String toString() {
+		if(militaryCode!=null) {
 		return String.format("%s(%s)", militaryName, militaryCode);
+		}else {
+			return String.format("");
+		}
 	}
 	public String toString2() {
 		return String.format("%s(%s)", militaryName, militaryCode);

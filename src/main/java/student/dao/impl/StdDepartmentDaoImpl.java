@@ -33,6 +33,7 @@ public class StdDepartmentDaoImpl implements StdDepartmentDao {
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
 				List<StdDepartment> list = new ArrayList<>();
+				list.add(new StdDepartment()); //널 넣어주기
 				do {
 					list.add(getStdDepartment(rs));
 				} while (rs.next());

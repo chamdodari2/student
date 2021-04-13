@@ -9,6 +9,14 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 	
 	
 	
+	public StdState() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
 	public StdState(String stateCode) {
 		this.stateCode = stateCode;
 	}
@@ -99,7 +107,11 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 
 	@Override
 	public String toString() {
+		if(stateCode!=null) {
 		return String.format("%s(%s)",stateName,stateCode);
+		}else {
+			return String.format("");
+		}
 	}
 	
 	public String toString2() {

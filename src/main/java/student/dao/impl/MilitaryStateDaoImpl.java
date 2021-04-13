@@ -32,6 +32,7 @@ public class MilitaryStateDaoImpl implements MilitaryStateDao {
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
 				List<MilitaryState> list = new ArrayList<>();
+				list.add(new MilitaryState());
 				do {
 					list.add(getMilitaryState(rs));
 				} while (rs.next());
