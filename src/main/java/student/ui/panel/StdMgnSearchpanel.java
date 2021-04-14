@@ -31,7 +31,7 @@ public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemLis
 	private JLabel lblStdNo;
 	private JPanel pStdName;
 	private JLabel lblStdName;
-	private JComboBox<StdDepartment> cbStdDept; // 콤보박스에 학과정보 List로 가져올거당 투스트링으로 지정한 형식으로! ///////////////////////////1번
+	private JComboBox<StdDepartment> cbStdDept; // 1번. 콤보박스에 학과정보 테이블에 들어있는 값들을  List로 가져오려고 선언. 객체화는 아직이다. dto의 기본생성자 호출하면  투스트링으로 지정한 형식으로!입력된다.
 	private JLabel lblGrade;
 	private JPanel pGrade;
 	private JComboBox<StdState> cbGrade;
@@ -242,7 +242,7 @@ public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemLis
 		}
 	}
 
-	public StudentData getStudentData() {
+	public StudentData getStudentData() { //getItem임
 
 		String string = tfStdNo.getText() + tfStdName.getText();
 

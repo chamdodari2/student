@@ -75,7 +75,7 @@ public class StudentMgnFram01 extends JFrame {
 		bl_pStdList.setHgap(10);
 		pStdListAndBtns.add(pStdList);
 		
-		Search_Panel.setListTable(pStdList);//
+		Search_Panel.setListTable(pStdList);////////////////
 		
 		SouthBtnsPanel South_Btns_Panel = new SouthBtnsPanel();
 		pStdListAndBtns.add(South_Btns_Panel);

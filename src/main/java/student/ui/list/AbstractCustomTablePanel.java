@@ -63,15 +63,16 @@ public abstract class AbstractCustomTablePanel<T> extends JPanel {
 	}
 
 	public void setList() {
-		Object[][] data=null;
-		if (list != null) {
-			 data = new Object[list.size()][];
-			for (int i = 0; i < data.length; i++) {
+		//	protected List<T> list; 얘는 필드에 선언되어 있음
+		Object[][] data = null;
+		if (list != null) {  //학적상테 테이블이 비어있지 않다면
+			 data = new Object[list.size()][]; //data라는 이차배열에 순서대로 담을예정. data[테이블에 담긴 데이터의 길이][];
+			for (int i = 0; i < data.length; i++) { //data[i] =list.get(i) data에 순서대로 담기위해서 인덱스 0에 테이블의 0번째인덱스에 에 있는 거 집어넣기, 테이블에 담긴게 동날때까지 반복 
 				data[i] = toArray(list.get(i));
 			}
 			
 		}else {
-			JOptionPane.showMessageDialog(null, "해당 조건에 맞는 검색결과가 없습니다.");
+			JOptionPane.showMessageDialog(null, "해당 조건에 맞는 검색결과가 없습니다.");  //만약에 테이블에 있는게 없으면 띄워줄 메세지
 		}
 
 		CustomTableModel model = new CustomTableModel(data, getColumnNames());

@@ -26,11 +26,24 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
    // private String abc ="";/////////////
   //  private double gradescore= 0.0;////////////////지울거면 get set도 지우기
     
-
+//select stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift from studentdata;
 
 
 	public StudentData(List<StudentScore> studentScore) {
 		this.studentScore = studentScore;
+	}
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
 	}
 
 	public StudentData(int stdNo) {
@@ -81,19 +94,7 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.dayNightShift = dayNightShift;
 	}
 
-	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
-			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift) {
-		this.stdNo = stdNo;
-		this.stdName = stdName;
-		this.stdDepartment = stdDepartment;
-		this.grade = grade;
-		this.stdState = stdState;
-		this.militaryState = militaryState;
-		this.idNo = idNo;
-		this.hpNo = hpNo;
-		this.dayNightShift = dayNightShift;
-	}
-
+	
 	public StudentData() {
 		// TODO Auto-generated constructor stub
 	}
