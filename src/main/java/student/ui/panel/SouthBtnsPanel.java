@@ -2,7 +2,7 @@ package student.ui.panel;
 
 import javax.swing.JPanel;
 
-import student.ui.fram.StudentMgnFram03;
+import student.ui.fram.StudentAddFram;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -44,7 +44,7 @@ public class SouthBtnsPanel extends JPanel implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnAddStd(ActionEvent e) {
-		StudentMgnFram03 frame = new StudentMgnFram03();
+		StudentAddFram frame = new StudentAddFram();
 		frame.setVisible(true);
 		
 	}

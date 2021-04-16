@@ -195,7 +195,16 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 
 	@Override
 	public void setItem(StudentData item) {
-		// TODO Auto-generated method stub
+
+		tfStdNo.setText(item.getStdNo() + "");
+		tfName.setText(item.getStdName());
+		tfIdNo.setText(item.getIdNo());
+		tfHpNo.setText(item.getHpNo());
+		cbStdDept.setSelectedItem(item.getStdDepartment());
+		cbGrade.setSelectedIndex(item.getGrade());
+		cbStdState.setSelectedItem(item.getStdState());
+		cbMilitaryState.setSelectedItem(item.getMilitaryState());
+		cbDayNightShift.setSelectedItem(item.getDayNightShift());
 		
 	}
 
@@ -231,7 +240,15 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 
 	@Override
 	public void clearTf() {
-		// TODO Auto-generated method stub
+		tfStdNo.setText("");
+		tfName.setText("");
+		tfIdNo.setText("");
+		tfHpNo.setText("");
+		cbDayNightShift.setSelectedIndex(0);
+		cbGrade.setSelectedIndex(0);
+		cbMilitaryState.setSelectedIndex(0);
+		cbStdDept.setSelectedIndex(0);
+		cbStdState.setSelectedIndex(0);
 		
 	}
 

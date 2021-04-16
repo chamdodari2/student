@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.ui.fram.StudentMgnFram01;
+import student.ui.fram.StudentSearchFram;
 import student.ui.fram.TestFramn02;
 import student.ui.fram.StudentMgnFram02;
 
@@ -82,7 +82,9 @@ public class Main extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {// 버튼1 (학적/학생관리)
-		StudentMgnFram01 frame = new StudentMgnFram01();
+		StudentSearchFram frame = new StudentSearchFram() {
+					
+		};
 		frame.setVisible(true);
 		
 		

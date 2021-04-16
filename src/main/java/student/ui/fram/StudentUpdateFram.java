@@ -1,4 +1,4 @@
-package student.ui.fram;
+package student.ui.fram; //상세정보 수정하기 UI
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -15,13 +15,13 @@ import student.service.StudentDataService;
 import student.ui.panel.AddStudentDataPanel;
 import student.ui.panel.AddStudentPicPanel;
 
-public class StudentMgnFram03 extends JFrame implements ActionListener {
+public class StudentUpdateFram extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private StudentDataService service;
 	private AddStudentDataPanel panel;
-
+	
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -35,11 +35,15 @@ public class StudentMgnFram03 extends JFrame implements ActionListener {
 //	}
 
 
-	public StudentMgnFram03() {
+	public StudentUpdateFram() {
 		service = new StudentDataService();
 		initialize();
 		
 	}
+	public void setItem(StudentData item) {
+		panel.setItem(item); //////////////////////	
+	}
+	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 741, 330);
@@ -58,7 +62,7 @@ public class StudentMgnFram03 extends JFrame implements ActionListener {
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 		
-		btnNewButton = new JButton("저장");
+		btnNewButton = new JButton("수정");
 		btnNewButton.addActionListener(this);
 		panel_2.add(btnNewButton);
 		
@@ -66,6 +70,8 @@ public class StudentMgnFram03 extends JFrame implements ActionListener {
 		panel_2.add(btnNewButton_1);
 	}
 
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
@@ -73,10 +79,11 @@ public class StudentMgnFram03 extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
 		StudentData stdData = panel.getItem();
-		service.addStudentData(stdData);
+		service.modifyStudentData(stdData);
 		//pList.loadData();
 		panel.clearTf();
-		JOptionPane.showMessageDialog(null, stdData + " 추가했습니다.");
+		JOptionPane.showMessageDialog(null, stdData + " 수정했습니다.");
+		dispose();
 		
 	}
 }

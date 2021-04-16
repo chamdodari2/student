@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -24,9 +25,10 @@ import student.dto.StdDepartment;
 import student.dto.StdState;
 import student.dto.StudentData;
 import student.service.StudentDataService;
+import student.ui.content.AbstractContentPanel;
 
 @SuppressWarnings("serial")
-public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemListener {
+public class StdMgnSearchpanel extends AbstractContentPanel<StudentData> implements ActionListener, ItemListener {
 	private JPanel pStdNo;
 	private JLabel lblStdNo;
 	private JPanel pStdName;
@@ -321,5 +323,34 @@ public class StdMgnSearchpanel extends JPanel implements ActionListener, ItemLis
 
 	protected void actionPerformedCbStdDept(ActionEvent e) {
 
+	}
+
+	@Override
+	public void setItem(StudentData item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public StudentData getItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void validCheck() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearTf() {
+		tfStdNo.setText("");
+		tfStdName.setText("");
+	}
+
+	public void createPopupMenu(JPopupMenu popMenu) {
+		// TODO Auto-generated method stub
+		
 	}
 }

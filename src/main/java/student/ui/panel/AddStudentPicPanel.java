@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 
@@ -27,7 +28,8 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblPic = new JLabel();
-		lblPic.setText("사진");
+		lblPic.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPic.setText("사진넣을예정");
 		lblPic.setBackground(Color.DARK_GRAY);
 		lblPic.setPreferredSize(new Dimension(100, 150));
 		panel.add(lblPic, BorderLayout.CENTER);
