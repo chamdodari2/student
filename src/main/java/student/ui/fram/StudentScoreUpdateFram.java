@@ -15,12 +15,12 @@ import javax.swing.border.EmptyBorder;
 
 import student.ui.panel.StudentMgnBtn03ScoreBtnCenter;
 
-public class StudentMgnBtn03ScoreBtn extends JFrame implements ActionListener {
+public class StudentScoreUpdateFram extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
 
-	public StudentMgnBtn03ScoreBtn() {
+	public StudentScoreUpdateFram() {
 		initialize();
 	}
 	private void initialize() {

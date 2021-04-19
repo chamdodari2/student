@@ -9,6 +9,7 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -76,12 +77,12 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		add(panel);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel pLeft = new JPanel();
+		panel.add(pLeft);
+		pLeft.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2);
+		pLeft.add(panel_2);
 		
 		JLabel lblStdNo = new JLabel("학     번");
 		lblStdNo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -93,7 +94,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		tfStdNo.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
-		panel_1.add(panel_3);
+		pLeft.add(panel_3);
 		
 		JLabel lblName = new JLabel("이     름");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,7 +106,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		tfName.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
-		panel_1.add(panel_4);
+		pLeft.add(panel_4);
 		
 		JLabel lblIdNo = new JLabel("주민번호");
 		lblIdNo.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -117,7 +118,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		tfIdNo.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
-		panel_1.add(panel_5);
+		pLeft.add(panel_5);
 		
 		JLabel lblHpNo = new JLabel(" 연락처 ");
 		lblHpNo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -129,14 +130,14 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		tfHpNo.setColumns(10);
 		
 		JPanel panel_12 = new JPanel();
-		panel_1.add(panel_12);
+		pLeft.add(panel_12);
 		
-		JPanel panel_6 = new JPanel();
-		panel.add(panel_6);
-		panel_6.setLayout(new GridLayout(0, 1, 0, 0));
+		JPanel pRight = new JPanel();
+		panel.add(pRight);
+		pRight.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_7 = new JPanel();
-		panel_6.add(panel_7);
+		pRight.add(panel_7);
 		
 		JLabel lblStdDept = new JLabel("학     과");
 		lblStdDept.setHorizontalAlignment(SwingConstants.CENTER);
@@ -147,7 +148,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_7.add(cbStdDept);
 		
 		JPanel panel_8 = new JPanel();
-		panel_6.add(panel_8);
+		pRight.add(panel_8);
 		
 		JLabel lblGrade = new JLabel("학     년");
 		lblGrade.setHorizontalAlignment(SwingConstants.CENTER);
@@ -159,7 +160,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_8.add(cbGrade);
 		
 		JPanel panel_9 = new JPanel();
-		panel_6.add(panel_9);
+		pRight.add(panel_9);
 		
 		JLabel lblDayNightShift = new JLabel("주야구분");
 		lblDayNightShift.setHorizontalAlignment(SwingConstants.CENTER);
@@ -171,7 +172,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_9.add(cbDayNightShift);
 		
 		JPanel panel_11 = new JPanel();
-		panel_6.add(panel_11);
+		pRight.add(panel_11);
 		
 		JLabel lblStdState = new JLabel("학적상태");
 		lblStdState.setHorizontalAlignment(SwingConstants.CENTER);
@@ -182,7 +183,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_11.add(cbStdState);
 		
 		JPanel panel_10 = new JPanel();
-		panel_6.add(panel_10);
+		pRight.add(panel_10);
 		
 		JLabel lblMilitaryState = new JLabel("병역상태");
 		lblMilitaryState.setHorizontalAlignment(SwingConstants.CENTER);
@@ -221,8 +222,8 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		StdState stdState = (StdState) cbStdState.getSelectedItem();
 		MilitaryState  militaryState =(MilitaryState) cbMilitaryState.getSelectedItem();
 		String  dayNightShift =(String) cbDayNightShift.getSelectedItem();
-		
 		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, hpNo, dayNightShift);
+
 	}
 
 	@Override

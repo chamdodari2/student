@@ -14,14 +14,14 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	private String gender; // 성별 뷰에만 있는거
 	private String hpNo; // 휴대폰번호
 	private String dayNightShift; // 주야
-	private int subject1; // 과목1
+	private int subject1; // 과목1   ///////아직 impl에서 여기에 db연결 안해줬다
 	private int subject2; // 과목2
 	private int subject3; // 과목3
 
 	private int total;
 	private double avg;
 
-    private List<StudentScore> studentScore; //성적테이블(과목 1,2,3)
+    private List<StudentScore> studentScore; //성적테이블(과목 1,2,3) 리스트로 받아야 묶어서받을수있다
     
    // private String abc ="";/////////////
   //  private double gradescore= 0.0;////////////////지울거면 get set도 지우기
@@ -97,6 +97,13 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	
 	public StudentData() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, List<StudentScore> studentScore) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.studentScore = studentScore;
 	}
 
 	public int getStdNo() {
@@ -272,7 +279,10 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
 				subject1, subject2, subject3, total, avg );
 	}
-	// 성적환산표
+	public String toString5() {
+		return String.format(
+				"%.1f",avg );
+	}
 	
 
 }

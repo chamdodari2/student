@@ -32,10 +32,6 @@ public class SouthBtnsPanel extends JPanel implements ActionListener {
 		btnAddStd.addActionListener(this);
 		btnAddStd.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_1.add(btnAddStd);
-		
-		JButton btnNewButton_3 = new JButton("메인으로");
-		btnNewButton_3.setFont(new Font("굴림", Font.BOLD, 20));
-		panel_1.add(btnNewButton_3);
 	}
 
 	public void actionPerformed(ActionEvent e) {

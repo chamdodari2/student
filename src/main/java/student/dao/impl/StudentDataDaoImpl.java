@@ -15,6 +15,7 @@ import student.dto.MilitaryState;
 import student.dto.StdDepartment;
 import student.dto.StdState;
 import student.dto.StudentData;
+import student.dto.StudentScore;
 import student.ui.exception.SqlConstraintException;
 
 public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao 인터페이스 상속(오버라이딩)
@@ -224,7 +225,6 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		return null;
 	}
 
-	
 ///////////////////////////반장님 아이디어
 	@Override
 	public Object[] ComboListSelect(String table, String where) {
@@ -239,7 +239,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 				do {
 					list.add(rs.getString(where));
 				} while (rs.next());
-				
+
 				return Arrays.stream(list.toArray()).distinct().sorted().toArray();
 			}
 
@@ -250,11 +250,12 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 	}
 
 	@Override
-	public List<StudentData> SelectStudentByWhere(String where) {  //
+	public List<StudentData> SelectStudentByWhere(String where) { //
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg " + " from vw_full_studentdata " + where;  //모든칼럼 검색 + 조건은 where로 따로 뺀다
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg " + " from vw_full_studentdata "
+				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
@@ -268,9 +269,73 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 			}
 
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+	@Override
+	public List<StudentScore> selectStudentScoreListByStdNo(StudentData studentData) {
+		String sql = "select stdNo, subject1, subject2, subject3 from studentscore "
+				+ "where stdNo=(select stdNo from studentdata  where stdNo = ?)";
+		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, studentData.getStdNo());
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if (rs.next()) {
+					List<StudentScore> scoreList = new ArrayList<>();
+					do {
+						StudentData stdNo = new StudentData(rs.getInt("stdNo"));
+						int subject1 = rs.getInt("subject1");
+						int subject2 = rs.getInt("subject2");
+						int subject3 = rs.getInt("subject3");
+						scoreList.add(new StudentScore(stdNo, subject1, subject2, subject3));
+					} while (rs.next());
+					return scoreList;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	@Override
+	public StudentScore selectStudentScoreByNo(StudentData studentData) {
+		String sql = "select stdNo, subject1, subject2, subject3 from studentscore "
+				+ "where stdNo=(select stdNo from studentdata  where stdNo = ?)";
+		try(Connection con = JdbcConn.getConnection();PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setInt(1, studentData.getStdNo());
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {
+					return getStudentScore(rs);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private StudentScore getStudentScore(ResultSet rs) throws SQLException {
+		
+		int subject1 = rs.getInt("subject1");
+		int subject2 = rs.getInt("subject2");
+		int subject3 = rs.getInt("subject3");
+		StudentData stdNo =null; // new StudentData(rs.getInt("stdNo"));
+		try {stdNo = new StudentData(rs.getInt("stdNo"));
+				}catch(SQLException e ) {
+					e.printStackTrace();
+				}
+		return new StudentScore(stdNo, subject1, subject2, subject3);
+	}
+	
+	/*
+	 * private StudentScore getScore(ResultSet rs) throws SQLException {
+	 * //////////////////////////////////////////여기도 수정쓰 반장님꺼 참고해서 넣은거임 ㅠㅠ 이거 있어야
+	 * toArray에서 for문 쓸수있는것같아서 일단 넣어봄 ㅠㅠ 근데 나는 과목테이블 따로없어서 약간 수정행햐ㅏㅁ! return new
+	 * StudentScore(new StudentData(rs.getInt("subjectno"),
+	 * rs.getString("subjectname")), rs.getInt("score")); }
+	 */
 }

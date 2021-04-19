@@ -13,18 +13,19 @@ import javax.swing.border.EmptyBorder;
 
 import student.ui.panel.StudentMgnBtn03Center;
 import student.ui.panel.StudentMgnBtn03Top;
+import student.ui.panel.StdMgnSearchpanel;
 
-public class StudentMgnFram02 extends JFrame {
+public class StudentScoreSearchFramTest extends JFrame {
 
 	private JPanel contentPane;
 
-	public StudentMgnFram02() {
+	public StudentScoreSearchFramTest() {
 		initialize();
 	}
 	private void initialize() {
 		setTitle("학생 조회");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(550, 400, 742, 381);
+		setBounds(550, 400, 1106, 451);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -39,7 +40,7 @@ public class StudentMgnFram02 extends JFrame {
 		lblTItle.setFont(new Font("굴림", Font.BOLD, 35));
 		pTop.add(lblTItle);
 		
-		StudentMgnBtn03Top pSelect = new StudentMgnBtn03Top();
+		StdMgnSearchpanel pSelect = new StdMgnSearchpanel();
 		pTop.add(pSelect, BorderLayout.SOUTH);
 		
 		StudentMgnBtn03Center pCenter = new StudentMgnBtn03Center();

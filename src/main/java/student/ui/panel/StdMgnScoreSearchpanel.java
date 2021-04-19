@@ -28,7 +28,7 @@ import student.service.StudentDataService;
 import student.ui.content.AbstractContentPanel;
 
 @SuppressWarnings("serial")
-public class StdMgnSearchpanel extends AbstractContentPanel<StudentData> implements ActionListener, ItemListener {
+public class StdMgnScoreSearchpanel extends AbstractContentPanel<StudentData> implements ActionListener, ItemListener {
 	private JPanel pStdNo;
 	private JLabel lblStdNo;
 	private JPanel pStdName;
@@ -56,25 +56,23 @@ public class StdMgnSearchpanel extends AbstractContentPanel<StudentData> impleme
 	private JPanel pSearch;
 	private JButton btnSearch;
 	private JPanel panel_4;
-	private StdListPanel listTable;
+	private StdScoreListPanel listTable;
 	private StudentDataService service; // 학생정도서비스에서 정의해놓은 selectStdDeptListbyall메소드로 가져올거당. 얘에 대한 세터 필요///////////2번
 	
-	private StdScoreListPanel listTable2; //해보고 성적테스트 안되면 삭제1
+
 	
 	
 	
 
 
-	public void setListTable(StdListPanel listTable) {
+
+	////////지울수도있다 성적테스트 안되면 삭제2
+	public void setListTable(StdScoreListPanel listTable) {
 		this.listTable = listTable;
 	}
-	////////지울수도있다 성적테스트 안되면 삭제2
-	public void setListTable(StdScoreListPanel listTable2) {
-		this.listTable2 = listTable2;
-	}
 	
 
-	public StdMgnSearchpanel() {
+	public StdMgnScoreSearchpanel() {
 		service = new StudentDataService();
 		initialize();
 

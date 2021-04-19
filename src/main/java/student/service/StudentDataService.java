@@ -77,7 +77,12 @@ public class StudentDataService {
 	public List<StudentData> showStudentDataByWhere(String where) {
 	return studentDataDao.SelectStudentByWhere(where);
 	}	
-	//	return null;
+
+	////////////////학번으로 성적리스트 검색
+	
+	public List<StudentScore> showStudentScoreListByStdNo(StudentData studentData){
+		return studentDataDao.selectStudentScoreListByStdNo(studentData);
+	}
 		
 	
 	

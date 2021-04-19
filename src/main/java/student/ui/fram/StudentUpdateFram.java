@@ -18,21 +18,10 @@ import student.ui.panel.AddStudentPicPanel;
 public class StudentUpdateFram extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btnNewButton;
+	private JButton btnUpdate;
 	private StudentDataService service;
-	private AddStudentDataPanel panel;
-	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//				
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private AddStudentDataPanel pUpdate;
+
 
 
 	public StudentUpdateFram() {
@@ -41,7 +30,7 @@ public class StudentUpdateFram extends JFrame implements ActionListener {
 		
 	}
 	public void setItem(StudentData item) {
-		panel.setItem(item); //////////////////////	
+		pUpdate.setItem(item); //////////////////////	
 	}
 	
 	private void initialize() {
@@ -53,36 +42,36 @@ public class StudentUpdateFram extends JFrame implements ActionListener {
 		setTitle("세부정보");
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		AddStudentPicPanel panel_1 = new AddStudentPicPanel();
-		contentPane.add(panel_1, BorderLayout.WEST);
+		AddStudentPicPanel pPic = new AddStudentPicPanel();
+		contentPane.add(pPic, BorderLayout.WEST);
 		
-		panel = new AddStudentDataPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
+		pUpdate = new AddStudentDataPanel();
+		contentPane.add(pUpdate, BorderLayout.CENTER);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.SOUTH);
+		JPanel pBtns = new JPanel();
+		contentPane.add(pBtns, BorderLayout.SOUTH);
 		
-		btnNewButton = new JButton("수정");
-		btnNewButton.addActionListener(this);
-		panel_2.add(btnNewButton);
+		btnUpdate = new JButton("수정");
+		btnUpdate.addActionListener(this);
+		pBtns.add(btnUpdate);
 		
-		JButton btnNewButton_1 = new JButton("취소");
-		panel_2.add(btnNewButton_1);
+		JButton btnClear = new JButton("취소");
+		pBtns.add(btnClear);
 	}
 
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnNewButton) {
+		if (e.getSource() == btnUpdate) {
 			actionPerformedBtnNewButton(e);
 		}
 	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
-		StudentData stdData = panel.getItem();
-		service.modifyStudentData(stdData);
+	protected void actionPerformedBtnNewButton(ActionEvent e) { //수정 버튼을 누르면
+		StudentData stdData = pUpdate.getItem();				//StudentData 객체 받아와서 참조,  pUpdate .getItem하면 입력받은 값을 모두 땡겨온다.(학번기준?)
+		service.modifyStudentData(stdData);						//수정한거 적용
 		//pList.loadData();
-		panel.clearTf();
-		JOptionPane.showMessageDialog(null, stdData + " 수정했습니다.");
+		pUpdate.clearTf();										//클리어
+		JOptionPane.showMessageDialog(null, stdData + "  수정했습니다.");
 		dispose();
 		
 	}

@@ -14,15 +14,16 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import student.ui.fram.StudentSearchFram;
+import student.ui.fram.StudentScoreSearchFram;
 import student.ui.fram.TestFramn02;
-import student.ui.fram.StudentMgnFram02;
+import student.ui.fram.StudentScoreSearchFramTest;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
-	private JButton button_1;
+	private JButton button;
 
 
 	public static void main(String[] args) {
@@ -40,6 +41,9 @@ public class Main extends JFrame implements ActionListener {
 
 
 	public Main() {
+		initialize();
+	}
+	private void initialize() {
 		setTitle("학생관리프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,18 +68,18 @@ public class Main extends JFrame implements ActionListener {
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
 		panel_1.add(btnNewButton);
 		
-		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3);
+		JPanel panel_2 = new JPanel();
+		contentPane.add(panel_2);
 		
-		button_1 = new JButton("성적 조회 / 관리");
-		button_1.addActionListener(this);
-		button_1.setFont(new Font("굴림", Font.BOLD, 25));
-		panel_3.add(button_1);
+		button = new JButton("성적 조회 / 관리");
+		button.addActionListener(this);
+		button.setFont(new Font("굴림", Font.BOLD, 25));
+		panel_2.add(button);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button_1) {
-			actionPerformedButton_1(e);
+		if (e.getSource() == button) {
+			actionPerformedButton(e);
 		}
 		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
@@ -90,8 +94,8 @@ public class Main extends JFrame implements ActionListener {
 		
 		
 	}
-	protected void actionPerformedButton_1(ActionEvent e) {  //버튼3 (성적관리)
-		StudentMgnFram02 frame = new StudentMgnFram02();
+	protected void actionPerformedButton(ActionEvent e) {
+		StudentScoreSearchFram frame = new StudentScoreSearchFram();
 		frame.setVisible(true);
 	}
 }
