@@ -1,67 +1,78 @@
-package student.ui.fram;
+package student.ui.fram; //상세정보 수정하기 UI
 
 import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.ui.panel.StudentMgnBtn03ScoreBtnCenter;
+import student.dto.StudentData;
+import student.service.StudentDataService;
+import student.ui.panel.AddStudentDataPanel;
+import student.ui.panel.AddStudentPicPanel;
 
 public class StudentScoreUpdateFram extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btnNewButton;
+	private JButton btnUpdate;
+	private StudentDataService service;
+	private AddStudentDataPanel pUpdate;////////////성적패널 하나 만들어야?
+
+
 
 	public StudentScoreUpdateFram() {
+		service = new StudentDataService();
 		initialize();
+		
 	}
+	public void setItem(StudentData item) {
+		pUpdate.setItem(item); //////////////////////	
+	}
+	
 	private void initialize() {
-		setTitle("성적수정");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 400, 568, 325);
+		setBounds(100, 100, 741, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		setTitle("세부정보");
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel pTop = new JPanel();
-		contentPane.add(pTop, BorderLayout.NORTH);
-		pTop.setLayout(new GridLayout(0, 1, 0, 0));
+		AddStudentPicPanel pPic = new AddStudentPicPanel();
+		contentPane.add(pPic, BorderLayout.WEST);
 		
-		JLabel lblNewLabel = new JLabel("성적 수정");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 35));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		pTop.add(lblNewLabel);
+		pUpdate = new AddStudentDataPanel();
+		contentPane.add(pUpdate, BorderLayout.CENTER);
 		
-		JPanel pBtnHome = new JPanel();
-		contentPane.add(pBtnHome, BorderLayout.SOUTH);
+		JPanel pBtns = new JPanel();
+		contentPane.add(pBtns, BorderLayout.SOUTH);
 		
-		btnNewButton = new JButton("저장");
-		btnNewButton.addActionListener(this);
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
-		pBtnHome.add(btnNewButton);
+		btnUpdate = new JButton("수정");
+		btnUpdate.addActionListener(this);
+		pBtns.add(btnUpdate);
 		
-		JButton button = new JButton("취소");
-		button.setFont(new Font("굴림", Font.BOLD, 25));
-		pBtnHome.add(button);
-		
-		StudentMgnBtn03ScoreBtnCenter pCenter = new StudentMgnBtn03ScoreBtnCenter();
-		contentPane.add(pCenter, BorderLayout.CENTER);
+		JButton btnClear = new JButton("취소");
+		pBtns.add(btnClear);
 	}
 
+	
+	
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnNewButton) {
+		if (e.getSource() == btnUpdate) {
 			actionPerformedBtnNewButton(e);
 		}
 	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	protected void actionPerformedBtnNewButton(ActionEvent e) { //수정 버튼을 누르면
+		StudentData stdData = pUpdate.getItem();				//StudentData 객체 받아와서 참조,  pUpdate .getItem하면 입력받은 값을 모두 땡겨온다.(학번기준?)
+		service.modifyStudentData(stdData);						//수정한거 적용
+		//pList.loadData();
+		pUpdate.clearTf();										//클리어
+		JOptionPane.showMessageDialog(null, stdData + "  수정했습니다.");
+		dispose();
+		
 	}
 }

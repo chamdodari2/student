@@ -134,10 +134,10 @@ public class StudentScoreSearchFram extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, delStudent + "삭제되었습니다.");
 
 				}
-				if (e.getActionCommand().equals("상세정보 조회 및 수정")) {
+				if (e.getActionCommand().equals("성적수정")) {
 					StudentData updaStudentData = pStdList.getItem();
-					StudentUpdateFram frame = new StudentUpdateFram();
-					frame.setItem(updaStudentData);///////////////////////업데이트 프레임에서
+					StudentScoreUpdateFram frame = new StudentScoreUpdateFram();  
+					frame.setItem(updaStudentData);///////////////////////업데이트 프레임이었는데 성적업데이트 프레임 따로 만들기!!!
 					frame.setVisible(true);
 					
 				}
