@@ -112,9 +112,10 @@ public class StudentScoreSearchFram extends JFrame implements ActionListener {
 		updateItem.addActionListener(popupMenuListner);
 		popMenu.add(updateItem);
 
-		JMenuItem deleteItem = new JMenuItem("삭제");
-		deleteItem.addActionListener(popupMenuListner);
-		popMenu.add(deleteItem);
+		/*
+		 * JMenuItem deleteItem = new JMenuItem("삭제");
+		 * deleteItem.addActionListener(popupMenuListner); popMenu.add(deleteItem);
+		 */
 
 		return popMenu;
 
@@ -126,14 +127,14 @@ public class StudentScoreSearchFram extends JFrame implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			try {
 
-				if (e.getActionCommand().equals("삭제")) { //삭제 누르면
-					StudentData delStudent = pStdList.getItem();
-					System.out.println(delStudent);
-					service.removeStudentData(delStudent);
-					pStdList.loadData();
-					JOptionPane.showMessageDialog(null, delStudent + "삭제되었습니다.");
-
-				}
+				/*
+				 * if (e.getActionCommand().equals("삭제")) { //삭제 누르면 StudentData delStudent =
+				 * pStdList.getItem(); System.out.println(delStudent);
+				 * service.removeStudentData(delStudent); pStdList.loadData();
+				 * JOptionPane.showMessageDialog(null, delStudent + "삭제되었습니다.");
+				 * 
+				 * }
+				 */
 				if (e.getActionCommand().equals("성적수정")) {
 					StudentData updaStudentData = pStdList.getItem();
 					StudentScoreUpdateFram frame = new StudentScoreUpdateFram();  

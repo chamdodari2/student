@@ -106,6 +106,22 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.studentScore = studentScore;
 	}
 
+
+
+
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, String dayNightShift,
+			int subject1, int subject2, int subject3) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.dayNightShift = dayNightShift;
+		this.subject1 = subject1;
+		this.subject2 = subject2;
+		this.subject3 = subject3;
+	}
+
 	public int getStdNo() {
 		return stdNo;
 	}

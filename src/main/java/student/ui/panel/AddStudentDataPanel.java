@@ -90,6 +90,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_2.add(lblStdNo);
 		
 		tfStdNo = new JTextField();
+		tfStdNo.setEditable(false);
 		panel_2.add(tfStdNo);
 		tfStdNo.setColumns(10);
 		
@@ -196,7 +197,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 
 	@Override
 	public void setItem(StudentData item) {
-
+		System.out.println(item.toString4());
 		tfStdNo.setText(item.getStdNo() + "");
 		tfName.setText(item.getStdName());
 		tfIdNo.setText(item.getIdNo());
