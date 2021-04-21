@@ -15,8 +15,6 @@ import javax.swing.border.EmptyBorder;
 
 import student.ui.fram.StudentDataSearchFram01;
 import student.ui.fram.StudentScoreSearchFram04;
-import student.ui.fram.TestFramn02;
-import student.ui.fram.StudentScoreSearchFramTest;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame implements ActionListener {
