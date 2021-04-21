@@ -34,7 +34,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	@Override
 	protected void setAlignAndWidth() {
 		// 컬럼내용 정렬
-		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6);
+		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7,8,9);
 			// 컬럼별 너비 조정
 			setTableCellWidth(100, 250);
 	}

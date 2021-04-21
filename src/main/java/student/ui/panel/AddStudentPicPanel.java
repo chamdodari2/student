@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
 
 public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 
@@ -21,6 +23,9 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel pWest = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) pWest.getLayout();
+		flowLayout.setVgap(20);
+		flowLayout.setHgap(20);
 		add(pWest, BorderLayout.CENTER);
 		
 		JPanel panel = new JPanel();
@@ -28,6 +33,7 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblPic = new JLabel();
+		lblPic.setIcon(new ImageIcon("C:\\Users\\lenovo\\Desktop\\배수지.jpg"));
 		lblPic.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPic.setText("사진넣을예정");
 		lblPic.setBackground(Color.DARK_GRAY);

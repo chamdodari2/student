@@ -15,6 +15,7 @@ import student.service.StudentDataService;
 import student.ui.exception.InvalidChechException;
 import student.ui.panel.AddStudentDataPanel;
 import student.ui.panel.AddStudentPicPanel;
+import java.awt.Font;
 
 public class StudentAddFram extends JFrame implements ActionListener {
 
@@ -44,12 +45,12 @@ public class StudentAddFram extends JFrame implements ActionListener {
 
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 741, 330);
+		setBounds(100, 100, 693, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setTitle("세부정보");
-		contentPane.setLayout(new BorderLayout(0, 0));
+		setTitle("학생 상세정보 조회 / 수정");
+		contentPane.setLayout(new BorderLayout(-10, 10));
 
 		AddStudentPicPanel panel_1 = new AddStudentPicPanel();
 		contentPane.add(panel_1, BorderLayout.WEST);
@@ -61,10 +62,12 @@ public class StudentAddFram extends JFrame implements ActionListener {
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 
 		btnNewButton = new JButton("저장");
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
 		btnNewButton.addActionListener(this);
 		panel_2.add(btnNewButton);
 
 		btnNewButton_1 = new JButton("취소");
+		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 15));
 		btnNewButton_1.addActionListener(this);
 		panel_2.add(btnNewButton_1);
 	}

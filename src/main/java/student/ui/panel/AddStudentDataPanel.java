@@ -1,6 +1,8 @@
 package student.ui.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
@@ -9,7 +11,6 @@ import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -21,6 +22,7 @@ import student.dto.StudentData;
 import student.service.StudentDataService;
 import student.ui.content.AbstractContentPanel;
 import student.ui.exception.InvalidChechException;
+import java.awt.ComponentOrientation;
 
 @SuppressWarnings("serial")
 public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
@@ -82,6 +84,10 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		pLeft.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_2 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_2.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		flowLayout.setHgap(10);
+		flowLayout.setVgap(20);
 		pLeft.add(panel_2);
 		
 		JLabel lblStdNo = new JLabel("학     번");
@@ -90,11 +96,16 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_2.add(lblStdNo);
 		
 		tfStdNo = new JTextField();
+		tfStdNo.setHorizontalAlignment(SwingConstants.LEFT);
 		tfStdNo.setEditable(false);
 		panel_2.add(tfStdNo);
 		tfStdNo.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) panel_3.getLayout();
+		flowLayout_1.setHgap(10);
+		flowLayout_1.setAlignment(FlowLayout.LEFT);
+		flowLayout_1.setVgap(20);
 		pLeft.add(panel_3);
 		
 		JLabel lblName = new JLabel("이     름");
@@ -103,10 +114,15 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_3.add(lblName);
 		
 		tfName = new JTextField();
+		tfName.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_3.add(tfName);
 		tfName.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panel_4.getLayout();
+		flowLayout_2.setHgap(10);
+		flowLayout_2.setAlignment(FlowLayout.LEFT);
+		flowLayout_2.setVgap(20);
 		pLeft.add(panel_4);
 		
 		JLabel lblIdNo = new JLabel("주민번호");
@@ -115,18 +131,24 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_4.add(lblIdNo);
 		
 		tfIdNo = new JTextField();
+		tfIdNo.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_4.add(tfIdNo);
 		tfIdNo.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) panel_5.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEFT);
+		flowLayout_3.setHgap(10);
+		flowLayout_3.setVgap(20);
 		pLeft.add(panel_5);
 		
 		JLabel lblHpNo = new JLabel(" 연락처 ");
-		lblHpNo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHpNo.setHorizontalAlignment(SwingConstants.LEFT);
 		lblHpNo.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_5.add(lblHpNo);
 		
 		tfHpNo = new JTextField();
+		tfHpNo.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_5.add(tfHpNo);
 		tfHpNo.setColumns(10);
 		
@@ -138,6 +160,10 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		pRight.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_7 = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) panel_7.getLayout();
+		flowLayout_4.setVgap(20);
+		flowLayout_4.setHgap(10);
+		flowLayout_4.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_7);
 		
 		JLabel lblStdDept = new JLabel("학     과");
@@ -146,9 +172,14 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_7.add(lblStdDept);
 		
 		cbStdDept = new JComboBox<>();
+		cbStdDept.setPreferredSize(new Dimension(110,20));
 		panel_7.add(cbStdDept);
 		
 		JPanel panel_8 = new JPanel();
+		FlowLayout flowLayout_5 = (FlowLayout) panel_8.getLayout();
+		flowLayout_5.setVgap(20);
+		flowLayout_5.setAlignment(FlowLayout.LEFT);
+		flowLayout_5.setHgap(10);
 		pRight.add(panel_8);
 		
 		JLabel lblGrade = new JLabel("학     년");
@@ -157,10 +188,15 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_8.add(lblGrade);
 		
 		cbGrade = new JComboBox<>();
+		cbGrade.setPreferredSize(new Dimension(110,20)); //콤보박스 사이즈 조절
 		cbGrade.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4"}));
 		panel_8.add(cbGrade);
 		
 		JPanel panel_9 = new JPanel();
+		FlowLayout flowLayout_6 = (FlowLayout) panel_9.getLayout();
+		flowLayout_6.setHgap(10);
+		flowLayout_6.setVgap(20);
+		flowLayout_6.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_9);
 		
 		JLabel lblDayNightShift = new JLabel("주야구분");
@@ -169,10 +205,15 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_9.add(lblDayNightShift);
 		
 		cbDayNightShift = new JComboBox<>();
+		cbDayNightShift.setPreferredSize(new Dimension(110,20)); //콤보박스 사이즈 조절
 		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {"", "주간", "야간"}));
 		panel_9.add(cbDayNightShift);
 		
 		JPanel panel_11 = new JPanel();
+		FlowLayout flowLayout_7 = (FlowLayout) panel_11.getLayout();
+		flowLayout_7.setVgap(20);
+		flowLayout_7.setHgap(10);
+		flowLayout_7.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_11);
 		
 		JLabel lblStdState = new JLabel("학적상태");
@@ -181,9 +222,14 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_11.add(lblStdState);
 		
 		cbStdState = new JComboBox<>();
+		cbStdState.setPreferredSize(new Dimension(110,20)); //콤보박스 사이즈 조절
 		panel_11.add(cbStdState);
 		
 		JPanel panel_10 = new JPanel();
+		FlowLayout flowLayout_8 = (FlowLayout) panel_10.getLayout();
+		flowLayout_8.setVgap(20);
+		flowLayout_8.setHgap(10);
+		flowLayout_8.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_10);
 		
 		JLabel lblMilitaryState = new JLabel("병역상태");
@@ -192,6 +238,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		panel_10.add(lblMilitaryState);
 		
 		cbMilitaryState = new JComboBox<>();
+		cbMilitaryState.setPreferredSize(new Dimension(110,20)); //콤보박스 사이즈 조절
 		panel_10.add(cbMilitaryState);
 	}
 
