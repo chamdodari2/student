@@ -25,6 +25,7 @@ import student.ui.exception.SqlConstraintException;
 import student.ui.panel.SouthBtnsPanel;
 import student.ui.panel.StdListPanel;
 import student.ui.panel.StdMgnSearchpanel;
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class StudentDataSearchFram01 extends JFrame implements ActionListener {
