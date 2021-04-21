@@ -27,7 +27,7 @@ import student.ui.panel.StdListPanel;
 import student.ui.panel.StdMgnSearchpanel;
 
 @SuppressWarnings("serial")
-public class StudentSearchFram extends JFrame implements ActionListener {
+public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 
 	private StudentDataService service;
 	private JPanel contentPane;
@@ -35,7 +35,7 @@ public class StudentSearchFram extends JFrame implements ActionListener {
 											///////////////////// //////////이래야하는거 아잉가
 	private StdListPanel pStdList;
 
-	public StudentSearchFram() {
+	public StudentDataSearchFram01() {
 		service = new StudentDataService();
 		initialize();
 
@@ -126,12 +126,12 @@ public class StudentSearchFram extends JFrame implements ActionListener {
 					System.out.println(delStudent);
 					service.removeStudentData(delStudent);
 					pStdList.loadData();
-					JOptionPane.showMessageDialog(null, delStudent + "삭제되었습니다.");
+					JOptionPane.showMessageDialog(null, delStudent + " 삭제하셨습니다.");
 
 				}
 				if (e.getActionCommand().equals("상세정보 조회 및 수정")) {
 					StudentData updaStudentData = pStdList.getItem();
-					StudentUpdateFram frame = new StudentUpdateFram();
+					StudentDataUpdateFram03 frame = new StudentDataUpdateFram03();
 					frame.setItem(updaStudentData);///////////////////////업데이트 프레임에서
 					frame.setVisible(true);
 					

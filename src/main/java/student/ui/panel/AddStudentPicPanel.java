@@ -11,6 +11,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 
@@ -41,6 +42,7 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> {
 		panel.add(lblPic, BorderLayout.CENTER);
 		
 		JButton btnNewButton = new JButton("사진 추가");
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
 		panel.add(btnNewButton, BorderLayout.SOUTH);
 	}
 

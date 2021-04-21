@@ -29,7 +29,7 @@ import student.ui.panel.StdMgnSearchpanel;
 import student.ui.panel.StdScoreListPanel;
 
 @SuppressWarnings("serial")
-public class StudentScoreSearchFram extends JFrame implements ActionListener {
+public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 
 	private StudentDataService service;
 	private JPanel contentPane;
@@ -37,7 +37,7 @@ public class StudentScoreSearchFram extends JFrame implements ActionListener {
 											///////////////////// //////////이래야하는거 아잉가
 	private StdScoreListPanel pStdList;
 
-	public StudentScoreSearchFram() {
+	public StudentScoreSearchFram04() {
 		service = new StudentDataService();
 		initialize();
 
@@ -137,7 +137,7 @@ public class StudentScoreSearchFram extends JFrame implements ActionListener {
 				 */
 				if (e.getActionCommand().equals("성적수정")) {
 					StudentData updaStudentData = pStdList.getItem();
-					StudentScoreUpdateFram frame = new StudentScoreUpdateFram();  
+					StudentScoreUpdateFram05 frame = new StudentScoreUpdateFram05();  
 					frame.setItem(updaStudentData);///////////////////////업데이트 프레임이었는데 성적업데이트 프레임 따로 만들기!!!
 					frame.setVisible(true);
 					

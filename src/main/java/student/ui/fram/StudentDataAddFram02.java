@@ -17,13 +17,13 @@ import student.ui.panel.AddStudentDataPanel;
 import student.ui.panel.AddStudentPicPanel;
 import java.awt.Font;
 
-public class StudentAddFram extends JFrame implements ActionListener {
+public class StudentDataAddFram02 extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btnNewButton;
+	private JButton btnAdd;
 	private StudentDataService service;
 	private AddStudentDataPanel panel;
-	private JButton btnNewButton_1;
+	private JButton btnClear;
 
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
@@ -37,7 +37,7 @@ public class StudentAddFram extends JFrame implements ActionListener {
 //		});
 //	}
 
-	public StudentAddFram() {
+	public StudentDataAddFram02() {
 		service = new StudentDataService();
 		initialize();
 
@@ -53,6 +53,8 @@ public class StudentAddFram extends JFrame implements ActionListener {
 		contentPane.setLayout(new BorderLayout(-10, 10));
 
 		AddStudentPicPanel panel_1 = new AddStudentPicPanel();
+		BorderLayout borderLayout = (BorderLayout) panel_1.getLayout();
+		borderLayout.setVgap(10);
 		contentPane.add(panel_1, BorderLayout.WEST);
 
 		panel = new AddStudentDataPanel();
@@ -61,31 +63,31 @@ public class StudentAddFram extends JFrame implements ActionListener {
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 
-		btnNewButton = new JButton("저장");
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
-		btnNewButton.addActionListener(this);
-		panel_2.add(btnNewButton);
+		btnAdd = new JButton("저장");
+		btnAdd.setFont(new Font("굴림", Font.BOLD, 15));
+		btnAdd.addActionListener(this);
+		panel_2.add(btnAdd);
 
-		btnNewButton_1 = new JButton("취소");
-		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 15));
-		btnNewButton_1.addActionListener(this);
-		panel_2.add(btnNewButton_1);
+		btnClear = new JButton("취소");
+		btnClear.setFont(new Font("굴림", Font.BOLD, 15));
+		btnClear.addActionListener(this);
+		panel_2.add(btnClear);
 	}
 
 	public void actionPerformed(ActionEvent e) {  /////////////////// 여기서 try해주면 버튼 누라자마자 익셉션 잡아주는거여서   throw공백이존재합니다  발생대신 메세지다이어로그 보여주기 가능!
 		try {
-			if (e.getSource() == btnNewButton_1) {
-				actionPerformedBtnNewButton_1(e);
+			if (e.getSource() == btnAdd) {
+				actionPerformedbtnAdd(e);
 			}
-			if (e.getSource() == btnNewButton) {
-				actionPerformedBtnNewButton(e);
+			if (e.getSource() == btnClear) {
+				actionPerformedbtnClear(e);
 			}
 		} catch (InvalidChechException e1) {
 			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
 		}
 	}
 
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	protected void actionPerformedbtnAdd(ActionEvent e) {
 		StudentData stdData = panel.getItem();
 		service.addStudentData(stdData);
 		// pList.loadData();
@@ -94,7 +96,10 @@ public class StudentAddFram extends JFrame implements ActionListener {
 
 	}
 
-	protected void actionPerformedBtnNewButton_1(ActionEvent e) {
-
+	protected void actionPerformedbtnClear(ActionEvent e) { //취소버튼 누르면
+		JOptionPane.showMessageDialog(null, "취소하셨습니다");
+		dispose();
+		
+	
 	}
 }

@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import student.ui.fram.StudentSearchFram;
-import student.ui.fram.StudentScoreSearchFram;
+import student.ui.fram.StudentDataSearchFram01;
+import student.ui.fram.StudentScoreSearchFram04;
 import student.ui.fram.TestFramn02;
 import student.ui.fram.StudentScoreSearchFramTest;
 
@@ -86,7 +86,7 @@ public class Main extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {// 버튼1 (학적/학생관리)
-		StudentSearchFram frame = new StudentSearchFram() {
+		StudentDataSearchFram01 frame = new StudentDataSearchFram01() {
 					
 		};
 		frame.setVisible(true);
@@ -95,7 +95,7 @@ public class Main extends JFrame implements ActionListener {
 		
 	}
 	protected void actionPerformedButton(ActionEvent e) {
-		StudentScoreSearchFram frame = new StudentScoreSearchFram();
+		StudentScoreSearchFram04 frame = new StudentScoreSearchFram04();
 		frame.setVisible(true);
 	}
 }

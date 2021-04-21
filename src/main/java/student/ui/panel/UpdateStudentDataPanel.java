@@ -25,7 +25,7 @@ import student.ui.exception.InvalidChechException;
 import java.awt.ComponentOrientation;
 
 @SuppressWarnings("serial")
-public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
+public class UpdateStudentDataPanel extends AbstractContentPanel<StudentData> {
 	private JTextField tfStdNo;
 	private JTextField tfName;
 	private JTextField tfIdNo;
@@ -37,7 +37,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 	private StudentDataService service;
 	private JComboBox cbDayNightShift;
 
-	public AddStudentDataPanel() {
+	public UpdateStudentDataPanel() {
 		service = new StudentDataService();
 		initialize();
 		addDataCbStdDept(); // 1. 학과콤보박스 메서드!
@@ -97,6 +97,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		
 		tfStdNo = new JTextField();
 		tfStdNo.setHorizontalAlignment(SwingConstants.LEFT);
+		tfStdNo.setEditable(false);
 		panel_2.add(tfStdNo);
 		tfStdNo.setColumns(10);
 		
