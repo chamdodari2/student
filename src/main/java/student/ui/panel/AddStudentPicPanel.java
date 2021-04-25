@@ -8,7 +8,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.nio.file.Files;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,14 +20,19 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import student.dto.StudentData;
 import student.ui.content.AbstractContentPanel;
+import student.ui.exception.InvalidChechException;
 
 @SuppressWarnings("serial")
 public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implements ActionListener {
-	private JButton btnAddPic;
+	private JButton btnUploadPic;
 	private String imgPath = System.getProperty("user.dir")+ File.separator+"images" +File.separator;
 	private File chooserFile  =	new File(imgPath);
 	private JLabel lblPic;
 	private JPanel panel;
+	private String pic ="";
+	private StudentData pic2 ;
+	
+	private String string = "";
 	// 
 
 	public File getChooserFile() {
@@ -59,15 +63,14 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 		
 		
 		lblPic.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPic.setText("사진넣을예정");
 		lblPic.setBackground(Color.DARK_GRAY);
 		lblPic.setPreferredSize(new Dimension(100, 150));
 		panel.add(lblPic, BorderLayout.CENTER);
 		
-		btnAddPic = new JButton("사진 추가");
-		btnAddPic.addActionListener(this);
-		btnAddPic.setFont(new Font("굴림", Font.BOLD, 15));
-		panel.add(btnAddPic, BorderLayout.SOUTH);
+		btnUploadPic = new JButton("사진 업로드");
+		btnUploadPic.addActionListener(this);
+		btnUploadPic.setFont(new Font("굴림", Font.BOLD, 15));
+		panel.add(btnUploadPic, BorderLayout.SOUTH);
 		
 		
 
@@ -75,6 +78,23 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 	}
 
 	
+	
+	
+	public String getImgPath() {
+		return imgPath;
+	}
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+	public JLabel getLblPic() {
+		return lblPic;
+	}
+	public void setLblPic(JLabel lblPic) {
+		this.lblPic = lblPic;
+	}
+	public void setChooserFile(File chooserFile) {
+		this.chooserFile = chooserFile;
+	}
 	
 	
 	@Override
@@ -84,14 +104,29 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 	}
 
 	@Override
-	public StudentData getItem() {
-		// TODO Auto-generated method stub
-		return null;
+	public StudentData getItem() {  ///////////////dto에 pic 생성했음. 널이면 에러 발생시키고, 널 아니면 file이름 가져와서 각 학생의 pic에 넣기
+		if(chooserFile==null) {
+			throw new InvalidChechException();
+		}
+		String pic = chooserFile.getName();  //선택한 파일명을 가져와서
+		return new StudentData(pic);  //해당 학생의 pic 변수에  넣기
 	}
+	
+	public void setvalue(StudentData pic) {//////////////////StudentData 에 생성해놓은 pic 가져옴
+		System.out.println(" imgPath + pic.getPic()>>>>>>" + imgPath + pic.getPic());
+		lblPic.setIcon(new ImageIcon(imgPath + pic.getPic()));
+		chooserFile = new File(imgPath + pic.getPic());
+		pic.setPic(imgPath);
+		System.out.println("getpic >>>>"+ pic.getPic());
+
+	}
+	
+	
 
 	@Override
 	public void validCheck() {
-		// TODO Auto-generated method stub
+		lblPic.setIcon(null);
+		chooserFile = null;
 		
 	}
 
@@ -102,7 +137,7 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnAddPic) {
+		if (e.getSource() == btnUploadPic) {
 			actionPerformedBtnAddPic(e);
 		
 		}
@@ -123,11 +158,20 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 //			System.out.println("chooserFile >>>" + chooserFile);  //김태희가 있는 주소를 가리킨다.
 			lblPic.setIcon(new ImageIcon(chooserFile.getPath()));			
 			System.out.println("chooserFile>>>2" +chooserFile.getPath());
-		
+			System.out.println("pic >>> " + pic);
+			string = chooserFile.getPath();
+			System.out.println("string >>>>> "+string);
+			pic2 = new StudentData();
+			pic2.setPic(string);
+	
+			System.out.println("pic2 >>>>"+ pic2.getPic());
+			
+			//setvalue(pic2);
 			System.out.println();
 //			System.out.println(new ImageIcon(chooserFile.getPath()));
 //			lblPic.setIcon(new ImageIcon("C:\\Users\\lenovo\\Desktop\\배수지.jpg"));
-		
+			getItem();
+		//	setvalue();
 
 		}
 	}

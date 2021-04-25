@@ -4,7 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -16,6 +18,7 @@ import student.service.StudentDataService;
 import student.ui.panel.AddStudentPicPanel;
 import student.ui.panel.UpdateStudentDataPanel;
 
+@SuppressWarnings("serial")
 public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
@@ -23,7 +26,11 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 	private StudentDataService service;
 	private UpdateStudentDataPanel pUpdate;
 	private JButton btnClear;
-
+	private AddStudentPicPanel pPic;
+	private StudentData pic = new StudentData();
+	
+	
+	
 
 
 	public StudentDataUpdateFram03() {
@@ -32,8 +39,21 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 		
 	}
 	public void setItem(StudentData item) {
-		pUpdate.setItem(item); //////////////////////	
+		pUpdate.setItem(item); //////////////////////
+	
+		
 	}
+	public void setItem2(StudentData item) {
+		pPic.setItem(item); //////////////////////
+	System.out.println(pPic);
+		
+	}
+//    public void setvalue(StudentData pic) {//////////////////StudentData 에 생성해놓은 pic 가져옴
+//    	pPic.setvalue(pic);
+//    	System.out.println("pPic>>>>>"+pic);
+//
+//	}
+	
 	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -41,10 +61,12 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setTitle("세부정보");
+		setTitle("학생 상세정보 조회 / 수정");
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		AddStudentPicPanel pPic = new AddStudentPicPanel();
+		pPic.getLblPic();
+		System.out.println("pPic.getLblPic();"+ pPic.getLblPic());
 		contentPane.add(pPic, BorderLayout.WEST);
 		
 		pUpdate = new UpdateStudentDataPanel();
@@ -78,7 +100,13 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 		StudentData stdData = pUpdate.getItem();				//StudentData 객체 받아와서 참조,  pUpdate .getItem하면 입력받은 값을 모두 땡겨온다.(학번기준?)
 		service.modifyStudentData(stdData);						//수정한거 적용
 		//pList.loadData();
-	//	pUpdate.clearTf();										//클리어
+	////	pUpdate.clearTf();
+	//	System.out.println(pic);
+		//stdData.setPic(pic);
+	//	stdData.getPic();
+	//	System.out.println("get pic>>>> "+stdData.getPic());
+		System.out.println("Pic >>>"+pic.getPic());
+		System.out.println("stdData.getPic() >>>>>"+stdData.getPic());
 		JOptionPane.showMessageDialog(null, stdData + "  수정했습니다.");
 		dispose();
 		

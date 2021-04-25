@@ -20,7 +20,8 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 	private int total;
 	private double avg;
-
+	private String pic;
+	
     private List<StudentScore> studentScore; //성적테이블(과목 1,2,3) 리스트로 받아야 묶어서받을수있다
     
    // private String abc ="";/////////////
@@ -53,6 +54,14 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	
 	
 	
+	public StudentData(String pic) {
+		this.pic = pic;
+	}
+	
+	
+	
+	
+
 	public StudentData(StdDepartment stdDepartment, int grade, StdState stdState, String dayNightShift) {
 		this.stdDepartment = stdDepartment;
 		this.grade = grade;
@@ -253,6 +262,14 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 
 	
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -275,6 +292,13 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		return true;
 	}
 
+	
+	
+	public String toString6() {
+		return String.format("%s",pic);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return String.format("%s",stdNo);
