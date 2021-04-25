@@ -269,6 +269,7 @@ public class AddStudentDataPanel extends AbstractContentPanel<StudentData> {
 		StdState stdState = (StdState) cbStdState.getSelectedItem();
 		MilitaryState  militaryState =(MilitaryState) cbMilitaryState.getSelectedItem();
 		String  dayNightShift =(String) cbDayNightShift.getSelectedItem();
+		
 		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, hpNo, dayNightShift);
 
 	}

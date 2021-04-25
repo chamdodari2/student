@@ -6,6 +6,8 @@ select stdNo, subject1, subject2, subject3 from studentscore where stdNo=(select
 select * from studentdata;
 
 
+17010013,"김예진",new StdDepartment("1"),2,new StdState("hlb"),new MilitaryState("y2a"),"960828*******","010-9566-0476","야간"," ㄴㄴㄴ");
+
 
 
 
@@ -14,14 +16,14 @@ select * from studentdata;
 select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg
 from vw_full_studentdata where stdNo =18010016;
 
+update studentData set stdNo = 17010111, stdName= '김예진2', deptCode= '2', grade= 3, stateCode='hla', militaryCode='y2c', idNo='970828*******', hpNo='010-9566-0477', dayNightShift='주간',  pic = ' ㄴㄴㅁㅁㅁㅁㄴ'where stdNo = 17010111;
 
-
-
+selec
 
 -- insert문
 
 insert into StudentData values (
-'17010013','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간');
+'170100613','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간','test주소');
 
 
 select * from studentdata;
@@ -165,7 +167,7 @@ select  s.stdNo, -- 학번
 	ss.subject2,  -- 과목2성적
 	ss.subject3,   --  과목3 성적                              총점,평균 ??
 	(ss.subject1+ss.subject2+ss.subject3) as 'total',
-	((ss.subject1+ss.subject2+ss.subject3)/3) as 'avg'
+	((ss.subject1+ss.subject2+ss.subject3)/3) as 'avg' , s.pic
 from studentData s join stdDepartment d  on s.deptCode = d.deptCode 
 left join stdState st on s.stateCode =st.stateCode 
 left join militaryState m on s.militaryCode = m.militaryCode

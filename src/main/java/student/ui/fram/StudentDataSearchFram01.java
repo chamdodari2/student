@@ -132,6 +132,7 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 				}
 				if (e.getActionCommand().equals("상세정보 조회 및 수정")) {
 					StudentData updaStudentData = pStdList.getItem();
+					System.out.println("updaStudentData");
 					StudentDataUpdateFram03 frame = new StudentDataUpdateFram03();
 					
 					frame.setItem(updaStudentData);///////////////////////업데이트 프레임에서

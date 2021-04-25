@@ -22,7 +22,9 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 			throw new NotSelectedException();
 		}
 		int stdNo =(int)table.getValueAt(row, 0);
+		System.out.println("ㅇㄹㄴㅇㄹㅇㄴ"+list.get(list.indexOf(new StudentData(stdNo))));
 		return list.get(list.indexOf(new StudentData(stdNo)));
+		
 	}
 
 	@Override
@@ -42,12 +44,12 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 	@Override
 	public Object[] toArray(StudentData t) {
 		
-		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString2(),t.getGrade(),t.getStdState().toString2(),t.getMilitaryState().toString2(),t.getDayNightShift()};
+		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString2(),t.getGrade(),t.getStdState().toString2(),t.getMilitaryState().toString2(),t.getDayNightShift(), t.getPic()};
 	}
 
 	@Override
 	public String[] getColumnNames() {
-		return new String[] {"학번","이름","학과","학년","학적상태","병역상태","주야구분"};
+		return new String[] {"학번","이름","학과","학년","학적상태","병역상태","주야구분","사진"};
 	}
 	public void loadData2(String where) {
 		list =service.showStudentDataByWhere(where);

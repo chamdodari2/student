@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.security.Provider.Service;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import student.dto.StudentData;
+import student.service.StudentDataService;
 import student.ui.content.AbstractContentPanel;
 import student.ui.exception.InvalidChechException;
 
@@ -32,7 +34,10 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 	private String pic ="";
 	private StudentData pic2 ;
 	
-	private String string = "";
+	private String string1 = "";
+	
+	private StudentDataService service = new StudentDataService();
+	
 	// 
 
 	public File getChooserFile() {
@@ -57,7 +62,7 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 		
 		lblPic = new JLabel();
 	//	lblPic.setIcon(new ImageIcon("C:\\Users\\lenovo\\Desktop\\배수지.jpg"));
-	//	lblPic.setIcon(new ImageIcon(imgPath)); //선택 했던걸로 저장
+		lblPic.setIcon(new ImageIcon(imgPath)); //선택 했던걸로 저장
 //		chooserFile = new File(chooserFile.getPath());
 		
 		
@@ -99,7 +104,7 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 	
 	@Override
 	public void setItem(StudentData item) {
-		// TODO Auto-generated method stub
+		lblPic.setIcon(new ImageIcon(item.getPic()));
 		
 	}
 
@@ -159,12 +164,13 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 			lblPic.setIcon(new ImageIcon(chooserFile.getPath()));			
 			System.out.println("chooserFile>>>2" +chooserFile.getPath());
 			System.out.println("pic >>> " + pic);
-			string = chooserFile.getPath();
-			System.out.println("string >>>>> "+string);
-			pic2 = new StudentData();
-			pic2.setPic(string);
-	
-			System.out.println("pic2 >>>>"+ pic2.getPic());
+			string1 = chooserFile.getPath();
+			System.out.println("string >>>>> "+string1);
+//			pic2 = new StudentData();
+//			pic2.setPic(string);
+//			System.out.println("pic2 >>>>"+pic2);
+			
+			
 			
 			//setvalue(pic2);
 			System.out.println();
@@ -174,6 +180,9 @@ public class AddStudentPicPanel extends AbstractContentPanel<StudentData> implem
 		//	setvalue();
 
 		}
+	}
+	public String getString1() {
+		return string1;
 	}
 		
 	}

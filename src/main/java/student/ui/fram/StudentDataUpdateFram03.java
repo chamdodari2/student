@@ -36,11 +36,13 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 	public StudentDataUpdateFram03() {
 		service = new StudentDataService();
 		initialize();
-		
 	}
+		
+	
+	
 	public void setItem(StudentData item) {
 		pUpdate.setItem(item); //////////////////////
-	
+		pPic.setItem(item);
 		
 	}
 	public void setItem2(StudentData item) {
@@ -64,8 +66,8 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 		setTitle("학생 상세정보 조회 / 수정");
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		AddStudentPicPanel pPic = new AddStudentPicPanel();
-		pPic.getLblPic();
+		pPic = new AddStudentPicPanel();
+	//	pPic.getLblPic();
 		System.out.println("pPic.getLblPic();"+ pPic.getLblPic());
 		contentPane.add(pPic, BorderLayout.WEST);
 		
@@ -98,15 +100,16 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedbtnUpdate(ActionEvent e) { //수정 버튼을 누르면
 		StudentData stdData = pUpdate.getItem();				//StudentData 객체 받아와서 참조,  pUpdate .getItem하면 입력받은 값을 모두 땡겨온다.(학번기준?)
+		stdData.setPic(pPic.getString1());
 		service.modifyStudentData(stdData);						//수정한거 적용
+		
 		//pList.loadData();
 	////	pUpdate.clearTf();
 	//	System.out.println(pic);
 		//stdData.setPic(pic);
 	//	stdData.getPic();
 	//	System.out.println("get pic>>>> "+stdData.getPic());
-		System.out.println("Pic >>>"+pic.getPic());
-		System.out.println("stdData.getPic() >>>>>"+stdData.getPic());
+;
 		JOptionPane.showMessageDialog(null, stdData + "  수정했습니다.");
 		dispose();
 		

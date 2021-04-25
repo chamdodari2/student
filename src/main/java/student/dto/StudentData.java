@@ -130,6 +130,30 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.subject2 = subject2;
 		this.subject3 = subject3;
 	}
+	
+	
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String gender, String hpNo, String dayNightShift, int subject1,
+			int subject2, int subject3, int total, double avg, String pic, List<StudentScore> studentScore) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.gender = gender;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
+		this.subject1 = subject1;
+		this.subject2 = subject2;
+		this.subject3 = subject3;
+		this.total = total;
+		this.avg = avg;
+		this.pic = pic;
+		this.studentScore = studentScore;
+	}
 
 	public int getStdNo() {
 		return stdNo;
@@ -262,8 +286,48 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 
 	
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift, String pic) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
+		this.pic = pic;
+	}
+	//stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, gender, hpNo,
+		//dayNightShift, subject1, subject2, subject3, total, avg, pic
+		
+		
+	
+
 	public String getPic() {
 		return pic;
+	}
+
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String gender, String hpNo, String dayNightShift, int subject1,
+			int subject2, int subject3, int total, double avg, String pic) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.gender = gender;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
+		this.subject1 = subject1;
+		this.subject2 = subject2;
+		this.subject3 = subject3;
+		this.total = total;
+		this.avg = avg;
+		this.pic = pic;
 	}
 
 	public void setPic(String pic) {
@@ -294,13 +358,14 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 	
 	
+	
 	public String toString6() {
 		return String.format("%s",pic);
 	}
 	
 	
-	@Override
-	public String toString() {
+	
+	public String toString7() {
 		return String.format("%s",stdNo);
 	}
 	public String toString3() {
@@ -323,6 +388,12 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		return String.format(
 				"%.1f",avg );
 	}
+
+	@Override
+	public String toString() {
+		return String.format("StudentData [pic=%s]", pic);
+	}
+	
 	
 
 }

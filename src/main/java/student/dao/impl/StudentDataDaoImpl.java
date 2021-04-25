@@ -36,7 +36,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg " + " from vw_full_studentdata";
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic " + " from vw_full_studentdata";
 
 		try (Connection con = JdbcConn.getConnection(); // 기존 db연결용 Connection클래스를 이용해서, dbproperties 파일에 있는 url키의 벨류인
 														// db주소 읽어서 연결
@@ -73,6 +73,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		int subject3 = rs.getInt("subject3");
 		int total = rs.getInt("total");
 		double avg = rs.getDouble("avg");
+		String pic = rs.getString("pic");
 
 		StdDepartment stdDepartment = null; // 다른테이블에 있는 칼럼이랑 조인해서 같이 보여줘야하는 칼럼 있으면, 해당 조인할 테이블 타입으로 변수선언해주고 초기화만 시켜준다
 											// 밑에 트라이1에서 객체생성후 본테이블에 있는 칼럼명들 적어주고, 트라이2에서 조인할 테이블에 있는 칼럼명 적어준다
@@ -104,7 +105,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		}
 
 		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, gender, hpNo,
-				dayNightShift, subject1, subject2, subject3, total, avg);
+				dayNightShift, subject1, subject2, subject3, total, avg, pic);
 	}
 
 	@Override
@@ -112,7 +113,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 
 		String sql = "select stdNo, " + " stdName, " + "deptCode, " + "deptName, " + "grade, " + "stateCode, "
 				+ "stateName, " + "militaryCode, " + "militaryName, " + "idNo, " + "gender, " + "hpNo, "
-				+ "dayNightShift, " + "subject1, " + "subject2, " + "subject3, " + "total, " + "avg "
+				+ "dayNightShift, " + "subject1, " + "subject2, " + "subject3, " + "total, " + "avg, " + "pic"
 				+ "from vw_full_studentdata where stdNo = ?";
 		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setInt(1, studentData.getStdNo());
@@ -135,7 +136,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		// stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo,
 		// dayNightShift
 
-		String sql = "insert into StudentData values " + "( ?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into StudentData values " + "( ?,?,?,?,?,?,?,?,?,?)";
 		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			pstmt.setInt(1, studentData.getStdNo());
@@ -147,6 +148,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 			pstmt.setString(7, studentData.getIdNo());
 			pstmt.setString(8, studentData.getHpNo());
 			pstmt.setString(9, studentData.getDayNightShift());
+			pstmt.setString(10, studentData.getPic());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -159,21 +161,24 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 	@Override
 	public int updateStudentData(StudentData studentData) {
 		String sql = "update studentData set stdNo = ?, " + "stdName= ?, " + "deptCode= ?, " + "grade= ?, "
-				+ "stateCode=?, " + "militaryCode=?, " + "idNo=?, " + "hpNo=?, " + "dayNightShift=? "
-				+ "where stdNo = ?";
+				+ "stateCode=?, " + "militaryCode=?, " + "idNo=?, " + "hpNo=?,  " + " dayNightShift=?, "+ " pic = ?"
+				+ " where stdNo = ?";
 
 		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			pstmt.setInt(1, studentData.getStdNo());
 			pstmt.setString(2, studentData.getStdName());
+			System.out.println(1);
 			pstmt.setString(3, studentData.getStdDepartment().getDeptCode()); /////////////////////// 형변환 안해도된다!!!
+			System.out.println(2);
 			pstmt.setInt(4, studentData.getGrade());//////////////////
 			pstmt.setString(5, studentData.getStdState().getStateCode());
 			pstmt.setString(6, studentData.getMilitaryState().getMilitaryCode());
 			pstmt.setString(7, studentData.getIdNo());
 			pstmt.setString(8, studentData.getHpNo());
 			pstmt.setString(9, studentData.getDayNightShift());
-			pstmt.setInt(10, studentData.getStdNo());
+			pstmt.setString(10, studentData.getPic());
+			pstmt.setInt(11, studentData.getStdNo());
 			System.out.println(pstmt); // 중요!!! 에러뜰때 활용해서 디비버에서 수행해보면 뭐가문젠지 알수있다!!!!!!!!!!!
 			return pstmt.executeUpdate();
 
@@ -199,7 +204,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 
 	@Override
 	public List<StudentData> SelectStudentBy4(StudentData studentData) {
-		String sql = "select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg from vw_full_studentdata  "
+		String sql = "select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic from vw_full_studentdata  "
 				+ "where dayNightShift =  ? and deptCode =  ? and  grade = ? and stateCode = ?";
 
 		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -254,7 +259,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg " + " from vw_full_studentdata "
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata "
 				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();

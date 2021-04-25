@@ -49,7 +49,7 @@ public class StudentDataDaoTest {
 	public void test03InsertStudentData() {
 		System.out.printf("%s()%n","test03InsertStudentData");
 		//update studentdata  set stdNo = 17010013, stdName= '김예진2', deptCode='3', grade='2', stateCode='hla', militaryCode='y2c', idNo='970828*******', hpNo='010-9566-0477', dayNightShift='야간'; 
-		StudentData newStudentData = new StudentData(17010013,"김예진",new StdDepartment("1"),2,new StdState("hlb"),new MilitaryState("y2a"),"960828*******","010-9566-0476","야간");
+		StudentData newStudentData = new StudentData(17010111,"김예진",new StdDepartment("1"),2,new StdState("hlb"),new MilitaryState("y2a"),"960828*******","010-9566-0476","야간"," ㄴㄴㄴ");
 		int res = studentDataDao.insertStudentData(newStudentData);
 		Assert.assertEquals(1, res);
 		studentDataDao.selectStudentDataByAll().stream().forEach(System.out::println);
@@ -60,7 +60,7 @@ public class StudentDataDaoTest {
 	public void test04UpdateStudentData() {
 		System.out.printf("%s()%n","test04UpdateStudentData");
 		//update studentdata  set stdNo = 17010013, stdName= '김예진2', deptCode='3', grade='2', stateCode='hla', militaryCode='y2c', idNo='970828*******', hpNo='010-9566-0477', dayNightShift='야간'; 
-		StudentData updateStudentData = new StudentData(17010013,"김예진2",new StdDepartment("2"),3,new StdState("hla"),new MilitaryState("y2c"),"970828*******","010-9566-0477","주간");
+		StudentData updateStudentData = new StudentData(17010111,"김예진2",new StdDepartment("2"),3,new StdState("hla"),new MilitaryState("y2c"),"970828*******","010-9566-0477","주간"," ㄴㄴㅂㅂㅂㅁㅁㅁㅁㄴ");
 		int res = studentDataDao.updateStudentData(updateStudentData);
 		Assert.assertEquals(1, res);
 		studentDataDao.selectStudentDataByAll().stream().forEach(System.out::println);

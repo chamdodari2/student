@@ -6,6 +6,8 @@ select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, military
 where
 
 select * from studentdata;
+
+
 select  * from stddepartment ;
 select deptCode, deptName from stddepartment;
 select *from department;
