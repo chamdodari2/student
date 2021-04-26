@@ -8,9 +8,7 @@ select * from studentdata;
 
 17010013,"김예진",new StdDepartment("1"),2,new StdState("hlb"),new MilitaryState("y2a"),"960828*******","010-9566-0476","야간"," ㄴㄴㄴ");
 
-
-
-
+select * from  vw_full_studentdata where stdNo = 20020029;
 
  --  뷰 검색 조건넣어서
 select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg

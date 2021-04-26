@@ -22,7 +22,7 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 			throw new NotSelectedException();
 		}
 		int stdNo =(int)table.getValueAt(row, 0);
-		System.out.println("ㅇㄹㄴㅇㄹㅇㄴ"+list.get(list.indexOf(new StudentData(stdNo))));
+		System.out.println(""+list.get(list.indexOf(new StudentData(stdNo))));
 		return list.get(list.indexOf(new StudentData(stdNo)));
 		
 	}
@@ -36,15 +36,15 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 	@Override
 	protected void setAlignAndWidth() {
 		// 컬럼내용 정렬
-		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6);
+		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7);
 			// 컬럼별 너비 조정
-			setTableCellWidth(100, 250);
+			setTableCellWidth(100, 100,100,100,100,100,100);
 	}
 
 	@Override
 	public Object[] toArray(StudentData t) {
 		
-		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString2(),t.getGrade(),t.getStdState().toString2(),t.getMilitaryState().toString2(),t.getDayNightShift(), t.getPic()};
+		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString2(),t.getGrade(),t.getStdState().toString2(),t.getMilitaryState().toString2(),t.getDayNightShift(), t.toString7()};
 	}
 
 	@Override

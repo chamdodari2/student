@@ -24,6 +24,8 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 	private StudentDataService service;
 	private AddStudentDataPanel panel;
 	private JButton btnClear;
+	private AddStudentPicPanel pPic;
+	private StudentData pic = new StudentData();
 
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
@@ -42,6 +44,13 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 		initialize();
 
 	}
+	
+	public void setItem(StudentData item) {
+		
+	//	pPic.setItem(item);
+		
+	}
+	
 
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -49,13 +58,13 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setTitle("학생 상세정보 조회 / 수정");
+		setTitle("학생 추가");
 		contentPane.setLayout(new BorderLayout(-10, 10));
 
-		AddStudentPicPanel panel_1 = new AddStudentPicPanel();
-		BorderLayout borderLayout = (BorderLayout) panel_1.getLayout();
-		borderLayout.setVgap(10);
-		contentPane.add(panel_1, BorderLayout.WEST);
+		pPic = new AddStudentPicPanel();
+		BorderLayout bl_pPic = (BorderLayout) pPic.getLayout();
+		bl_pPic.setVgap(10);
+		contentPane.add(pPic, BorderLayout.WEST);
 
 		panel = new AddStudentDataPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -89,6 +98,7 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 
 	protected void actionPerformedbtnAdd(ActionEvent e) {
 		StudentData stdData = panel.getItem();
+		stdData.setPic(pPic.getString1());
 		service.addStudentData(stdData);
 		// pList.loadData();
 		panel.clearTf();

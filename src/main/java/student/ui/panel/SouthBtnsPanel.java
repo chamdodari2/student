@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 
 public class SouthBtnsPanel extends JPanel implements ActionListener {
 	private JButton btnAddStd;
-	private JButton btnNewButton;
 
 
 	public SouthBtnsPanel() {
@@ -33,17 +32,9 @@ public class SouthBtnsPanel extends JPanel implements ActionListener {
 		btnAddStd.addActionListener(this);
 		btnAddStd.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_1.add(btnAddStd);
-		
-		btnNewButton = new JButton("돌아가기");
-		btnNewButton.addActionListener(this);
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
-		panel_1.add(btnNewButton);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnNewButton) {
-			actionPerformedBtnNewButton(e);
-		}
 		if (e.getSource() == btnAddStd) {
 			actionPerformedBtnAddStd(e);
 		}
@@ -51,9 +42,6 @@ public class SouthBtnsPanel extends JPanel implements ActionListener {
 	protected void actionPerformedBtnAddStd(ActionEvent e) {
 		StudentDataAddFram02 frame = new StudentDataAddFram02();
 		frame.setVisible(true);
-		
-	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
 		
 	}
 }

@@ -78,6 +78,7 @@ public class StudentScoreDaoImpl implements StudentScoreDao {
 	public int insertStudentScore(StudentScore studentScore) { // 학생정보 입력하면 이 메소드 호출하게 해야하지않을까?? 신입생 들어오면 점수입력안된애
 																// 구분할수있어야하니까 일단 학생추가시 점수도 자동으로 추가되고 점수없음또는 ""로 초기화해주기
 		String sql = "insert into studentscore values (?, ?, ? ,?)";
+		
 		try(Connection con = JdbcConn.getConnection(); PreparedStatement pstmt =con.prepareStatement(sql)){
 			pstmt.setInt(1, studentScore.getStudentData().getStdNo());
 			pstmt.setInt(2, studentScore.getStudentData().getSubject1());

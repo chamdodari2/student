@@ -45,7 +45,7 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 	}
 
 	private void initialize() {
-		setTitle("성적조회/ 관리");
+		setTitle("학생 성적조회 / 관리");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(550, 100, 966, 606);
 		contentPane = new JPanel();
@@ -70,7 +70,7 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		panel_1.setToolTipText("");
 		panel.add(panel_1, BorderLayout.SOUTH);
 
-		JLabel lblNewLabel = new JLabel("※ 우클릭하시면 성적수정이 가능합니다.");
+		JLabel lblNewLabel = new JLabel("※ 학생 선택후 우클릭하시면 성적수정이 가능합니다.");
 		lblNewLabel.setForeground(Color.RED);
 		panel_1.add(lblNewLabel);
 
@@ -102,9 +102,9 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		JPanel panel_2 = new JPanel();
 		pStdListAndBtns.add(panel_2);
 		
-		btnNewButton = new JButton("돌아가기");
+		btnNewButton = new JButton("메인으로");
 		btnNewButton.addActionListener(this);
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_2.add(btnNewButton);
 	}
 

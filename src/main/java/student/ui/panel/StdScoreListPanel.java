@@ -36,7 +36,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 		// 컬럼내용 정렬
 		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7,8,9);
 			// 컬럼별 너비 조정
-			setTableCellWidth(100, 250);
+			setTableCellWidth(100, 100,100,100,100,100,100,100,100);
 	}
 ///////////////////////////////////내용(학번당 ,성적) 담기
 	@Override

@@ -109,7 +109,7 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 		//stdData.setPic(pic);
 	//	stdData.getPic();
 	//	System.out.println("get pic>>>> "+stdData.getPic());
-;
+
 		JOptionPane.showMessageDialog(null, stdData + "  수정했습니다.");
 		dispose();
 		

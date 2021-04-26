@@ -1,6 +1,7 @@
 package student.ui.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
@@ -19,6 +20,7 @@ import student.dto.StudentScore;
 import student.service.StudentDataService;
 import student.ui.content.AbstractContentPanel;
 import student.ui.exception.InvalidChechException;
+import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
 public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
@@ -64,6 +66,10 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		pLeft.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_4 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_4.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		flowLayout.setVgap(20);
+		flowLayout.setHgap(10);
 		pLeft.add(panel_4);
 		
 		JLabel lblStdDept = new JLabel("학     과");
@@ -72,10 +78,15 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		panel_4.add(lblStdDept);
 		
 		cbStdDept = new JComboBox<StdDepartment>();
+		cbStdDept.setPreferredSize(new Dimension(110,20));
 		cbStdDept.setEnabled(false);
 		panel_4.add(cbStdDept);
 		
 		JPanel panel_7 = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) panel_7.getLayout();
+		flowLayout_1.setAlignment(FlowLayout.LEFT);
+		flowLayout_1.setVgap(20);
+		flowLayout_1.setHgap(10);
 		pLeft.add(panel_7);
 		
 		JLabel lblGrade = new JLabel("학     년");
@@ -84,11 +95,16 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		panel_7.add(lblGrade);
 		
 		cbGrade = new JComboBox<>();
+		cbGrade.setPreferredSize(new Dimension(110,20));
 		cbGrade.setEnabled(false);
 		cbGrade.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4"}));
 		panel_7.add(cbGrade);
 		
 		JPanel panel_8 = new JPanel();
+		FlowLayout flowLayout_2 = (FlowLayout) panel_8.getLayout();
+		flowLayout_2.setAlignment(FlowLayout.LEFT);
+		flowLayout_2.setVgap(20);
+		flowLayout_2.setHgap(10);
 		pLeft.add(panel_8);
 		
 		JLabel lblDayNightShift = new JLabel("주야구분");
@@ -97,11 +113,16 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		panel_8.add(lblDayNightShift);
 		
 		cbDayNightShift = new JComboBox<>();
+		cbDayNightShift.setPreferredSize(new Dimension(110,20));
 		cbDayNightShift.setEnabled(false);
 		cbDayNightShift.setModel(new DefaultComboBoxModel(new String[] {"", "주간", "야간"}));
 		panel_8.add(cbDayNightShift);
 		
 		JPanel panel_2 = new JPanel();
+		FlowLayout flowLayout_3 = (FlowLayout) panel_2.getLayout();
+		flowLayout_3.setAlignment(FlowLayout.LEFT);
+		flowLayout_3.setVgap(20);
+		flowLayout_3.setHgap(10);
 		pLeft.add(panel_2);
 		
 		JLabel lblStdNo = new JLabel("학     번");
@@ -115,10 +136,14 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		tfStdNo.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
+		FlowLayout flowLayout_4 = (FlowLayout) panel_3.getLayout();
+		flowLayout_4.setAlignment(FlowLayout.LEFT);
+		flowLayout_4.setVgap(20);
+		flowLayout_4.setHgap(10);
 		pLeft.add(panel_3);
 		
 		JLabel lblName = new JLabel("이     름");
-		lblName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
 		lblName.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_3.add(lblName);
 		
@@ -132,6 +157,10 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		pRight.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
+		FlowLayout flowLayout_5 = (FlowLayout) panel_1.getLayout();
+		flowLayout_5.setVgap(20);
+		flowLayout_5.setHgap(10);
+		flowLayout_5.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_1);
 		
 		JLabel lblSubject1 = new JLabel("1 과  목");
@@ -140,32 +169,49 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		panel_1.add(lblSubject1);
 		
 		tfSubject1 = new JTextField();
+		tfSubject1.setHorizontalAlignment(SwingConstants.CENTER);
 		tfSubject1.setColumns(10);
 		panel_1.add(tfSubject1);
 		
 		JPanel panel_5 = new JPanel();
+		FlowLayout flowLayout_6 = (FlowLayout) panel_5.getLayout();
+		flowLayout_6.setVgap(20);
+		flowLayout_6.setHgap(10);
+		flowLayout_6.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_5);
 		
-		JLabel lblSubject2 = new JLabel("1 과  목");
+		JLabel lblSubject2 = new JLabel("2 과  목");
 		lblSubject2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSubject2.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_5.add(lblSubject2);
 		
 		tfSubject2 = new JTextField();
+		tfSubject2.setHorizontalAlignment(SwingConstants.CENTER);
 		tfSubject2.setColumns(10);
 		panel_5.add(tfSubject2);
 		
 		JPanel panel_6 = new JPanel();
+		FlowLayout flowLayout_7 = (FlowLayout) panel_6.getLayout();
+		flowLayout_7.setVgap(20);
+		flowLayout_7.setHgap(10);
+		flowLayout_7.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_6);
 		
-		JLabel lblSubject3 = new JLabel("1 과  목");
+		JLabel lblSubject3 = new JLabel("3 과  목");
 		lblSubject3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSubject3.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_6.add(lblSubject3);
 		
 		tfSubject3 = new JTextField();
+		tfSubject3.setHorizontalAlignment(SwingConstants.CENTER);
 		tfSubject3.setColumns(10);
 		panel_6.add(tfSubject3);
+		
+		JPanel panel_9 = new JPanel();
+		pRight.add(panel_9);
+		
+		JPanel panel_10 = new JPanel();
+		pRight.add(panel_10);
 	}
 
 	@Override

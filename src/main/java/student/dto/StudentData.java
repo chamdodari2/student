@@ -364,9 +364,9 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	}
 	
 	
-	
-	public String toString7() {
-		return String.format("%s",stdNo);
+	@Override
+	public String toString() {
+		return String.format("%s(%s)",stdNo,stdName);
 	}
 	public String toString3() {
 		return String.format("%s",dayNightShift);
@@ -389,11 +389,15 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 				"%.1f",avg );
 	}
 
-	@Override
-	public String toString() {
-		return String.format("StudentData [pic=%s]", pic);
+	
+	public String toString7() {
+		if(pic!=null) {	
+		return String.format("O");
+	}else {
+		return String.format("X");
+				}
 	}
 	
-	
-
 }
+
+

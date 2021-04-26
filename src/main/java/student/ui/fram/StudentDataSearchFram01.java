@@ -100,6 +100,14 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 		SouthBtnsPanel South_Btns_Panel = new SouthBtnsPanel();
 		pStdListAndBtns.add(South_Btns_Panel);
 		South_Btns_Panel.setLayout(new BoxLayout(South_Btns_Panel, BoxLayout.X_AXIS));
+		
+		JPanel panel_2 = new JPanel();
+		pStdListAndBtns.add(panel_2);
+		
+		btnNewButton = new JButton("메인으로");
+		btnNewButton.addActionListener(this);
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
+		panel_2.add(btnNewButton);
 	}
 
 	private JPopupMenu  createPopupMenu() {// 우클릭시 팝업메뉴 뜨게하기!
@@ -148,13 +156,20 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 		}
 
 	};
+	private JButton btnNewButton;
 
 	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton) {
+			actionPerformedBtnNewButton(e);
+		}
 		// TODO Auto-generated method stub
 		
 	}
 
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		dispose();
+	}
 }
