@@ -1,6 +1,14 @@
 desc studentdata ;
 
-select stdNo, subject1, subject2, subject3 from studentscore 
+INSERT INTO studentscore
+(stdNo, subject1, subject2, subject3)
+VALUES(17010044, 0, 0, 0);
+
+
+VALUES(2222, 0, 0, 0) where stdNo = (select stdNo from studentdata where stdNo=2222);
+
+
+select stdNo, subject1, subject2, subject3 from studentscore ;
 where stdNo=(select stdNo from studentdata  where stdNo = 17010012);
 
 select stdNo, subject1, subject2, subject3 from studentscore where stdNo=(select stdNo from studentdata  where stdNo = 17010012);
@@ -23,7 +31,7 @@ selec
 -- insert문
 
 insert into StudentData values (
-'170100613','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간','test주소');
+'17010044','김예진','1',2,'hlb','y2a','960828*******','010-9566-0476','주간','test주소');
 
 
 select * from studentdata;

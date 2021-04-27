@@ -75,15 +75,16 @@ public class StudentScoreDaoImpl implements StudentScoreDao {
 	}
 
 	@Override
-	public int insertStudentScore(StudentScore studentScore) { // 학생정보 입력하면 이 메소드 호출하게 해야하지않을까?? 신입생 들어오면 점수입력안된애
+	public int insertStudentScore(int stdNo) { // 학생정보 입력하면 이 메소드 호출하게 해야하지않을까?? 신입생 들어오면 점수입력안된애
 																// 구분할수있어야하니까 일단 학생추가시 점수도 자동으로 추가되고 점수없음또는 ""로 초기화해주기
-		String sql = "insert into studentscore values (?, ?, ? ,?)";
-		
+	//	String sql = "insert into studentscore values (?, ?, ? ,?)";
+		String sql = "insert into studentscore values (?, 0, 0 ,0)";
 		try(Connection con = JdbcConn.getConnection(); PreparedStatement pstmt =con.prepareStatement(sql)){
-			pstmt.setInt(1, studentScore.getStudentData().getStdNo());
-			pstmt.setInt(2, studentScore.getStudentData().getSubject1());
-			pstmt.setInt(3, studentScore.getStudentData().getSubject2());
-			pstmt.setInt(4, studentScore.getStudentData().getStdNo());
+			pstmt.setInt(1, stdNo);
+			System.out.println("stdNo.getStdNo()>>>"+stdNo);
+//			pstmt.setInt(2, studentScore.getStudentData().getSubject1());
+//			pstmt.setInt(3, studentScore.getStudentData().getSubject2());
+//			pstmt.setInt(4, studentScore.getStudentData().getStdNo());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 		

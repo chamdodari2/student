@@ -100,6 +100,7 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 		StudentData stdData = panel.getItem();
 		stdData.setPic(pPic.getString1());
 		service.addStudentData(stdData);
+		service.addStudentScore(stdData.getStdNo());
 		// pList.loadData();
 		panel.clearTf();
 		JOptionPane.showMessageDialog(null, stdData + " 추가했습니다.");

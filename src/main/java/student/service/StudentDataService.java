@@ -65,8 +65,8 @@ public class StudentDataService {
 
 	}
 
-	public void addStudentScore(StudentScore studentScore) {
-		studentScoreDao.insertStudentScore(studentScore);
+	public void addStudentScore(int stdNo) {
+		studentScoreDao.insertStudentScore(stdNo);
 	}
 //sel by
 	public StudentData showStudentDatasByNo(StudentData studentData) {
