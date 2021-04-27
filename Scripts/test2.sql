@@ -1,4 +1,5 @@
 desc studentdata ;
+desc users ;
 select * from studentscore;
 select * from users;
 

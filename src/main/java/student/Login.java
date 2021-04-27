@@ -101,19 +101,27 @@ public class Login extends JFrame implements ActionListener {
 	@SuppressWarnings("deprecation")
 	protected void actionPerformedBtnLogin(ActionEvent e) {
 		
-		if(tfId.getText().equals("210430")) {
-		if(tfPass.getText().equals("rootroot")) {
-			JOptionPane.showMessageDialog(null, "관리자 권한으로 로그인하셨습니다.");
+		if(tfId.getText().equals("210430")) {					//관리자 아이디고
+		if(tfPass.getText().equals("rootroot")) {					//관리자 비번이면
+			JOptionPane.showMessageDialog(null, "관리자 권한으로 로그인하셨습니다.");		//학생관리 메인띄움
 			Main frame = new Main();
 			frame.setVisible(true);
 			
+		}else{
+			
+			JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다."); 		//관리자 아이디인데 비번 틀리면  틀렸다고 말함
 		}
-		}else if(tfId.getText().equals("")||tfPass.getText().equals("")) {
+			
+			
+			
+		}else if(tfId.getText().equals("")||tfPass.getText().equals("")) {		//공백 존재하면 공백 존재한다고 하기
 			System.out.println("공백존재");
 			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
 		}else if(tfId.getText().equals("")||tfPass.getText().equals("")) {
 			System.out.println("공백존재");
 			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
+		}else {															//공백 아니고 관리자아디랑 비번도 안맞으면 틀렸다고 할건데, 앞으로는 학생아이디인지 비교해야함 이 위에 학생이랑 비교하는거 추가하면 되고 얘는 걍 두면 된당
+			JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
 		}
 	}
 }
