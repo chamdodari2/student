@@ -132,7 +132,7 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 
 				if (e.getActionCommand().equals("삭제")) { //삭제 누르면
 					StudentData delStudent = pStdList.getItem();
-					System.out.println(delStudent);
+				
 					service.removeStudentData(delStudent);
 					pStdList.loadData();
 					JOptionPane.showMessageDialog(null, delStudent + " 삭제하셨습니다.");
@@ -140,13 +140,14 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 				}
 				if (e.getActionCommand().equals("상세정보 조회 및 수정")) {
 					StudentData updaStudentData = pStdList.getItem();
-					System.out.println("updaStudentData");
+					
 					StudentDataUpdateFram03 frame = new StudentDataUpdateFram03();
 					
 					frame.setItem(updaStudentData);///////////////////////업데이트 프레임에서
+					//pStdList.loadData();
 					frame.setVisible(true);
 					
-				}
+				}	
 			}catch (NotSelectedException | SqlConstraintException e2) {
 				JOptionPane.showMessageDialog(null, e2.getMessage());
 			} catch (Exception e2) {
