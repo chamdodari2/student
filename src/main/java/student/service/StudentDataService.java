@@ -29,6 +29,10 @@ public class StudentDataService {
 	public List<StudentData> showStudentDatas() {
 		return studentDataDao.selectStudentDataByAll();
 	}
+	public List<StudentData> showStudentScoreDatas() {
+		return studentDataDao.selectStudentScoreByAll();
+	}
+	
 
 	public List<MilitaryState> showMilitaryStates() {
 		return militaryStateDao.selectMilitaryStateByAll();
@@ -78,6 +82,9 @@ public class StudentDataService {
 	return studentDataDao.SelectStudentByWhere(where);
 	}	
 
+	public List<StudentData> showStudentScoreByWhere(String where) {
+	return studentDataDao.SelectStudentScoreByWhere(where);
+	}	
 	////////////////학번으로 성적리스트 검색
 	
 	public List<StudentScore> showStudentScoreListByStdNo(StudentData studentData){

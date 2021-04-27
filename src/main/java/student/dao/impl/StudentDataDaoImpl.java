@@ -36,7 +36,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic " + " from vw_full_studentdata";
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic " + " from vw_full_studentdata order by deptName  ";  //학과 내림차순 정렬
 
 		try (Connection con = JdbcConn.getConnection(); // 기존 db연결용 Connection클래스를 이용해서, dbproperties 파일에 있는 url키의 벨류인
 														// db주소 읽어서 연결
@@ -259,7 +259,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata "
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata  "
 				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();
@@ -282,7 +282,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 
 	@Override
 	public List<StudentScore> selectStudentScoreListByStdNo(StudentData studentData) {
-		String sql = "select stdNo, subject1, subject2, subject3 from studentscore "
+		String sql = "select stdNo, subject1, subject2, subject3 from studentscore  "
 				+ "where stdNo=(select stdNo from studentdata  where stdNo = ?)";
 		try (Connection con = JdbcConn.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setInt(1, studentData.getStdNo());
@@ -334,6 +334,61 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 					e.printStackTrace();
 				}
 		return new StudentScore(stdNo, subject1, subject2, subject3);
+	}
+
+	@Override
+	public List<StudentData> SelectStudentScoreByWhere(String where) {
+		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
+				+ " stateName, " // sql문
+				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata order by total desc "
+				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
+		System.out.println(sql);
+		try (Connection con = JdbcConn.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if (rs.next()) {
+				List<StudentData> list = new ArrayList<StudentData>();
+				do {
+					list.add(getStudentData(rs));
+				} while (rs.next());
+				return list;
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<StudentData> selectStudentScoreByAll() {
+		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
+				+ " stateName, " // sql문
+				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic " + " from vw_full_studentdata order by total desc";
+
+		try (Connection con = JdbcConn.getConnection(); // 기존 db연결용 Connection클래스를 이용해서, dbproperties 파일에 있는 url키의 벨류인
+														// db주소 읽어서 연결
+				PreparedStatement pstmt = con.prepareStatement(sql); // db에 연결된상태에서 sql문 던져주기1
+				ResultSet rs = pstmt.executeQuery()) { // 던져주기2
+
+			if (rs.next()) { // 출력할 있다면 -> StudentData클래스의 모든 변수들을 담을수있는 리스트를 어레이리스트로 변환
+				List<StudentData> list = new ArrayList<>();
+				do {
+					list.add(getStudentData(rs)); // 만든 리스트에 하나씩 추가하기(rs를 매개변수로 넣어서) getStudentData()메소드 호출해서, 그 메소드에서
+													// 정해준거 넣을거임
+
+				} while (rs.next());
+				return list;
+			}
+			// 예외처리
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 	
 	/*

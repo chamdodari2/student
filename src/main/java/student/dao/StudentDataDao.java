@@ -8,6 +8,7 @@ import student.dto.StudentScore;
 public interface StudentDataDao {
 	
 	List<StudentData> selectStudentDataByAll();   //조건없이 학생정보 테이블 모두 조회하기
+	List<StudentData> selectStudentScoreByAll();   //조건없이 학생정보 테이블 모두 조회하기
 	
 	StudentData selectStudentDataByNo(StudentData studentData);  //학생테이블을 조건으로 검색하기(dto에 있는 변수중 아무거나 가능!)  
 	StudentScore selectStudentScoreByNo(StudentData studentData);
@@ -26,6 +27,7 @@ public interface StudentDataDao {
 	
 	 Object[] ComboListSelect(String table, String where);   
 	 List<StudentData> SelectStudentByWhere(String where);
+	 List<StudentData> SelectStudentScoreByWhere(String where);
 	
 	
 

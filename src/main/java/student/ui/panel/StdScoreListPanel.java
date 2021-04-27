@@ -27,7 +27,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 
 	@Override
 	public void initList() { ///////////여기서  성적리스트 메서드 출력행햐ㅏ는거 아잉가
-	list = service.showStudentDatas();		
+	list = service.showStudentScoreDatas();		
 	}
 	
 
@@ -75,7 +75,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	
 	//////////////////////////////loadData
 	public void loadData2(String where) {
-		list =service.showStudentDataByWhere(where);
+		list =service.showStudentScoreByWhere(where);
 		setList();
 	}
 	

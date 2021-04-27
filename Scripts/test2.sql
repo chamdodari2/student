@@ -1,4 +1,30 @@
 desc studentdata ;
+select * from studentscore;
+select * from users;
+
+select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic from vw_full_studentdata order by total desc;
+select stdNo,subject1,subject2,subject3,total,avg from vw_studentscore order by total desc;
+
+
+-- root 계정주기
+
+insert into users values (210430,password('rootroot'),true);
+
+-- https://juyoung-1008.tistory.com/17
+-- 컬럼 추가하기 (성적과목)
+alter table studentscore add column '과목4' int(3) default 0 after '과목3';
+
+-- 칼럼 삭제
+alter table studentscore drop column '과목4';
+
+-- 성적 뷰 만들기
+create or replace view vw_studentScore
+as
+select stdNo,subject1,subject2,subject3,(subject1+subject2+subject3) as 'total',
+	((subject1+subject2+subject3)/3) as 'avg' from studentscore ;
+
+
+select * from vw_full_studentdata order by total;
 
 INSERT INTO studentscore
 (stdNo, subject1, subject2, subject3)

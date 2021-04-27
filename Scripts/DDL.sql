@@ -1,6 +1,15 @@
 -- student
 CREATE SCHEMA student;
 
+-- 관리자 계정   -- id varchar로 수정하기
+CREATE TABLE student.users ( 
+	id   int(20)     NOT NULL COMMENT '아이디', -- 아이디
+	pass   CHAR(41)     NOT NULL COMMENT '비밀번호', -- 비밀번호
+	grants   boolean  NOT NULL COMMENT '권한유무' -- 권한유무
+)COMMENT '관리자 계정';
+
+
+
 -- 병역
 CREATE TABLE student.militaryState (
 	militaryCode VARCHAR(3) NOT NULL COMMENT '병역코드', -- 병역코드
