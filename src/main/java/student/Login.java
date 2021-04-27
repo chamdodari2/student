@@ -1,23 +1,25 @@
 package student;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
+
+import student.service.StudentDataService;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -25,6 +27,10 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField tfId ;
 	private JPasswordField tfPass;
 	private JButton btnLogin;
+	
+	private StudentDataService service;
+	
+	
 
 	
 	public static void main(String[] args) {
@@ -42,6 +48,7 @@ public class Login extends JFrame implements ActionListener {
 
 
 	public Login() {
+		service = new StudentDataService();
 		initialize();
 	}
 	private void initialize() {
@@ -120,6 +127,12 @@ public class Login extends JFrame implements ActionListener {
 		}else if(tfId.getText().equals("")||tfPass.getText().equals("")) {
 			System.out.println("공백존재");
 			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
+		}else if(!tfId.getText().equals("")&&!tfPass.getText().equals("")) { //공백이 아니면 비교하기시작하장
+				String a =tfId.getText().trim();
+				String b = tfPass.getText().trim(); //입력받은거 가져와서 저장,
+				//이제 검색해야하는디
+				
+			System.out.println();
 		}else {															//공백 아니고 관리자아디랑 비번도 안맞으면 틀렸다고 할건데, 앞으로는 학생아이디인지 비교해야함 이 위에 학생이랑 비교하는거 추가하면 되고 얘는 걍 두면 된당
 			JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
 		}
