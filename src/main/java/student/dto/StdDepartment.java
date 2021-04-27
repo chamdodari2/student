@@ -95,7 +95,7 @@ public class StdDepartment {
 	@Override
 	public String toString() {
 		if(deptCode != null) {
-		return String.format("%s(%s)", deptName, deptCode);
+		return String.format("%s", deptName);
 		}else { 
 			return String.format("");
 		}

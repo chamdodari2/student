@@ -108,7 +108,7 @@ public class StdState  { //기본정렬을 학번으로 한다는뜻
 	@Override
 	public String toString() {
 		if(stateCode!=null) {
-		return String.format("%s(%s)",stateName,stateCode);
+		return String.format("%s",stateName);
 		}else {
 			return String.format("");
 		}

@@ -44,7 +44,7 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 	@Override
 	public Object[] toArray(StudentData t) {
 		
-		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString2(),t.getGrade(),t.getStdState().toString2(),t.getMilitaryState().toString2(),t.getDayNightShift(), t.toString7()};
+		return new Object[] {t.getStdNo(),t.getStdName(),t.getStdDepartment().toString(),t.getGrade(),t.getStdState().toString(),t.getMilitaryState().toString(),t.getDayNightShift(), t.toString7()};
 	}
 
 	@Override

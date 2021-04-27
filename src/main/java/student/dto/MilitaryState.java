@@ -77,7 +77,7 @@ public class MilitaryState {
 	@Override
 	public String toString() {
 		if(militaryCode!=null) {
-		return String.format("%s(%s)", militaryName, militaryCode);
+		return String.format("%s", militaryName);
 		}else {
 			return String.format("");
 		}

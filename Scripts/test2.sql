@@ -1,3 +1,5 @@
+desc studentdata ;
+
 select stdNo, subject1, subject2, subject3 from studentscore 
 where stdNo=(select stdNo from studentdata  where stdNo = 17010012);
 

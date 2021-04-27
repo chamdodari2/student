@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import student.dto.StudentData;
 import student.service.StudentDataService;
+import student.ui.exception.InvalidChechException;
 import student.ui.panel.AddStudentPicPanel;
 import student.ui.panel.UpdateStudentDataPanel;
 
@@ -91,11 +92,15 @@ public class StudentDataUpdateFram03 extends JFrame implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		try {
 		if (e.getSource() == btnClear) {
 			actionPerformedBtnClear(e);
 		}
 		if (e.getSource() == btnUpdate) {
 			actionPerformedbtnUpdate(e);
+		}
+		} catch (InvalidChechException e1) {
+			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
 		}
 	}
 	protected void actionPerformedbtnUpdate(ActionEvent e) { //수정 버튼을 누르면
