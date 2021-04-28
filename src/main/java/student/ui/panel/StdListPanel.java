@@ -38,7 +38,7 @@ public class StdListPanel extends AbstractCustomTablePanel<StudentData> {
 		// 컬럼내용 정렬
 		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7);
 			// 컬럼별 너비 조정
-			setTableCellWidth(100, 100,100,100,100,100,100);
+			setTableCellWidth(100,100,100,20,20,20,20,20);
 	}
 
 	@Override

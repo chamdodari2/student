@@ -76,7 +76,7 @@ public class StudentDataService {
 	public StudentData showStudentDatasByNo(StudentData studentData) {
 		return studentDataDao.selectStudentDataByNo(studentData);
 		}
-	//////////////
+	//////////////where 조건으로 검색
 	
 	public List<StudentData> showStudentDataByWhere(String where) {
 	return studentDataDao.SelectStudentByWhere(where);

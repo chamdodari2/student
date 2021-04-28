@@ -260,7 +260,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
 				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata  "
-				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
+				+ where + " order by deptName "; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
@@ -338,11 +338,8 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 
 	@Override
 	public List<StudentData> SelectStudentScoreByWhere(String where) {
-		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
-				+ " stateName, " // sql문
-				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic" + " from vw_full_studentdata order by total desc "
-				+ where; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
+		String sql = " select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic "
+				   + " from vw_full_studentData " + where + "  order by total desc "; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);

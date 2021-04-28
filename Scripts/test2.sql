@@ -1,10 +1,15 @@
 desc studentdata ;
 desc users ;
-select * from studentscore;
+select * from vw_studentscore;
 select * from users;
 
-select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic from vw_full_studentdata order by total desc;
-select stdNo,subject1,subject2,subject3,total,avg from vw_studentscore order by total desc;
+
+select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic 
+from vw_full_studentData  where stateCode = 'hla' order by total desc;
+
+select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic 
+from vw_full_studentdata order by total desc;
+select stdNo,subject1,subject2,subject3,total,avg from vw_studentscore order by total desc where ;
 
 
 -- root 계정주기
@@ -25,7 +30,7 @@ select stdNo,subject1,subject2,subject3,(subject1+subject2+subject3) as 'total',
 	((subject1+subject2+subject3)/3) as 'avg' from studentscore ;
 
 
-select * from vw_full_studentdata order by total;
+select * from vw_full_studentdata order by total desc;
 
 INSERT INTO studentscore
 (stdNo, subject1, subject2, subject3)

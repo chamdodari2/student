@@ -97,7 +97,7 @@ public class StudentScore {
 
 	@Override
 	public String toString() {
-		return String.format("%s  1과목 : %s점, 2과목 : %s점, 3과목 : %s점 ", studentData.getStdNo(),
+		return String.format("%s의  국어 : %s점, 영어 : %s점, 수학 : %s점 ", studentData.getStdNo(),
 				subject1, subject2, subject3);
 	}
 	

@@ -34,9 +34,9 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	@Override
 	protected void setAlignAndWidth() {
 		// 컬럼내용 정렬
-		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7,8,9);
+		setTableCellAlign(SwingConstants.CENTER, 0, 1,2,3,4,5,6,7,8,9,10);
 			// 컬럼별 너비 조정
-			setTableCellWidth(100, 100,100,100,100,100,100,100,100);
+			setTableCellWidth(100, 100,20,100,50,50,50,50,50,20,20);
 	}
 ///////////////////////////////////내용(학번당 ,성적) 담기
 	@Override
@@ -61,7 +61,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	}
 	//	System.out.printf("과목 1 : %d 과목2 : %d 과목 3 :%d",t.getSubject1(),t.getSubject2(),t.getSubject3()); // 모든 학번 출력된다.
 		return  new Object[] {
-				t.getStdNo(),t.getStdName(),t.getStdDepartment().getDeptName(),t.getSubject1(),t.getSubject2(),t.getSubject3(),t.getTotal(),t.toString5(),abc,s
+				t.getStdNo(),t.getStdName(),t.getGrade(),t.getStdDepartment().getDeptName(),t.getSubject1(),t.getSubject2(),t.getSubject3(),t.getTotal(),t.toString5(),abc,s
 		};
 				
 	}
@@ -70,7 +70,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	///////////////////////테이블 칼럼추가
 	@Override
 	public String[] getColumnNames() {
-		return new String[] {"학번","이름","학과","1과목","2과목","3과목","총점","평균","평어","평점"};  //여기 갯수 수정해저ㅜ야한당
+		return new String[] {"학번","이름","학년","학과","국어","영어","수학","총점","평균","평어","평점"};  //여기 갯수 수정해저ㅜ야한당
 	}
 	
 	//////////////////////////////loadData
