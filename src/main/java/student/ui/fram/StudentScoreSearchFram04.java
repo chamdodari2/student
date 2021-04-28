@@ -28,6 +28,7 @@ import student.ui.panel.StdMgnScoreSearchpanel;
 import student.ui.panel.StdMgnSearchpanel;
 import student.ui.panel.StdScoreListPanel;
 import javax.swing.JButton;
+import student.ui.panel.AvgChart;
 
 @SuppressWarnings("serial")
 public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
@@ -107,7 +108,7 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_2.add(btnNewButton);
 		
-		JPanel pChart = new JPanel();
+		AvgChart pChart = new AvgChart();
 		contentPane.add(pChart, BorderLayout.SOUTH);
 		pChart.setLayout(new GridLayout(1, 0, 0, 0));
 	}

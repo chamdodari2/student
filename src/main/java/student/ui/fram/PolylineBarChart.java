@@ -32,10 +32,8 @@ public class PolylineBarChart {
 	// Run As > Java Application 으로 실행하면 바로 확인할 수 있음.
 
 	public static void main(final String[] args) {
-//    	public List<StudentScore> showStudentScores() {
-//    		return studentScoreDao.selectStudentScoreByAll();
-//    	}
-		PolylineBarChart demo = new PolylineBarChart();
+
+		PolylineBarChart demo = new PolylineBarChart(); 
 
 		JFreeChart chart = demo.getChart();
 
@@ -43,7 +41,7 @@ public class PolylineBarChart {
 //		ChartPanel panel = new ChartPanel(chart);
 
 		frame1.setSize(800, 400);
-//		stdpanel.add(panel);
+		panel.add(panel);
 		frame1.setVisible(true);
 
 	}
