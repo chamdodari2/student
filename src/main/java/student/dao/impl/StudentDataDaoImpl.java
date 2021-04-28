@@ -340,7 +340,6 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 	public List<StudentData> SelectStudentScoreByWhere(String where) {
 		String sql = " select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic "
 				   + " from vw_full_studentData " + where + "  order by total desc "; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
-		System.out.println(sql);
 		try (Connection con = JdbcConn.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {

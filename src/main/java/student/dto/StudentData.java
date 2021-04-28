@@ -364,8 +364,8 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	}
 	
 	
-	@Override
-	public String toString() {
+	
+	public String toString4() {
 		return String.format("%s(%s)",stdNo,stdName);
 	}
 	public String toString3() {
@@ -377,13 +377,18 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
 				subject1, subject2, subject3, total, avg );
 	}
-	
-	public String toString4() {
+	public String toString11() {
 		return String.format(
 				" 학번 : %s, 이름 : %s, 학과코드 : %s, 학과명 : %s, 학년 : %s, 학적상태코드 : %s, 학적상태명 : %s, 병역상태코드 : %s, 병역상태명 : %s, 주민번호 :  %s, 성별 : %s, 연락처 : %s, 주야구분 : %s, 국어성적 : %s, 영어성적 : %s, 수학성적 : %s, 총점 :  %s, 평균 : %.1f",
 				stdNo, stdName, stdDepartment.getDeptCode(),stdDepartment.getDeptName(),  grade, stdState.getStateCode(),stdState.getStateName(), militaryState.getMilitaryCode(), militaryState.getMilitaryName(), idNo, gender, hpNo, dayNightShift,
 				subject1, subject2, subject3, total, avg );
 	}
+	@Override
+	public String toString() {
+		return String.format("StudentData [stdNo=%s, stdName=%s, stdDepartment=%s, subject1=%s, subject2=%s, subject3=%s, avg=%s]", stdNo,
+				stdName, stdDepartment.getDeptCode(), subject1, subject2, subject3, avg);
+	}
+
 	public String toString5() {
 		return String.format(
 				"%.1f",avg );

@@ -1,7 +1,7 @@
 desc studentdata ;
 desc users ;
 select * from vw_studentscore;
-select * from users;
+select * from stddepartment;
 
 
 select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic 

@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import student.dto.StudentData;
+import student.service.StudentDataService;
 import student.ui.fram.StudentDataSearchFram01;
 import student.ui.fram.StudentScoreSearchFram04;
 
@@ -28,8 +32,8 @@ public class Main extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					Main frame = new Main();
-//					frame.setVisible(true);
+					Main frame = new Main();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,6 +43,7 @@ public class Main extends JFrame implements ActionListener {
 
 
 	public Main() {
+	
 		initialize();
 	}
 	private void initialize() {

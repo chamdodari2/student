@@ -76,6 +76,7 @@ public class StdScoreListPanel extends AbstractCustomTablePanel<StudentData> {
 	//////////////////////////////loadData
 	public void loadData2(String where) {
 		list =service.showStudentScoreByWhere(where);
+		System.out.println(list+"<<list");
 		setList();
 	}
 	

@@ -106,6 +106,10 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		btnNewButton.addActionListener(this);
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_2.add(btnNewButton);
+		
+		JPanel pChart = new JPanel();
+		contentPane.add(pChart, BorderLayout.SOUTH);
+		pChart.setLayout(new GridLayout(1, 0, 0, 0));
 	}
 
 	private JPopupMenu  createPopupMenu() {// 우클릭시 팝업메뉴 뜨게하기!
