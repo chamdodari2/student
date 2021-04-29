@@ -20,15 +20,17 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import student.service.StudentDataService;
+import java.awt.SystemColor;
+import javax.swing.BoxLayout;
 
 public class Login extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField tfId ;
 	private JPasswordField tfPass;
-	private JButton btnLogin;
 	
 	private StudentDataService service;
+	private JButton btnLogin;
 	
 	
 
@@ -54,7 +56,7 @@ public class Login extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("학생관리 프로그램 - 로그인");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 490, 192);
+		setBounds(700, 400, 490, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -62,7 +64,7 @@ public class Login extends JFrame implements ActionListener {
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EmptyBorder(20, 50, 20, 50));
@@ -88,25 +90,18 @@ public class Login extends JFrame implements ActionListener {
 		tfPass.setEchoChar('*');
 		panel_1.add(tfPass);
 		
-		JButton btnAddId = new JButton("회원가입");
-		btnAddId.setFont(new Font("굴림", Font.BOLD, 12));
-		btnAddId.setBackground(Color.WHITE);
-		panel_1.add(btnAddId);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(UIManager.getColor("CheckBox.light"));
+		contentPane.add(panel_2, BorderLayout.SOUTH);
 		
 		btnLogin = new JButton("로그인");
 		btnLogin.addActionListener(this);
 		btnLogin.setFont(new Font("굴림", Font.BOLD, 12));
 		btnLogin.setBackground(Color.WHITE);
-		panel_1.add(btnLogin);
+		panel_2.add(btnLogin);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnLogin) {
-			actionPerformedBtnLogin(e);
-		}
-	}
-	@SuppressWarnings("deprecation")
-	protected void actionPerformedBtnLogin(ActionEvent e) {
 		
 		if(tfId.getText().equals("210430")) {					//관리자 아이디고
 		if(tfPass.getText().equals("rootroot")) {					//관리자 비번이면
@@ -137,4 +132,5 @@ public class Login extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다.");
 		}
 	}
-}
+	}
+

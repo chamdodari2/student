@@ -49,7 +49,7 @@ public class Main extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("학생관리프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(700, 400, 427, 221);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
