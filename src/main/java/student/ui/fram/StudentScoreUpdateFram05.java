@@ -45,7 +45,7 @@ public class StudentScoreUpdateFram05 extends JFrame implements ActionListener {
 	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 741, 326);
+		setBounds(600, 300, 741, 326);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -94,7 +94,7 @@ public class StudentScoreUpdateFram05 extends JFrame implements ActionListener {
 		//System.out.println(stdData);
 		//pList.loadData();
 		pUpdate.clearTf();										//클리어
-		JOptionPane.showMessageDialog(null, stdScore + "  으로  수정되었습니다");
+		JOptionPane.showMessageDialog(null, " 수정되었습니다");
 		dispose();
 		
 	}

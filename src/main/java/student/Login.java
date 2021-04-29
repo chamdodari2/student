@@ -120,6 +120,7 @@ public class Login extends JFrame implements ActionListener {
 			User account = service.showUserByAll(admin, passwd);
 
 //		if (account != null) {
+			JOptionPane.showMessageDialog(null, "관리자 권한으로 로그인하셨습니다.");
 			Main frame = new Main();
 			frame.setVisible(true);
 			dispose();

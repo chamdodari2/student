@@ -58,7 +58,7 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 693, 330);
+		setBounds(700, 400, 693, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -109,7 +109,7 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 		service.addStudentScore(stdData.getStdNo());
 		// pList.loadData();
 		panel.clearTf();
-		JOptionPane.showMessageDialog(null, stdData + " 추가했습니다.");
+		JOptionPane.showMessageDialog(null," 추가했습니다.");
 
 	}
 

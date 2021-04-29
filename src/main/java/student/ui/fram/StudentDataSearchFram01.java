@@ -135,7 +135,7 @@ public class StudentDataSearchFram01 extends JFrame implements ActionListener {
 				
 					service.removeStudentData(delStudent);
 					pStdList.loadData();
-					JOptionPane.showMessageDialog(null, delStudent + " 삭제하셨습니다.");
+					JOptionPane.showMessageDialog(null, " 삭제하셨습니다.");
 
 				}
 				if (e.getActionCommand().equals("상세정보 조회 및 수정")) {

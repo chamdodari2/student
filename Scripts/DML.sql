@@ -39,7 +39,7 @@ select * from  studentScore;
 
 
 
-insert into  studentData values (stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift)
+insert into  studentData  (stdNo, stdName, deptCode, grade, stateCode, militaryCode, idNo, hpNo, dayNightShift ) values
 (18020017,'박재선','2',1,'hla','y2a','9608061******','010-1234-5601','주간'),
 (18010016,'한동성','1',1,'hla','y2a','9809201******','010-1234-5602','주간'),
 (17010012,'박태준','1',2,'hlb','y2a','9710111******','010-1234-5603','야간'),
