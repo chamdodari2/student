@@ -163,7 +163,7 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		flowLayout_5.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_1);
 		
-		JLabel lblSubject1 = new JLabel("1 과  목");
+		JLabel lblSubject1 = new JLabel("국     어");
 		lblSubject1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSubject1.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_1.add(lblSubject1);
@@ -180,7 +180,7 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		flowLayout_6.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_5);
 		
-		JLabel lblSubject2 = new JLabel("2 과  목");
+		JLabel lblSubject2 = new JLabel("영     어");
 		lblSubject2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSubject2.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_5.add(lblSubject2);
@@ -197,7 +197,7 @@ public class UpdateStudentScorePanel extends AbstractContentPanel<StudentData> {
 		flowLayout_7.setAlignment(FlowLayout.LEFT);
 		pRight.add(panel_6);
 		
-		JLabel lblSubject3 = new JLabel("3 과  목");
+		JLabel lblSubject3 = new JLabel("수     학");
 		lblSubject3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSubject3.setFont(new Font("굴림", Font.BOLD, 15));
 		panel_6.add(lblSubject3);

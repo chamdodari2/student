@@ -28,8 +28,11 @@ import student.ui.panel.StdMgnScoreSearchpanel;
 import student.ui.panel.StdMgnSearchpanel;
 import student.ui.panel.StdScoreListPanel;
 import javax.swing.JButton;
-import student.ui.panel.AvgChart;
+import student.ui.panel.DeptAvgChart;
 import java.awt.Dimension;
+import javax.swing.JTabbedPane;
+import student.ui.panel.GradeAvgChart;
+import student.ui.panel.SubjectAvgChart;
 
 @SuppressWarnings("serial")
 public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
@@ -101,10 +104,26 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		JPopupMenu popupMenu = createPopupMenu();
 		pStdList.setPopupMenu(popupMenu);
 		
-		AvgChart pChart = new AvgChart();
-		pChart.setPreferredSize(new Dimension(300, 500));
-		pStdListAndBtns.add(pChart, BorderLayout.SOUTH);
+		JPanel pChart = new JPanel();
+		pStdListAndBtns.add(pChart);
 		pChart.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		pChart.add(tabbedPane);
+		
+		DeptAvgChart pDeptChart = new DeptAvgChart();
+		tabbedPane.addTab("학과 평균점수", null, pDeptChart, null);
+		
+		GradeAvgChart pGradeChart = new GradeAvgChart();
+		tabbedPane.addTab("학년 평균점수", null, pGradeChart, null);
+		
+		SubjectAvgChart pSubjectChart = new SubjectAvgChart();
+		tabbedPane.addTab("과목 평균점수", null, pSubjectChart, null);
+		
+//		AvgChart pChart = new AvgChart();
+//		pChart.setPreferredSize(new Dimension(300, 500));
+//		pStdListAndBtns.add(pChart, BorderLayout.SOUTH);
+//		pChart.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_2 = new JPanel();
 		pStdListAndBtns.add(panel_2);
