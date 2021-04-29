@@ -50,9 +50,9 @@ public class PolylineBarChart2 {
 		List<StudentData> list2 = new ArrayList<StudentData>();
 		list2 = service.showStudentDatas();
 		
-		System.out.println("list2>>>>>>" + list2.get(1).getAvg());
-		System.out.println(list2.get(1));
-		System.out.println(list2.get(2));
+//		System.out.println("list2>>>>>>" + list2.get(1).getAvg());
+//		System.out.println(list2.get(1));
+//		System.out.println(list2.get(2));
 
 		double grade1 = 0; //학년별 평균점수 더해서 저장할곳
 		double grade2 = 0;
@@ -64,23 +64,25 @@ public class PolylineBarChart2 {
 		int grade4Count = 0;
 		
 		for (int i = 0; i < list2.size(); i++) {//모든학생의 수만큼 돌아감
-			if (list2.get(i).getGrade()==1) { //리스트.인덱스0번  학생정보부터 마지막학생차례까지 돌리는데, 그 학생의 학과명이 컴퓨터정보학과면
+			if (list2.get(i).getGrade()== 1) { //리스트.인덱스0번  학생정보부터 마지막학생차례까지 돌리는데, 그 학생의 학과명이 컴퓨터정보학과면
 				grade1 += list2.get(i).getAvg();	//인덱스0번학생의 평균점수를 추가한다
 				grade1Count += 1;					//한명 추가한다
 			}
-			if (list2.get(i).getGrade()==2) {
+			if (list2.get(i).getGrade()== 2) {
 				grade2 += list2.get(i).getAvg();
 				grade2Count += 1;
 			}
-			if (list2.get(i).getGrade()==3) {
+			if (list2.get(i).getGrade()== 3) {
 				grade3 += list2.get(i).getAvg();
 				grade3Count += 1;
 			}
-			if (list2.get(i).getGrade()==4) {
+			if (list2.get(i).getGrade()== 4) {
 				grade4 += list2.get(i).getAvg();
 				grade4Count += 1;
 			}
 		}
+		System.out.println("grade4 >>>>> "+grade4);
+		System.out.println("gradeCount >>>>> "+ grade4Count);
 		
 		//1학년
 		String  grade1Str = String.format("%.2f", grade1 / grade1Count);
@@ -160,7 +162,7 @@ public class PolylineBarChart2 {
 
 
 		// 그래프 2
-		renderer2.setSeriesPaint(0, new Color(232,168,255));
+		renderer2.setSeriesPaint(0, new Color(16,131,32));
 
         renderer2.setBaseItemLabelFont(f);
 

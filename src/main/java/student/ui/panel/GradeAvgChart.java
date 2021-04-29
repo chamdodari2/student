@@ -10,6 +10,8 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
 import student.ui.fram.PolylineBarChart2;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class GradeAvgChart extends JPanel {
 	private JPanel panel_1;
@@ -27,16 +29,16 @@ public class GradeAvgChart extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
 //		ChartFrame frame1 = new ChartFrame("Bar Chart", chart);
-		ChartPanel panel_1 = new ChartPanel(chart);
-		panel_1.setBorder(new TitledBorder(null, "학년 평균점수", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		ChartPanel panel = new ChartPanel(chart);
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 
 //		frame1.setSize(800, 400);
 //		stdpanel.add(panel);
 //		frame1.setVisible(true);
 		
 	//	panel_1 = new JPanel();
-		add(panel_1);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
 	}
 	
 

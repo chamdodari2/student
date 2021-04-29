@@ -14,6 +14,8 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class DeptAvgChart extends JPanel {
 	private JPanel panel_1;
@@ -32,7 +34,7 @@ public class DeptAvgChart extends JPanel {
 
 //		ChartFrame frame1 = new ChartFrame("Bar Chart", chart);
 		ChartPanel panel_1 = new ChartPanel(chart);
-		panel_1.setBorder(new TitledBorder(null, "학과 평균점수", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 
 //		frame1.setSize(800, 400);
 //		stdpanel.add(panel);

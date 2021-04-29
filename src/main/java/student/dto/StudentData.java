@@ -21,6 +21,7 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	private int total;
 	private double avg;
 	private String pic;
+	private int num;
 	
     private List<StudentScore> studentScore; //성적테이블(과목 1,2,3) 리스트로 받아야 묶어서받을수있다
     
@@ -286,6 +287,14 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 
 
 	
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
 			MilitaryState militaryState, String idNo, String hpNo, String dayNightShift, String pic) {
 		this.stdNo = stdNo;
@@ -328,6 +337,30 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 		this.total = total;
 		this.avg = avg;
 		this.pic = pic;
+	}
+
+	
+	public StudentData(int stdNo, String stdName, StdDepartment stdDepartment, int grade, StdState stdState,
+			MilitaryState militaryState, String idNo, String gender, String hpNo, String dayNightShift, int subject1,
+			int subject2, int subject3, int total, double avg, String pic, int num) {
+		this.stdNo = stdNo;
+		this.stdName = stdName;
+		this.stdDepartment = stdDepartment;
+		this.grade = grade;
+		this.stdState = stdState;
+		this.militaryState = militaryState;
+		this.idNo = idNo;
+		this.gender = gender;
+		this.hpNo = hpNo;
+		this.dayNightShift = dayNightShift;
+		this.subject1 = subject1;
+		this.subject2 = subject2;
+		this.subject3 = subject3;
+		this.total = total;
+		this.avg = avg;
+		this.pic = pic;
+		this.num = num;
+		
 	}
 
 	public void setPic(String pic) {
@@ -385,8 +418,8 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	}
 	@Override
 	public String toString() {
-		return String.format("StudentData [stdNo=%s, stdName=%s, stdDepartment=%s, subject1=%s, subject2=%s, subject3=%s, avg=%.1f]", stdNo,
-				stdName, stdDepartment.getDeptCode(), subject1, subject2, subject3, avg);
+		return String.format("StudentData [stdNo=%s, stdName=%s, stdDepartment=%s, subject1=%s, subject2=%s, subject3=%s, avg=%.1f, num=%s]", stdNo,
+				stdName, stdDepartment.getDeptCode(), subject1, subject2, subject3, avg,num);
 	}
 
 	public String toString5() {

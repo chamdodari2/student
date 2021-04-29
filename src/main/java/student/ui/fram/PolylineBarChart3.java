@@ -50,9 +50,9 @@ public class PolylineBarChart3 {
 		List<StudentData> list2 = new ArrayList<StudentData>();
 		list2 = service.showStudentDatas();
 		
-		System.out.println("list2>>>>>>" + list2.get(1).getAvg());
-		System.out.println(list2.get(1));
-		System.out.println(list2.get(2));
+//		System.out.println("list2>>>>>>" + list2.get(1).getAvg());
+//		System.out.println(list2.get(1));
+//		System.out.println(list2.get(2));
 
 		double subject1 = 0; //1과목 평균점수 더해서 저장할곳
 		double subject2 = 0; //2과목 평균점수 더해서 저장할곳
@@ -154,7 +154,7 @@ public class PolylineBarChart3 {
 
 
 		// 그래프 2
-		renderer3.setSeriesPaint(0, new Color(232,168,255));
+		renderer3.setSeriesPaint(0, new Color(174,6,162));
 
         renderer3.setBaseItemLabelFont(f);
 

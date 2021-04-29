@@ -14,8 +14,7 @@
 				"url": "jdbc:mysql://localhost:3306/",
 				"home": "C:\\Program Files\\MySQL\\MySQL Server 5.7",
 				"type": "dev",
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
 			}
 		},
 		"mysql5-1783f0f9f37-11d191c1b29adc67": {
@@ -32,8 +31,21 @@
 				"url": "jdbc:mysql://localhost:3306/student",
 				"home": "C:\\Program Files\\MySQL\\MySQL Server 5.7",
 				"type": "dev",
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"mysql5-1783f0f9f37-11d191c1b29adc67": {
+			"student": {
+				":vw_full_studentdata": {
+					"constraints": {
+						"VIRTUAL_PK": {
+							"type": "vpk",
+							"useAllColumns": true
+						}
+					}
+				}
 			}
 		}
 	},

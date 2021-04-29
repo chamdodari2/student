@@ -59,7 +59,8 @@ CREATE TABLE student.studentData (
 	militaryCode  VARCHAR(3)  NOT NULL COMMENT '병역코드', -- 병역코드
 	idNo          VARCHAR(13) NOT NULL COMMENT '주민번호', -- 주민번호
 	hpNo          VARCHAR(13) NULL     COMMENT '연락처', -- 연락처
-	dayNightShift VARCHAR(2)  NOT NULL COMMENT '주야' -- 주야
+	dayNightShift VARCHAR(2)  NOT NULL COMMENT '주야', -- 주야
+	pic 		VARCHAR(60)   null     COMMENT '증명사진' -- 증명사진
 )
 COMMENT '학생정보';
 

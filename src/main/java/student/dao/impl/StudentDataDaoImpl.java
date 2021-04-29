@@ -107,6 +107,55 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, gender, hpNo,
 				dayNightShift, subject1, subject2, subject3, total, avg, pic);
 	}
+	
+	private StudentData getStudentData1(ResultSet rs) throws SQLException { // dto 보면서 하기
+		int stdNo = rs.getInt("stdNo"); // 학번 //각 타입의 변수에 쿼리에 있는내용중 실제 DB에 있는 칼럼명(칼럼인덱스) 적어줘야함!
+		String stdName = rs.getString("stdName");// 이름
+		int grade = rs.getInt("grade"); // 학년
+		String idNo = rs.getString("idNo"); // 주민번호
+		String hpNo = rs.getString("hpNo"); // 전화번호
+		String dayNightShift = rs.getString("dayNightShift"); // 주야
+		String gender = rs.getString("gender");
+		int subject1 = rs.getInt("subject1");
+		int subject2 = rs.getInt("subject2");
+		int subject3 = rs.getInt("subject3");
+		int total = rs.getInt("total");
+		double avg = rs.getDouble("avg");
+		String pic = rs.getString("pic");
+		int num = rs.getInt("num");
+
+		StdDepartment stdDepartment = null; // 다른테이블에 있는 칼럼이랑 조인해서 같이 보여줘야하는 칼럼 있으면, 해당 조인할 테이블 타입으로 변수선언해주고 초기화만 시켜준다
+											// 밑에 트라이1에서 객체생성후 본테이블에 있는 칼럼명들 적어주고, 트라이2에서 조인할 테이블에 있는 칼럼명 적어준다
+		StdState stdState = null;
+		MilitaryState militaryState = null;
+
+		try {// 1
+			stdDepartment = new StdDepartment(rs.getString("deptCode")); // 여기서 본테이블에 있는 컬럼명들은 적어주고, 다른테이블에 있는애들은 밑에
+																			// 한줄한줄씩 따로 해줘야하는듯(근데 뷰로 해서 크게 상관은 없는거같다.
+																			// 조인할때 필요할듯)
+			stdState = new StdState(rs.getString("stateCode"));
+			militaryState = new MilitaryState(rs.getString("militaryCode"));
+
+			// 존재할 경우 찍어주기. if끼리 따로 빼기
+		} catch (SQLException e) {
+		}
+		try {// 2
+			stdDepartment.setDeptName(rs.getString("deptName"));
+
+		} catch (SQLException e) {
+		}
+		try {
+			stdState.setStateName(rs.getString("stateName"));
+		} catch (SQLException e) {
+		}
+		try {
+			militaryState.setMilitaryName(rs.getString("militaryName"));////////////////////// 이름 동일한지 확인하기!
+		} catch (SQLException e) {
+		}
+
+		return new StudentData(stdNo, stdName, stdDepartment, grade, stdState, militaryState, idNo, gender, hpNo,
+				dayNightShift, subject1, subject2, subject3, total, avg, pic,num);
+	}
 
 	@Override
 	public StudentData selectStudentDataByNo(StudentData studentData) {
@@ -338,15 +387,15 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 
 	@Override
 	public List<StudentData> SelectStudentScoreByWhere(String where) {
-		String sql = " select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic "
-				   + " from vw_full_studentData " + where + "  order by total desc "; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
+		String sql = " select stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic , @num:=@num+1 as num "
+				   + " from (select  @num:=0)a, vw_full_studentData " + where + "  order by total desc "; // 모든칼럼 검색 + 조건은 where로 따로 뺀다
 		try (Connection con = JdbcConn.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
 				List<StudentData> list = new ArrayList<StudentData>();
 				do {
-					list.add(getStudentData(rs));
+					list.add(getStudentData1(rs));
 				} while (rs.next());
 				return list;
 			}
@@ -363,7 +412,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 		String sql = "select " + "stdNo," + " stdName," + " deptCode," + " deptName," + " grade," + " stateCode,"
 				+ " stateName, " // sql문
 				+ " militaryCode," + " militaryName," + " idNo," + " gender," + " hpNo," + " dayNightShift,"
-				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic " + " from vw_full_studentdata order by total desc";
+				+ " subject1," + " subject2," + " subject3," + " total," + " avg, " + "pic,  " +  "@num:=@num+1 as num" +  " from  (select  @num:=0)a, vw_full_studentdata order by total desc";
 
 		try (Connection con = JdbcConn.getConnection(); // 기존 db연결용 Connection클래스를 이용해서, dbproperties 파일에 있는 url키의 벨류인
 														// db주소 읽어서 연결
@@ -373,7 +422,7 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 			if (rs.next()) { // 출력할 있다면 -> StudentData클래스의 모든 변수들을 담을수있는 리스트를 어레이리스트로 변환
 				List<StudentData> list = new ArrayList<>();
 				do {
-					list.add(getStudentData(rs)); // 만든 리스트에 하나씩 추가하기(rs를 매개변수로 넣어서) getStudentData()메소드 호출해서, 그 메소드에서
+					list.add(getStudentData1(rs)); // 만든 리스트에 하나씩 추가하기(rs를 매개변수로 넣어서) getStudentData()메소드 호출해서, 그 메소드에서
 													// 정해준거 넣을거임
 
 				} while (rs.next());
