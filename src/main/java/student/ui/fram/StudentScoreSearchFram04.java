@@ -29,6 +29,7 @@ import student.ui.panel.StdMgnSearchpanel;
 import student.ui.panel.StdScoreListPanel;
 import javax.swing.JButton;
 import student.ui.panel.AvgChart;
+import java.awt.Dimension;
 
 @SuppressWarnings("serial")
 public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
@@ -109,8 +110,9 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		panel_2.add(btnNewButton);
 		
 		AvgChart pChart = new AvgChart();
+		pChart.setPreferredSize(new Dimension(300, 500));
 		contentPane.add(pChart, BorderLayout.SOUTH);
-		pChart.setLayout(new GridLayout(1, 0, 0, 0));
+		pChart.setLayout(new GridLayout(0, 1, 0, 0));
 	}
 
 	private JPopupMenu  createPopupMenu() {// 우클릭시 팝업메뉴 뜨게하기!

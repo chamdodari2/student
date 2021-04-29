@@ -82,11 +82,11 @@ public class PolylineBarChart {
 
 		// 그래프 1
 
-		dataset1.addValue(com, "S1", "컴퓨터정보");
+		dataset1.addValue(com, "평균점수", "컴퓨터정보");
 
-		dataset1.addValue(car, "S1", "자동차공학");
+		dataset1.addValue(car, "평균점수", "자동차공학");
 
-		dataset1.addValue(san, "S1", "산업설비");
+		dataset1.addValue(san, "평균점수", "산업설비");
 
 		// 그래프 2
 

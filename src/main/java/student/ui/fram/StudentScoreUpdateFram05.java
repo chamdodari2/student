@@ -15,6 +15,8 @@ import student.dto.StudentScore;
 import student.service.StudentDataService;
 import student.ui.panel.AddStudentPicPanel;
 import student.ui.panel.UpdateStudentScorePanel;
+import student.ui.panel.ViewStudentPicPanel;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -25,7 +27,7 @@ public class StudentScoreUpdateFram05 extends JFrame implements ActionListener {
 	private JButton btnUpdate;
 	private StudentDataService service;
 	private UpdateStudentScorePanel pUpdate;////////////성적패널 하나 만들었다. 해당 패널에서 정의해놓은 메서드 setitem 쓸거당
-	private AddStudentPicPanel pPic;
+	private ViewStudentPicPanel pPic;
 	private StudentData pic = new StudentData();
 	private JButton btnClear;
 
@@ -50,7 +52,7 @@ public class StudentScoreUpdateFram05 extends JFrame implements ActionListener {
 		setTitle("학생 성적수정");
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		pPic = new AddStudentPicPanel();
+		pPic = new ViewStudentPicPanel();
 		BorderLayout bl_pPic = (BorderLayout) pPic.getLayout();
 		bl_pPic.setVgap(10);
 		contentPane.add(pPic, BorderLayout.WEST);
