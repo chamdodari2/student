@@ -1,5 +1,8 @@
 desc studentdata ;
 desc users ;
+
+select  id, pass, grants from users;
+
 -- 등수 자동순번!!  scoreByWhere에 추가하기 !! 학생정보조회에는 추가하면 안된다!! 그리고 검색버튼 눌렀ㅇ르떄 말고 초기화면에도 띄워지게 하기
 select  stdNo, stdName, deptCode, deptName, grade, stateCode, stateName, militaryCode, militaryName, idNo, gender, hpNo, dayNightShift, subject1, subject2, subject3, total, avg, pic,@num:=@num+1 as num 
 from (select  @num:=0)a, vw_full_studentdata order by avg desc;

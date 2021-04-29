@@ -1,8 +1,10 @@
 package student.ui.fram;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,12 +12,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
 import student.dto.StudentData;
 import student.service.StudentDataService;
 import student.ui.exception.InvalidChechException;
+import student.ui.exception.SqlConstraintException;
 import student.ui.panel.AddStudentDataPanel;
 import student.ui.panel.AddStudentPicPanel;
-import java.awt.Font;
 
 public class StudentDataAddFram02 extends JFrame implements ActionListener {
 
@@ -91,13 +95,15 @@ public class StudentDataAddFram02 extends JFrame implements ActionListener {
 			if (e.getSource() == btnClear) {
 				actionPerformedbtnClear(e);
 			}
-		} catch (InvalidChechException e1) {
-			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
+		} catch (InvalidChechException | SqlConstraintException e1) {
+//			JOptionPane.showMessageDialog(null, "공백이 존재합니다.");
+			JOptionPane.showMessageDialog(null, e1.getMessage());
 		}
 	}
 
 	protected void actionPerformedbtnAdd(ActionEvent e) {
-		StudentData stdData = panel.getItem();
+		StudentData stdData = null;
+		stdData = panel.getItem();
 		stdData.setPic(pPic.getString1());
 		service.addStudentData(stdData);
 		service.addStudentScore(stdData.getStdNo());

@@ -7,16 +7,19 @@ import student.dao.StdDepartmentDao;
 import student.dao.StdStateDao;
 import student.dao.StudentDataDao;
 import student.dao.StudentScoreDao;
+import student.dao.UserDao;
 import student.dao.impl.MilitaryStateDaoImpl;
 import student.dao.impl.StdDepartmentDaoImpl;
 import student.dao.impl.StdStateDaoImpl;
 import student.dao.impl.StudentDataDaoImpl;
 import student.dao.impl.StudentScoreDaoImpl;
+import student.dao.impl.UserDaoImpl;
 import student.dto.MilitaryState;
 import student.dto.StdDepartment;
 import student.dto.StdState;
 import student.dto.StudentData;
 import student.dto.StudentScore;
+import student.dto.User;
 
 public class StudentDataService {
 	private StudentDataDao studentDataDao = StudentDataDaoImpl.getInstance();
@@ -24,6 +27,7 @@ public class StudentDataService {
 	private StdDepartmentDao stdDepartmentDao = StdDepartmentDaoImpl.getInstance();
 	private StdStateDao stdStateDao = StdStateDaoImpl.getInstance();
 	private StudentScoreDao studentScoreDao = StudentScoreDaoImpl.getInstance();
+	private UserDao userDao = UserDaoImpl.getInstance();
 
 	// 무조건 모두 검색
 	public List<StudentData> showStudentDatas() {
@@ -93,7 +97,11 @@ public class StudentDataService {
 		
 	
 	
+	//// 로그인아이디 검색
 	
+	public User showUserByAll(int id, String pass) {
+		return userDao.selectUserByAll(id ,pass);
+		}	
 	
 	
 	

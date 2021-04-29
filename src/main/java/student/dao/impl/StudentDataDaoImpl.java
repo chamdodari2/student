@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import student.dao.StudentDataDao;
 import student.dbcon.JdbcConn;
@@ -229,12 +230,12 @@ public class StudentDataDaoImpl implements StudentDataDao { // StudentDataDao �
 			pstmt.setString(10, studentData.getPic());
 			pstmt.setInt(11, studentData.getStdNo());
 			System.out.println(pstmt); // 중요!!! 에러뜰때 활용해서 디비버에서 수행해보면 뭐가문젠지 알수있다!!!!!!!!!!!
-			return pstmt.executeUpdate();
 
+			return pstmt.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new SqlConstraintException();
 		}
-		return 0;
+		
 	}
 
 	@Override

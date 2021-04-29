@@ -7,11 +7,19 @@ public class User {
 	private boolean grants;
 	
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public User(int id, String pass, boolean grants) {
 		this.id = id;
 		this.pass = pass;
 		this.grants = grants;
 	}
+
+
+	
 
 
 	@Override
