@@ -13,6 +13,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
+import javax.swing.BoxLayout;
 
 public class AvgChart extends JPanel {
 	private JPanel panel_1;
@@ -27,11 +28,7 @@ public class AvgChart extends JPanel {
 		PolylineBarChart demo = new PolylineBarChart(); 
 
 		JFreeChart chart = demo.getChart();
-		setLayout(new GridLayout(0, 2, 0, 0));
-		
-		JPanel panel = new JPanel();
-		add(panel);
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
 //		ChartFrame frame1 = new ChartFrame("Bar Chart", chart);
 		ChartPanel panel_1 = new ChartPanel(chart);

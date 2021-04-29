@@ -1,6 +1,6 @@
 desc studentdata ;
 desc users ;
-select * from vw_studentscore;
+select * from vw_full_studentdata;
 select * from stddepartment;
 
 
@@ -186,7 +186,7 @@ from vw_full_student;
 
 -- 테스트1 뷰 만들기
 create or replace view vw_full_studentData
-as;
+as
 select  s.stdNo, -- 학번
 	s.stdName,  -- 이름
 	s.deptCode,  -- 학과코드
@@ -207,7 +207,7 @@ select  s.stdNo, -- 학번
 	ss.subject2,  -- 과목2성적
 	ss.subject3,   --  과목3 성적                              총점,평균 ??
 	(ss.subject1+ss.subject2+ss.subject3) as 'total',
-	((ss.subject1+ss.subject2+ss.subject3)/3) as 'avg' , s.pic
+	round(((ss.subject1+ss.subject2+ss.subject3)/3),2) as 'avg' , s.pic
 from studentData s join stdDepartment d  on s.deptCode = d.deptCode 
 left join stdState st on s.stateCode =st.stateCode 
 left join militaryState m on s.militaryCode = m.militaryCode

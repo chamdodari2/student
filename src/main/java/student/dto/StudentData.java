@@ -385,7 +385,7 @@ public class StudentData { ////// 여기에 점수도 들어가있어야한다!!
 	}
 	@Override
 	public String toString() {
-		return String.format("StudentData [stdNo=%s, stdName=%s, stdDepartment=%s, subject1=%s, subject2=%s, subject3=%s, avg=%s]", stdNo,
+		return String.format("StudentData [stdNo=%s, stdName=%s, stdDepartment=%s, subject1=%s, subject2=%s, subject3=%s, avg=%.1f]", stdNo,
 				stdName, stdDepartment.getDeptCode(), subject1, subject2, subject3, avg);
 	}
 

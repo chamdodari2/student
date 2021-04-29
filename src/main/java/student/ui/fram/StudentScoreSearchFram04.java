@@ -49,7 +49,7 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("학생 성적조회 / 관리");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(550, 100, 966, 606);
+		setBounds(550, 100, 966, 757);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -101,6 +101,11 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		JPopupMenu popupMenu = createPopupMenu();
 		pStdList.setPopupMenu(popupMenu);
 		
+		AvgChart pChart = new AvgChart();
+		pChart.setPreferredSize(new Dimension(300, 500));
+		pStdListAndBtns.add(pChart, BorderLayout.SOUTH);
+		pChart.setLayout(new GridLayout(0, 1, 0, 0));
+		
 		JPanel panel_2 = new JPanel();
 		pStdListAndBtns.add(panel_2);
 		
@@ -108,11 +113,6 @@ public class StudentScoreSearchFram04 extends JFrame implements ActionListener {
 		btnNewButton.addActionListener(this);
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
 		panel_2.add(btnNewButton);
-		
-		AvgChart pChart = new AvgChart();
-		pChart.setPreferredSize(new Dimension(300, 500));
-		contentPane.add(pChart, BorderLayout.SOUTH);
-		pChart.setLayout(new GridLayout(0, 1, 0, 0));
 	}
 
 	private JPopupMenu  createPopupMenu() {// 우클릭시 팝업메뉴 뜨게하기!
